@@ -116,6 +116,7 @@
             "heading": "Take a selfie",
             "text": "Or pick one from your library. Good light, relaxed smile.",
             "video_url": "",
+            "media_image": "shopify://shop_images/selfie-bijgesneden.jpg",
             "media_screen": "screen-onboarding.png"
           }
         },
@@ -125,6 +126,7 @@
             "heading": "Pick a style",
             "text": "Several natural enhancement styles — from subtle alignment to brighter.",
             "video_url": "",
+            "media_image": "shopify://shop_images/pick-a-style.png",
             "media_screen": "screen-style.png"
           }
         },
@@ -133,6 +135,7 @@
           "settings": {
             "heading": "Watch it move",
             "text": "Generate a short video of your enhanced smile. Save it or share it.",
+            "video": "shopify://files/videos/watch-it-move.mp4",
             "video_url": "",
             "media_screen": "screen-result.png"
           }
