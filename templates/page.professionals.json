@@ -1,29 +1,106 @@
 {
   "sections": {
-    "main": {
-      "type": "tf-professionals",
+    "header": {
+      "type": "tf-header",
+      "settings": {
+        "cta_label": "Book a demo",
+        "cta_link": "#pro-demo",
+        "cta_style": "primary"
+      },
       "blocks": {
-        "reason_1": {
-          "type": "reason",
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "For patients",
+            "link": "/",
+            "style": "normal"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "Why",
+            "link": "#pro-why",
+            "style": "normal"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "In the chair",
+            "link": "#pro-flow",
+            "style": "normal"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "Practice plans",
+            "link": "#pro-pricing",
+            "style": "normal"
+          }
+        },
+        "link_5": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "link": "/pages/faq",
+            "style": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4",
+        "link_5"
+      ]
+    },
+    "hero": {
+      "type": "tf-hero-split",
+      "settings": {}
+    },
+    "why": {
+      "type": "tf-columns",
+      "settings": {
+        "anchor": "pro-why"
+      },
+      "blocks": {
+        "column_1": {
+          "type": "column",
           "settings": {
             "heading": "Shorter path to acceptance",
             "text": "Patients decide on what they can see. A preview of their own face makes aligners, veneers or whitening concrete instead of abstract."
           }
         },
-        "reason_2": {
-          "type": "reason",
+        "column_2": {
+          "type": "column",
           "settings": {
             "heading": "Honest expectations",
             "text": "Results stay natural and are clearly labelled as visualisations — never a clinical promise. Fewer surprises, fewer difficult conversations later."
           }
         },
-        "reason_3": {
-          "type": "reason",
+        "column_3": {
+          "type": "column",
           "settings": {
             "heading": "Nothing to install at the practice",
             "text": "Runs on any iPhone. No scanner, no software licence, no onboarding project. Buy credits, start today."
           }
-        },
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3"
+      ]
+    },
+    "flow": {
+      "type": "tf-feature-steps",
+      "settings": {
+        "anchor": "pro-flow"
+      },
+      "blocks": {
         "step_1": {
           "type": "step",
           "settings": {
@@ -44,7 +121,18 @@
             "heading": "Compare, animate, share",
             "text": "Before/after side by side, optional video, sent to the patient to discuss at home."
           }
-        },
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ]
+    },
+    "facts": {
+      "type": "tf-cards",
+      "settings": {},
+      "blocks": {
         "fact_1": {
           "type": "fact",
           "settings": {
@@ -65,13 +153,28 @@
             "label": "Built by",
             "text": "Orthoclear — the team behind the Toothfairy™ patient app used throughout aligner treatment. Dental first, AI second."
           }
-        },
+        }
+      },
+      "block_order": [
+        "fact_1",
+        "fact_2",
+        "fact_3"
+      ]
+    },
+    "pricing": {
+      "type": "tf-pricing",
+      "settings": {
+        "heading": "Practice plans",
+        "heading_size": 52,
+        "anchor": "pro-pricing",
+        "text": "One credit per preview. Buy packs in the app, or talk to us about volume pricing and multi-chair use."
+      },
+      "blocks": {
         "plan_1": {
           "type": "plan",
           "settings": {
             "name": "50 credits",
             "description": "€1,00 per preview · in-app",
-            "action_style": "price",
             "action_text": "€49,99"
           }
         },
@@ -97,23 +200,23 @@
         }
       },
       "block_order": [
-        "reason_1",
-        "reason_2",
-        "reason_3",
-        "step_1",
-        "step_2",
-        "step_3",
-        "fact_1",
-        "fact_2",
-        "fact_3",
         "plan_1",
         "plan_2",
         "plan_3"
-      ],
+      ]
+    },
+    "demo": {
+      "type": "tf-demo-form",
       "settings": {}
     }
   },
   "order": [
-    "main"
+    "header",
+    "hero",
+    "why",
+    "flow",
+    "facts",
+    "pricing",
+    "demo"
   ]
 }

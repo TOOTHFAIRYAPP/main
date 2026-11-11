@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Toothfairy AI",
+    "theme_version": "2.0.0",
+    "theme_author": "Orthoclear",
+    "theme_documentation_url": "https://ortho-clear.com",
+    "theme_support_email": "support@ortho-clear.com"
+  },
+  {
+    "name": "Toothfairy",
+    "settings": [
+      {
+        "type": "url",
+        "id": "app_store_url",
+        "label": "App Store link",
+        "info": "Used by every App Store button whose own link is empty."
+      }
+    ]
+  }
+]

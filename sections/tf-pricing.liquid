@@ -1,0 +1,175 @@
+<div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
+{%- assign s = section.settings -%}
+<div class="tf-split tf-pricing">
+  <div>
+    <h2 class="tf-h2">{{ s.heading }}</h2>
+    {%- if s.text != blank -%}<p class="tf-body">{{ s.text }}</p>{%- endif -%}
+  </div>
+  <div class="tf-plans">
+    {%- for block in section.blocks -%}
+      {%- assign b = block.settings -%}
+      <div class="tf-plan{% if b.highlight %} tf-plan--highlight{% endif %}" {{ block.shopify_attributes }}>
+        <span class="tf-plan__name">{{ b.name }}{% if b.badge != blank %}<span class="tf-plan__badge">{{ b.badge }}</span>{% endif %}</span>
+        <span class="tf-plan__desc">{{ b.description }}</span>
+        <span class="tf-plan__action">
+          {%- case b.action_style -%}
+            {%- when 'link' -%}<a class="tf-plan__link" href="{{ b.action_link }}">{{ b.action_text }}</a>
+            {%- when 'note' -%}<span class="tf-plan__note">{{ b.action_text }}</span>
+            {%- else -%}<span class="tf-plan__price">{{ b.action_text }}</span>
+          {%- endcase -%}
+        </span>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "TF Pricing",
+  "tag": "section",
+  "class": "tf-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Credits, not subscriptions."
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 32,
+      "max": 104,
+      "step": 2,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Free download. One credit per smile preview. Credits never expire."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor ID",
+      "default": "pricing",
+      "info": "Lets menu links jump here, e.g. #how. Leave empty for none."
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "Line above section",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    }
+  ],
+  "blocks": [
+    {
+      "type": "plan",
+      "name": "Price row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "10 credits"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "info": "Small label after the name, e.g. Popular."
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "€1,00 per preview"
+        },
+        {
+          "type": "select",
+          "id": "action_style",
+          "label": "Right column",
+          "options": [
+            {
+              "value": "price",
+              "label": "Price"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            },
+            {
+              "value": "note",
+              "label": "Note"
+            }
+          ],
+          "default": "price"
+        },
+        {
+          "type": "text",
+          "id": "action_text",
+          "label": "Right column text",
+          "default": "€9,99"
+        },
+        {
+          "type": "text",
+          "id": "action_link",
+          "label": "Link",
+          "default": "#",
+          "info": "Only used when the right column is a link."
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight in pink",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TF Pricing",
+      "blocks": [
+        {
+          "type": "plan"
+        },
+        {
+          "type": "plan"
+        },
+        {
+          "type": "plan"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -7,12 +7,16 @@
   {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
   <link rel="canonical" href="{{ canonical_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   {{ 'toothfairy.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
 </head>
 <body>
-  {{ content_for_layout }}
+  <main id="MainContent">
+    {{ content_for_layout }}
+  </main>
+  {% sections 'footer-group' %}
   <script src="{{ 'toothfairy.js' | asset_url }}" defer></script>
 </body>
 </html>

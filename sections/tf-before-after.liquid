@@ -1,0 +1,112 @@
+<div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
+{%- assign s = section.settings -%}
+<div class="tf-ba__head">
+  <h2 class="tf-h2">{{ s.heading }}</h2>
+  {%- if s.text != blank -%}<p class="tf-body">{{ s.text }}</p>{%- endif -%}
+</div>
+<div class="tf-ba" data-tf-ba>
+  <div class="tf-ba__img">{% render 'tf-screen', image: s.before_image, fallback: 'teeth-before.png', alt: s.before_label, width: 940, height: 470, sizes: '(min-width: 1440px) 1280px, 100vw' %}</div>
+  <div class="tf-ba__img tf-ba__img--after">{% render 'tf-screen', image: s.after_image, fallback: 'teeth-after.png', alt: s.after_label, width: 940, height: 470, sizes: '(min-width: 1440px) 1280px, 100vw' %}</div>
+  <div class="tf-ba__line"></div>
+  <div class="tf-ba__handle" aria-hidden="true">◀▶</div>
+  <input class="tf-ba__range" type="range" min="0" max="100" value="50" aria-label="Compare before and after">
+  <span class="tf-ba__label tf-ba__label--before">{{ s.before_label }}</span>
+  <span class="tf-ba__label tf-ba__label--after">{{ s.after_label }}</span>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "TF Before / after",
+  "tag": "section",
+  "class": "tf-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Enhanced. Not replaced."
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 32,
+      "max": 104,
+      "step": 2,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Drag the handle. The preview keeps your features, your expression and your proportions."
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image",
+      "info": "Empty = bundled photo. Before and after need identical framing."
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image"
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Before label",
+      "default": "Before"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "After label",
+      "default": "After"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor ID",
+      "info": "Lets menu links jump here, e.g. #how. Leave empty for none."
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "Line above section",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    }
+  ],
+  "presets": [
+    {
+      "name": "TF Before / after"
+    }
+  ]
+}
+{% endschema %}

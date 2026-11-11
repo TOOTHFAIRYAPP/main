@@ -1,10 +1,236 @@
 {
   "sections": {
-    "main": {
-      "type": "tf-landing"
+    "header": {
+      "type": "tf-header",
+      "settings": {
+        "cta_label": "App Store",
+        "cta_link": "",
+        "cta_style": "outline"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "How it works",
+            "link": "#how",
+            "style": "normal"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "Video",
+            "link": "#video",
+            "style": "normal"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "Pricing",
+            "link": "#pricing",
+            "style": "normal"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "link": "/pages/faq",
+            "style": "normal"
+          }
+        },
+        "link_5": {
+          "type": "link",
+          "settings": {
+            "label": "For professionals",
+            "link": "/pages/professionals",
+            "style": "accent"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4",
+        "link_5"
+      ]
+    },
+    "hero": {
+      "type": "tf-hero-center",
+      "settings": {}
+    },
+    "before_after": {
+      "type": "tf-before-after",
+      "settings": {}
+    },
+    "how": {
+      "type": "tf-columns",
+      "settings": {
+        "show_media": true,
+        "anchor": "how"
+      },
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "heading": "Take a selfie",
+            "text": "Or pick one from your library. Good light, relaxed smile.",
+            "media_screen": "screen-onboarding.png"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "heading": "Pick a style",
+            "text": "Several natural enhancement styles — from subtle alignment to brighter.",
+            "media_screen": "screen-style.png"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "heading": "Watch it move",
+            "text": "Generate a short video of your enhanced smile. Save it or share it.",
+            "media_screen": "screen-result.png"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3"
+      ]
+    },
+    "video": {
+      "type": "tf-video-feature",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "tf-cards",
+      "settings": {},
+      "blocks": {
+        "quote_1": {
+          "type": "quote",
+          "settings": {
+            "quote": "It looked like me on a very good day. Nothing fake about it.",
+            "author": "Sanne, 29 — Utrecht"
+          }
+        },
+        "quote_2": {
+          "type": "quote",
+          "settings": {
+            "quote": "The video made it click. I finally booked the consultation I'd been putting off.",
+            "author": "Daniel, 41 — Rotterdam"
+          }
+        },
+        "quote_3": {
+          "type": "quote",
+          "settings": {
+            "quote": "I use it with patients to set expectations. It's honest about being a preview.",
+            "author": "Dr. M. de Vries — Orthodontist"
+          }
+        }
+      },
+      "block_order": [
+        "quote_1",
+        "quote_2",
+        "quote_3"
+      ]
+    },
+    "pricing": {
+      "type": "tf-pricing",
+      "settings": {},
+      "blocks": {
+        "plan_1": {
+          "type": "plan",
+          "settings": {
+            "name": "10 credits",
+            "description": "€1,00 per preview",
+            "action_text": "€9,99"
+          }
+        },
+        "plan_2": {
+          "type": "plan",
+          "settings": {
+            "name": "25 credits",
+            "badge": "Popular",
+            "description": "€1,20 per preview",
+            "action_text": "€29,99",
+            "highlight": true
+          }
+        },
+        "plan_3": {
+          "type": "plan",
+          "settings": {
+            "name": "50 credits",
+            "description": "€1,00 per preview",
+            "action_text": "€49,99"
+          }
+        }
+      },
+      "block_order": [
+        "plan_1",
+        "plan_2",
+        "plan_3"
+      ]
+    },
+    "faq": {
+      "type": "tf-faq",
+      "settings": {},
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "Is this a medical prediction?",
+            "answer": "<p>No. Toothfairy™ AI creates simulated previews for visualisation and inspiration only — not medical, dental or orthodontic advice.</p>",
+            "open": true
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "What happens to my photos?",
+            "answer": "<p>They remain private and are never shared without your permission.</p>"
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take?",
+            "answer": "<p>Seconds for a photo preview. Video takes a little longer.</p>"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "Which devices?",
+            "answer": "<p>iPhone with iOS 18 or later; also Apple silicon Macs and Apple Vision.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4"
+      ]
+    },
+    "cta": {
+      "type": "tf-cta",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "header",
+    "hero",
+    "before_after",
+    "how",
+    "video",
+    "testimonials",
+    "pricing",
+    "faq",
+    "cta"
   ]
 }

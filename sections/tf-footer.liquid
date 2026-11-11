@@ -1,0 +1,129 @@
+<div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
+{%- assign s = section.settings -%}
+<footer class="tf-footer">
+  <p class="tf-footer__note">{% if s.note_label != blank %}<strong>{{ s.note_label }}</strong> {% endif %}{{ s.note }}</p>
+  <div class="tf-footer__meta">
+    <span>{{ s.copyright }}</span>
+    <div class="tf-footer__links">
+      {%- for block in section.blocks -%}<a href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>{%- endfor -%}
+    </div>
+  </div>
+</footer>
+</div>
+
+{% schema %}
+{
+  "name": "TF Footer",
+  "tag": "section",
+  "class": "tf-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "note_label",
+      "label": "Disclaimer label",
+      "default": "Important."
+    },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "Disclaimer",
+      "default": "Toothfairy™ AI is intended for visualisation and inspiration purposes only. Results are simulated previews and should not be considered medical, dental or orthodontic advice."
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright line",
+      "default": "© 2021–2026 CC Lab Technology Ltd. · Orthoclear"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor ID",
+      "info": "Lets menu links jump here, e.g. #how. Leave empty for none."
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "Line above section",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Link"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link",
+          "default": "/"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TF Footer",
+      "blocks": [
+        {
+          "type": "link",
+          "settings": {
+            "label": "Privacy policy",
+            "link": "/policies/privacy-policy"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "Terms",
+            "link": "/policies/terms-of-service"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "support@ortho-clear.com",
+            "link": "mailto:support@ortho-clear.com"
+          }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "groups": [
+      "footer"
+    ]
+  }
+}
+{% endschema %}

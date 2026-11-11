@@ -1,0 +1,106 @@
+<div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
+{%- assign s = section.settings -%}
+<div class="tf-split tf-intro">
+  <h1 class="tf-h1">{{ s.heading | newline_to_br }}</h1>
+  {%- if s.text != blank -%}<p class="tf-lead tf-rte">{{ s.text }}</p>{%- endif -%}
+</div>
+{%- if section.blocks.size > 0 -%}
+<div class="tf-chips">
+  {%- for block in section.blocks -%}<a class="tf-chip" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>{%- endfor -%}
+</div>
+{%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "TF Page intro",
+  "tag": "section",
+  "class": "tf-section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Questions, answered."
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 44,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 84
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "Everything about how Toothfairy™ AI works, what it costs and how your photos are handled."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor ID",
+      "info": "Lets menu links jump here, e.g. #how. Leave empty for none."
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "Line above section",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    }
+  ],
+  "blocks": [
+    {
+      "type": "chip",
+      "name": "Jump link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Topic"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link",
+          "default": "#",
+          "info": "Anchor of a section on this page, e.g. #faq-general."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TF Page intro"
+    }
+  ]
+}
+{% endschema %}

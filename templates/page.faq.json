@@ -1,10 +1,350 @@
 {
   "sections": {
-    "main": {
-      "type": "tf-faq"
+    "header": {
+      "type": "tf-header",
+      "settings": {
+        "cta_label": "App Store",
+        "cta_link": "",
+        "cta_style": "primary"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "For patients",
+            "link": "/",
+            "style": "normal"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "For professionals",
+            "link": "/pages/professionals",
+            "style": "normal"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "link": "/pages/faq",
+            "style": "current"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "Contact",
+            "link": "#contact",
+            "style": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
+    },
+    "intro": {
+      "type": "tf-page-intro",
+      "settings": {
+        "anchor": "faq-top",
+        "text": "Everything about how Toothfairy™ AI works, what it costs and how your photos are handled. Not here? <a href=\"#contact\">Send us a message.</a>"
+      },
+      "blocks": {
+        "chip_1": {
+          "type": "chip",
+          "settings": {
+            "label": "The app",
+            "link": "#faq-general"
+          }
+        },
+        "chip_2": {
+          "type": "chip",
+          "settings": {
+            "label": "Results",
+            "link": "#faq-results"
+          }
+        },
+        "chip_3": {
+          "type": "chip",
+          "settings": {
+            "label": "Credits & payment",
+            "link": "#faq-credits"
+          }
+        },
+        "chip_4": {
+          "type": "chip",
+          "settings": {
+            "label": "Privacy",
+            "link": "#faq-privacy"
+          }
+        },
+        "chip_5": {
+          "type": "chip",
+          "settings": {
+            "label": "For practices",
+            "link": "#faq-pro"
+          }
+        }
+      },
+      "block_order": [
+        "chip_1",
+        "chip_2",
+        "chip_3",
+        "chip_4",
+        "chip_5"
+      ]
+    },
+    "faq_general": {
+      "type": "tf-faq",
+      "settings": {
+        "anchor": "faq-general",
+        "eyebrow": "01",
+        "heading": "The app",
+        "heading_size": 40,
+        "border_top": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "What does Toothfairy™ AI do?",
+            "answer": "<p>It creates a realistic, natural-looking preview of an enhanced smile from a single selfie, and can turn that preview into a short animated video.</p>",
+            "open": true
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "Which devices are supported?",
+            "answer": "<p>iPhone with iOS 18 or later. It also runs on Macs with Apple silicon (macOS 15) and Apple Vision (visionOS 2). Android is not available yet.</p>",
+            "open": false
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "What kind of photo works best?",
+            "answer": "<p>A front-facing selfie in even daylight, with a relaxed, natural smile showing your teeth. Avoid strong shadows, filters and sunglasses.</p>",
+            "open": false
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take?",
+            "answer": "<p>A photo preview usually takes seconds. A video preview takes a little longer.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4"
+      ]
+    },
+    "faq_results": {
+      "type": "tf-faq",
+      "settings": {
+        "anchor": "faq-results",
+        "eyebrow": "02",
+        "heading": "Results",
+        "heading_size": 40,
+        "border_top": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "Is the result what my teeth will actually look like?",
+            "answer": "<p>No. Previews are simulated and intended for visualisation and inspiration only. They are not medical, dental or orthodontic advice. Your dentist determines what treatment can achieve.</p>",
+            "open": false
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "Which enhancement styles are there?",
+            "answer": "<p>Aligner progress (alignment), veneers upgrade (shape and uniformity) and whitening boost (shade). All are designed to complement your features and stay natural.</p>",
+            "open": false
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I save and share my results?",
+            "answer": "<p>Yes. Photos and videos are kept in your in-app gallery and can be downloaded or shared — for example with your dentist.</p>",
+            "open": false
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "The preview doesn't look right. What now?",
+            "answer": "<p>Try a new photo in better light with a clearer smile. If a result is clearly broken, contact us with the photo and we'll look into it and restore the credit.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4"
+      ]
+    },
+    "faq_credits": {
+      "type": "tf-faq",
+      "settings": {
+        "anchor": "faq-credits",
+        "eyebrow": "03",
+        "heading": "Credits & payment",
+        "heading_size": 40,
+        "border_top": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "What does it cost?",
+            "answer": "<p>The app is free to download. Previews use credits: 10 for €9,99, 25 for €29,99 or 50 for €49,99, bought in the app through the App Store.</p>",
+            "open": false
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a subscription?",
+            "answer": "<p>No. You buy credits once and use them when you like. Credits don't expire.</p>",
+            "open": false
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "How many credits does a video use?",
+            "answer": "<p>The credit cost is shown in the app before you confirm, so there are no surprises.</p>",
+            "open": false
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "Can I get a refund?",
+            "answer": "<p>Purchases are handled by Apple and follow App Store refund rules. For failed generations, contact us and we'll restore the credit.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4"
+      ]
+    },
+    "faq_privacy": {
+      "type": "tf-faq",
+      "settings": {
+        "anchor": "faq-privacy",
+        "eyebrow": "04",
+        "heading": "Privacy",
+        "heading_size": 40,
+        "border_top": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "What happens to my photos?",
+            "answer": "<p>Your photos remain private and are never shared without your permission. They're used only to generate your previews.</p>",
+            "open": false
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "Do you use my photos to train AI?",
+            "answer": "<p>No — not without your explicit permission. See the privacy policy for full details.</p>",
+            "open": false
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "Who is behind the app?",
+            "answer": "<p>Orthoclear, operated by CC Lab Technology Ltd., Dublin, Ireland — the team behind the Toothfairy™ patient app. We operate under EU law.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3"
+      ]
+    },
+    "faq_pro": {
+      "type": "tf-faq",
+      "settings": {
+        "anchor": "faq-pro",
+        "eyebrow": "05",
+        "heading": "For practices",
+        "heading_size": 40,
+        "border_top": true,
+        "padding_top": 64,
+        "padding_bottom": 96
+      },
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use it in my practice?",
+            "answer": "<p>Yes. Many dentists use it in the chair to start the conversation about aligners, veneers or whitening. <a href=\"/pages/professionals\">See the professionals page</a> or book a demo.</p>",
+            "open": false
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "Is there volume pricing or invoicing?",
+            "answer": "<p>Yes, for practices and dental chains. Use the contact form below and mention your number of chairs.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2"
+      ]
+    },
+    "contact": {
+      "type": "tf-contact-form",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "header",
+    "intro",
+    "faq_general",
+    "faq_results",
+    "faq_credits",
+    "faq_privacy",
+    "faq_pro",
+    "contact"
   ]
 }

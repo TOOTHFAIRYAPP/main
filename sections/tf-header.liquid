@@ -1,0 +1,169 @@
+<div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
+<nav class="tf-header" aria-label="Main">
+  <a class="tf-header__logo" href="{{ routes.root_url }}"><img src="{{ 'logo-dark.svg' | asset_url }}" alt="Toothfairy" width="160" height="44"></a>
+  <div class="tf-header__links">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.link }}" class="{% if block.settings.style != 'normal' %}is-{{ block.settings.style }}{% endif %}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+    {%- endfor -%}
+  </div>
+  <div class="tf-header__actions">
+    {%- if section.settings.cta_label != blank -%}
+      <a class="tf-header__cta tf-header__cta--{{ section.settings.cta_style }}" href="{{ section.settings.cta_link | default: settings.app_store_url }}">{{ section.settings.cta_label }}</a>
+    {%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+    <details class="tf-menu">
+      <summary aria-label="Menu">
+        <svg class="tf-menu__open" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 5h14M2 13h14"/></svg>
+        <svg class="tf-menu__close" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14"/></svg>
+      </summary>
+      <div class="tf-menu__panel">
+        {%- for block in section.blocks -%}<a href="{{ block.settings.link }}">{{ block.settings.label }}</a>{%- endfor -%}
+      </div>
+    </details>
+    {%- endif -%}
+  </div>
+</nav>
+</div>
+
+{% schema %}
+{
+  "name": "TF Header",
+  "tag": "section",
+  "class": "tf-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label",
+      "default": "App Store"
+    },
+    {
+      "type": "text",
+      "id": "cta_link",
+      "label": "Button link",
+      "info": "Empty = App Store link from theme settings. Use #pro-demo to jump to a section."
+    },
+    {
+      "type": "select",
+      "id": "cta_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Pink"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor ID",
+      "info": "Lets menu links jump here, e.g. #how. Leave empty for none."
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "Line above section",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Menu link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Link"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link",
+          "default": "/",
+          "info": "A page (/pages/faq) or an anchor on this page (#how)."
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "options": [
+            {
+              "value": "normal",
+              "label": "Normal"
+            },
+            {
+              "value": "accent",
+              "label": "Pink"
+            },
+            {
+              "value": "current",
+              "label": "Current page (dark)"
+            }
+          ],
+          "default": "normal"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TF Header",
+      "blocks": [
+        {
+          "type": "link",
+          "settings": {
+            "label": "For patients",
+            "link": "/"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "For professionals",
+            "link": "/pages/professionals"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "link": "/pages/faq"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

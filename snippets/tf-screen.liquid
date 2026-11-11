@@ -1,0 +1,16 @@
+{%- comment -%}
+  An image picked in the theme editor, otherwise a bundled asset.
+  Params: image (image|blank), fallback (asset filename, or 'none'), alt, width + height (of the bundled file, default 472 × 992), sizes, loading
+{%- endcomment -%}
+{%- liquid
+  assign loading = loading | default: 'lazy'
+  assign sizes = sizes | default: '280px'
+  assign alt = alt | default: ''
+  assign width = width | default: 472
+  assign height = height | default: 992
+-%}
+{%- if image != blank -%}
+  {{ image | image_url: width: 1600 | image_tag: alt: alt, loading: loading, sizes: sizes, widths: '320, 480, 640, 960, 1280, 1600' }}
+{%- elsif fallback != blank and fallback != 'none' -%}
+  <img src="{{ fallback | asset_url }}" alt="{{ alt | escape }}" loading="{{ loading }}" width="{{ width }}" height="{{ height }}">
+{%- endif -%}

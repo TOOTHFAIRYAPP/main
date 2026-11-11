@@ -1,31 +1,40 @@
 # Toothfairy™ AI — Shopify theme
 
-A minimal Online Store 2.0 theme containing the three Toothfairy™ AI pages.
+Online Store 2.0 theme with the Toothfairy™ AI landing, Professionals and FAQ pages.
+Every part of the design is its own section, so it can be moved, hidden, duplicated or edited in the theme editor.
+All pages match the 1440px design on desktop and reflow for tablet and phone.
 
 ## Install via GitHub
-1. Push this folder's **contents** (layout/, sections/, templates/, assets/, config/, locales/) to the root of a GitHub repo.
-2. Shopify admin → Online Store → Themes → **Add theme → Connect from GitHub** → pick the repo/branch.
-3. Theme settings → **Toothfairy → App Store link** (prefilled).
+1. Shopify admin → Online Store → Themes → **Add theme → Connect from GitHub** → pick this repo and branch.
+2. Theme settings → **Toothfairy → App Store link**.
+3. Create a page **Professionals** (template `page.professionals`) and a page **FAQ** (template `page.faq`).
 
-## Pages
-- Home (`/`) → landing page.
-- Create a page **Professionals** (handle `professionals`) and set its template to `page.professionals`.
-- Create a page **FAQ** (handle `faq`) and set its template to `page.faq`.
-Nav links already point to `/pages/professionals` and `/pages/faq`.
+## Sections
+| Section | Used for |
+| --- | --- |
+| TF Header | Logo, menu links (blocks) and button. One per page, so every page can have its own menu. |
+| TF Hero (centred) | Landing hero with three floating phones. |
+| TF Hero (split) | Professionals hero with two phones. |
+| TF Page intro | FAQ heading, intro text and jump links. |
+| TF Before / after | Drag slider. |
+| TF Numbered columns | "How it works" (with phone screens) and "Why" (text only). |
+| TF Steps + phone | "In the chair" panel. |
+| TF Video feature | Pink video panel. Paste an MP4 URL from Content → Files. |
+| TF Cards | Testimonials and fact cards. |
+| TF Pricing | Credit packs and practice plans. |
+| TF FAQ | One question group; add one section per group. |
+| TF Closing call to action | "One selfie away." |
+| TF Demo request form | Dark form on the Professionals page. |
+| TF Contact form | Light form on the FAQ page. |
+| TF Footer | Shared footer (footer group, same on every page). |
+
+Every section has **Space above / Space below**, an optional **line above**, and an **Anchor ID** for menu links such as `#how`.
+Phone screens can be swapped by picking an image; otherwise one of the bundled app screens is used.
 
 ## Forms
-Demo-request and contact forms use Shopify's native contact form — submissions arrive at the store's sender email.
+Both forms use Shopify's contact form; submissions go to the store's sender email. Shopify's contact form can't take file attachments.
 
-## Videos
-The landing section has two MP4 URL settings (theme editor → section settings). Upload videos under Content → Files and paste the URLs.
-
-## Professionals page
-`sections/tf-professionals.liquid` + `assets/tf-professionals.css` (+ `snippets/tfp-screen.liquid`).
-- Fully responsive: matches the 1440px design at desktop width and reflows for tablet and phone (nav collapses to a menu below 1024px).
-- Editable in the theme editor: hero, section headings and texts, contact email, footer lines, and the three phone screenshots (empty = bundled screens).
-  The reasons, steps, fact cards and plan rows are blocks; add, remove or reorder them there.
-- The demo form posts to Shopify's contact form; the confirmation greets the visitor by first name and email.
-
-## Known limits
-- Landing and FAQ are still desktop-first (1440px) and scale down on smaller screens; the Professionals page is responsive.
-- Product/collection/cart templates are placeholders — the app is sold through the App Store.
+## Files
+- `assets/toothfairy.css` — all styles (shared design tokens, every section, breakpoints at 1280 / 1024 / 860 / 600px).
+- `assets/toothfairy.js` — before/after slider and the personalised form confirmation; re-initialises in the theme editor.
+- `snippets/tf-screen.liquid` — picked image or bundled screenshot.

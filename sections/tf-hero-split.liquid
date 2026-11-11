@@ -1,0 +1,196 @@
+<div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
+{%- assign s = section.settings -%}
+<div class="tf-hero-s">
+  <div>
+    {%- if s.eyebrow != blank -%}<div class="tf-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    <h1 class="tf-h1">{{ s.heading | newline_to_br }}</h1>
+    {%- if s.text != blank -%}<p class="tf-lead">{{ s.text }}</p>{%- endif -%}
+    <div class="tf-actions">
+      {%- if s.primary_label != blank -%}<a class="tf-btn tf-btn--primary" href="{{ s.primary_link | default: settings.app_store_url }}"><span>{{ s.primary_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>{%- endif -%}
+      {%- if s.secondary_label != blank -%}<a class="tf-btn tf-btn--ghost" href="{{ s.secondary_link }}"><span>{{ s.secondary_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>{%- endif -%}
+    </div>
+  </div>
+  <div class="tf-hero-s__visual">
+    <div class="tf-hero-s__phones">
+      <div class="tf-phone tf-phone--back"><div class="tf-screen">{% render 'tf-screen', image: section.settings.back_image, fallback: section.settings.back_screen, sizes: '250px', loading: 'eager' %}</div></div>
+      <div class="tf-phone tf-phone--front"><div class="tf-screen">{% render 'tf-screen', image: section.settings.front_image, fallback: section.settings.front_screen, sizes: '280px', loading: 'eager' %}</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "TF Hero (split)",
+  "tag": "section",
+  "class": "tf-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "For dental professionals"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Show the outcome before the treatment plan."
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 44,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 84
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Toothfairy™ AI gives patients a realistic, natural-looking preview of their enhanced smile from a single photo — in the chair, in seconds. A clearer conversation, a more confident yes."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Pink button",
+      "default": "Book a 20-minute demo"
+    },
+    {
+      "type": "text",
+      "id": "primary_link",
+      "label": "Pink button link",
+      "default": "#pro-demo",
+      "info": "Empty = App Store link."
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Outline button",
+      "default": "See how it fits your workflow"
+    },
+    {
+      "type": "text",
+      "id": "secondary_link",
+      "label": "Outline button link",
+      "default": "#pro-flow"
+    },
+    {
+      "type": "header",
+      "content": "Phones"
+    },
+    {
+      "type": "image_picker",
+      "id": "back_image",
+      "label": "Back phone — image",
+      "info": "Portrait screenshot. Overrides the bundled screen."
+    },
+    {
+      "type": "select",
+      "id": "back_screen",
+      "label": "Back phone — bundled screen",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "screen-onboarding.png",
+          "label": "App: onboarding"
+        },
+        {
+          "value": "screen-style.png",
+          "label": "App: pick a style"
+        },
+        {
+          "value": "screen-result.png",
+          "label": "App: result"
+        },
+        {
+          "value": "screen-gallery.png",
+          "label": "App: gallery"
+        }
+      ],
+      "default": "screen-onboarding.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "front_image",
+      "label": "Front phone — image",
+      "info": "Portrait screenshot. Overrides the bundled screen."
+    },
+    {
+      "type": "select",
+      "id": "front_screen",
+      "label": "Front phone — bundled screen",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "screen-onboarding.png",
+          "label": "App: onboarding"
+        },
+        {
+          "value": "screen-style.png",
+          "label": "App: pick a style"
+        },
+        {
+          "value": "screen-result.png",
+          "label": "App: result"
+        },
+        {
+          "value": "screen-gallery.png",
+          "label": "App: gallery"
+        }
+      ],
+      "default": "screen-result.png"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor ID",
+      "info": "Lets menu links jump here, e.g. #how. Leave empty for none."
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "Line above section",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "TF Hero (split)"
+    }
+  ]
+}
+{% endschema %}

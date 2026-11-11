@@ -1,0 +1,146 @@
+<div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
+{%- assign s = section.settings -%}
+<div class="tf-panel tf-form-panel tf-form-panel--dark">
+  <div>
+    <img class="tf-form-panel__symbol" src="{{ 'symbol-white.svg' | asset_url }}" alt="" width="72" height="72">
+    <h2 class="tf-h2">{{ s.heading }}</h2>
+    {%- if s.text != blank -%}<p class="tf-body">{{ s.text }}</p>{%- endif -%}
+    {%- if s.email != blank -%}<div class="tf-form-panel__meta"><span>Prefer email? <a href="mailto:{{ s.email }}">{{ s.email }}</a></span></div>{%- endif -%}
+  </div>
+  {%- form 'contact', id: 'demo-form', data-tf-remember: '' -%}
+    {%- if form.posted_successfully? -%}
+      <div class="tf-sent" role="status" tabindex="-1" data-tf-sent>
+        <div class="tf-eyebrow">Request received</div>
+        <h3 class="tf-sent__title">Thanks<span data-tf-name></span>. We'll be in touch within one working day.</h3>
+        <p class="tf-sent__text">You'll get a calendar invite <span data-tf-email>by email</span>.</p>
+      </div>
+    {%- else -%}
+      <div class="tf-form">
+        {%- if form.errors -%}<div class="tf-form__full tf-form__errors" role="alert">{{ form.errors | default_errors }}</div>{%- endif -%}
+        <label class="tf-field">Name<input name="contact[name]" type="text" required autocomplete="name" placeholder="Dr. Anna Jansen" value="{{ form.name }}"></label>
+        <label class="tf-field">Practice<input name="contact[Practice]" type="text" required autocomplete="organization" placeholder="Tandartspraktijk Centrum"></label>
+        <label class="tf-field">Work email<input name="contact[email]" type="email" required autocomplete="email" placeholder="anna@praktijk.nl" value="{{ form.email }}"></label>
+        <label class="tf-field">Phone (optional)<input name="contact[Phone]" type="tel" autocomplete="tel" placeholder="+31 6 …"></label>
+        <label class="tf-field">Role<select name="contact[Role]">{% assign opts = s.roles | newline_to_br | split: '<br />' %}{% for o in opts %}{% assign o = o | strip %}{% if o != blank %}<option>{{ o }}</option>{% endif %}{% endfor %}</select></label>
+        <label class="tf-field">Chairs<select name="contact[Chairs]">{% assign opts = s.chairs | newline_to_br | split: '<br />' %}{% for o in opts %}{% assign o = o | strip %}{% if o != blank %}<option>{{ o }}</option>{% endif %}{% endfor %}</select></label>
+        <label class="tf-field tf-form__full">Anything specific you'd like to see?<textarea name="contact[body]" rows="3" placeholder="e.g. veneer previews, sharing results with patients, invoicing">{{ form.body }}</textarea></label>
+        <input type="hidden" name="contact[Subject]" value="{{ s.subject | escape }}">
+        <button type="submit" class="tf-btn tf-btn--primary tf-form__full"><span>{{ s.button_label }}</span><span class="tf-dot" aria-hidden="true"></span></button>
+        {%- if s.legal != blank -%}<p class="tf-form__full tf-form__legal">{{ s.legal }}</p>{%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endform -%}
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "TF Demo request form",
+  "tag": "section",
+  "class": "tf-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Book a demo"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 32,
+      "max": 104,
+      "step": 2,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "A 20-minute video call. We'll run a preview on a photo you choose, walk through the in-chair flow and answer pricing questions."
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Contact email",
+      "default": "support@ortho-clear.com"
+    },
+    {
+      "type": "textarea",
+      "id": "roles",
+      "label": "Role options",
+      "default": "Dentist\nOrthodontist\nPractice manager\nDental chain / DSO\nOther",
+      "info": "One per line."
+    },
+    {
+      "type": "textarea",
+      "id": "chairs",
+      "label": "Chair options",
+      "default": "1–2\n3–5\n6–10\nMore than 10",
+      "info": "One per line."
+    },
+    {
+      "type": "text",
+      "id": "subject",
+      "label": "Email subject",
+      "default": "Demo request — Toothfairy AI"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button",
+      "default": "Request a demo"
+    },
+    {
+      "type": "text",
+      "id": "legal",
+      "label": "Note under the button",
+      "default": "By submitting you agree to be contacted about Toothfairy™ AI. No newsletters."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor ID",
+      "default": "pro-demo",
+      "info": "Lets menu links jump here, e.g. #how. Leave empty for none."
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "Line above section",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    }
+  ],
+  "presets": [
+    {
+      "name": "TF Demo request form"
+    }
+  ]
+}
+{% endschema %}

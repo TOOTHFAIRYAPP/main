@@ -1,11 +1,12 @@
-<div class="tf-page" style="max-width:1440px; margin:0 auto; padding:96px 80px; font-family:'Space Grotesk', sans-serif">
-  <h1 style="font-weight:500; font-size:56px; letter-spacing:-.03em; line-height:1; margin:0 0 32px">{{ page.title | default: product.title | default: collection.title | default: article.title | default: blog.title | default: 'Page' }}</h1>
-  {% if template.name == 'page' %}<div style="font-size:17px; line-height:1.6; max-width:720px">{{ page.content }}</div>
-  {% elsif template.name == 'article' %}<div style="font-size:17px; line-height:1.6; max-width:720px">{{ article.content }}</div>
-  {% elsif template.name == 'product' %}<div style="font-size:17px; line-height:1.6; max-width:720px">{{ product.description }}</div>
-  {% elsif template.name == '404' %}<p style="font-size:17px">That page doesn't exist. <a href="/" style="color:#e6007e">Back to Toothfairy™ AI</a></p>
-  {% elsif template.name == 'cart' %}<p style="font-size:17px">Toothfairy™ AI is sold through the App Store — nothing to buy here.</p>
-  {% elsif template.name == 'search' %}<p style="font-size:17px">Try the <a href="/pages/faq" style="color:#e6007e">FAQ</a>.</p>
-  {% endif %}
+<div class="tf-wrap tf-generic" style="--pt:96px;--pb:96px">
+  <h1 class="tf-h2">{{ page.title | default: product.title | default: collection.title | default: article.title | default: blog.title | default: 'Page' }}</h1>
+  {%- case template.name -%}
+    {%- when 'page' -%}<div class="tf-generic__body">{{ page.content }}</div>
+    {%- when 'article' -%}<div class="tf-generic__body">{{ article.content }}</div>
+    {%- when 'product' -%}<div class="tf-generic__body">{{ product.description }}</div>
+    {%- when '404' -%}<p class="tf-generic__body">That page doesn't exist. <a href="{{ routes.root_url }}">Back to Toothfairy™ AI</a></p>
+    {%- when 'cart' -%}<p class="tf-generic__body">Toothfairy™ AI is sold through the App Store — nothing to buy here.</p>
+    {%- when 'search' -%}<p class="tf-generic__body">Try the <a href="/pages/faq">FAQ</a>.</p>
+  {%- endcase -%}
 </div>
 {% schema %}{ "name": "Generic content", "settings": [] }{% endschema %}

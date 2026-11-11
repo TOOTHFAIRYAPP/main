@@ -1,0 +1,41 @@
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "tf-footer",
+      "settings": {},
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "Privacy policy",
+            "link": "/policies/privacy-policy"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "Terms",
+            "link": "/policies/terms-of-service"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "support@ortho-clear.com",
+            "link": "mailto:support@ortho-clear.com"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3"
+      ]
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

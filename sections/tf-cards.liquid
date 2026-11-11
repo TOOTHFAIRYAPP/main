@@ -1,0 +1,118 @@
+<div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
+<div class="tf-cards">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'quote' -%}
+        <figure class="tf-card tf-card--quote" {{ block.shopify_attributes }}>
+          <blockquote>“{{ block.settings.quote }}”</blockquote>
+          <figcaption>{{ block.settings.author }}</figcaption>
+        </figure>
+      {%- when 'fact' -%}
+        <div class="tf-card tf-card--fact" {{ block.shopify_attributes }}>
+          <div class="tf-eyebrow">{{ block.settings.label }}</div>
+          <p>{{ block.settings.text }}</p>
+        </div>
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "TF Cards",
+  "tag": "section",
+  "class": "tf-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor ID",
+      "info": "Lets menu links jump here, e.g. #how. Leave empty for none."
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "Line above section",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Quote",
+          "info": "Quotation marks are added automatically."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Name",
+          "default": "Name"
+        }
+      ]
+    },
+    {
+      "type": "fact",
+      "name": "Fact",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Label"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TF Cards",
+      "blocks": [
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,93 @@
+<div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
+{%- assign s = section.settings -%}
+<div class="tf-cta">
+  {%- if s.show_symbol -%}<img class="tf-cta__symbol" src="{{ 'symbol-dark.svg' | asset_url }}" alt="" width="88" height="88">{%- endif -%}
+  <h2 class="tf-h2">{{ s.heading }}</h2>
+  {%- if s.button_label != blank -%}<a class="tf-btn tf-btn--primary tf-btn--large" href="{{ s.button_link | default: settings.app_store_url }}"><span>{{ s.button_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>{%- endif -%}
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "TF Closing call to action",
+  "tag": "section",
+  "class": "tf-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_symbol",
+      "label": "Show Toothfairy symbol",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "One selfie away."
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 40,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 88
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button",
+      "default": "Download on the App Store"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "Empty = App Store link."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor ID",
+      "info": "Lets menu links jump here, e.g. #how. Leave empty for none."
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "Line above section",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 140
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 140
+    }
+  ],
+  "presets": [
+    {
+      "name": "TF Closing call to action"
+    }
+  ]
+}
+{% endschema %}

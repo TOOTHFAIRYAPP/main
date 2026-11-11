@@ -1,10 +1,51 @@
 {
   "sections": {
+    "header": {
+      "type": "tf-header",
+      "settings": {
+        "cta_label": "App Store",
+        "cta_link": "",
+        "cta_style": "primary"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "For patients",
+            "link": "/",
+            "style": "normal"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "For professionals",
+            "link": "/pages/professionals",
+            "style": "normal"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "link": "/pages/faq",
+            "style": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3"
+      ]
+    },
     "main": {
-      "type": "main-generic"
+      "type": "main-generic",
+      "settings": {}
     }
   },
   "order": [
+    "header",
     "main"
   ]
 }

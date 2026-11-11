@@ -1,96 +1,128 @@
-<div class="tf-page" style="max-width:1440px; margin:0 auto; background:#f4eef0; color:#1a1517; font-family:'Space Grotesk', sans-serif">
-
-  <nav style="display:flex; justify-content:space-between; align-items:center; padding:28px 80px">
-    <a href="/"><img src="{{ 'logo-dark.svg' | asset_url }}" alt="Toothfairy" style="height:44px; width:auto; display:block"></a>
-    <div style="display:flex; gap:36px; font-size:15px; color:#6b5f65"><a href="/">For patients</a><a href="/pages/professionals">For professionals</a><a href="/pages/faq" style="color:#1a1517">FAQ</a><a href="#contact">Contact</a></div>
-    <a href="{{ settings.app_store_url }}" style="background:#e6007e; color:#fff; padding:12px 22px; border-radius:8px; font-size:14px; font-weight:700">App Store</a>
-  </nav>
-
-  <header id="faq-top" style="padding:96px 80px 64px; display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; align-items:end">
-    <h1 style="font-weight:500; font-size:84px; line-height:.95; letter-spacing:-.04em; margin:0">Questions, answered.</h1>
-    <p style="font-size:20px; line-height:1.5; color:#6b5f65; margin:0 0 12px; max-width:560px; text-wrap:pretty">Everything about how Toothfairy™ AI works, what it costs and how your photos are handled. Not here? <a href="#contact" style="color:#e6007e; border-bottom:1px solid #e6007e">Send us a message.</a></p>
-  </header>
-
-  <div style="padding:0 80px 32px; display:flex; gap:10px">
-    <a href="#faq-general" style="border:1px solid #cfc3c8; padding:10px 18px; border-radius:999px; font-size:14px">The app</a>
-    <a href="#faq-results" style="border:1px solid #cfc3c8; padding:10px 18px; border-radius:999px; font-size:14px">Results</a>
-    <a href="#faq-credits" style="border:1px solid #cfc3c8; padding:10px 18px; border-radius:999px; font-size:14px">Credits &amp; payment</a>
-    <a href="#faq-privacy" style="border:1px solid #cfc3c8; padding:10px 18px; border-radius:999px; font-size:14px">Privacy</a>
-    <a href="#faq-pro" style="border:1px solid #cfc3c8; padding:10px 18px; border-radius:999px; font-size:14px">For practices</a>
+<div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
+{%- assign s = section.settings -%}
+<div class="tf-split tf-faq">
+  <div>
+    {%- if s.eyebrow != blank -%}<div class="tf-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    <h2 class="tf-h2">{{ s.heading }}</h2>
   </div>
-
-  <section id="faq-general" style="padding:64px 80px; display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; border-top:1px solid #e3d9dd">
-    <div><div style="font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:#e6007e; margin-bottom:16px">01</div><h2 style="font-weight:500; font-size:40px; line-height:1; letter-spacing:-.03em; margin:0">The app</h2></div>
-    <div style="display:flex; flex-direction:column">
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0" open><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>What does Toothfairy™ AI do?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">It creates a realistic, natural-looking preview of an enhanced smile from a single selfie, and can turn that preview into a short animated video.</p></details>
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>Which devices are supported?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">iPhone with iOS 18 or later. It also runs on Macs with Apple silicon (macOS 15) and Apple Vision (visionOS 2). Android is not available yet.</p></details>
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>What kind of photo works best?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">A front-facing selfie in even daylight, with a relaxed, natural smile showing your teeth. Avoid strong shadows, filters and sunglasses.</p></details>
-      <details style="border-top:1px solid #e3d9dd; border-bottom:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>How long does it take?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">A photo preview usually takes seconds. A video preview takes a little longer.</p></details>
-    </div>
-  </section>
-
-  <section id="faq-results" style="padding:64px 80px; display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; border-top:1px solid #e3d9dd">
-    <div><div style="font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:#e6007e; margin-bottom:16px">02</div><h2 style="font-weight:500; font-size:40px; line-height:1; letter-spacing:-.03em; margin:0">Results</h2></div>
-    <div style="display:flex; flex-direction:column">
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>Is the result what my teeth will actually look like?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">No. Previews are simulated and intended for visualisation and inspiration only. They are not medical, dental or orthodontic advice. Your dentist determines what treatment can achieve.</p></details>
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>Which enhancement styles are there?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">Aligner progress (alignment), veneers upgrade (shape and uniformity) and whitening boost (shade). All are designed to complement your features and stay natural.</p></details>
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>Can I save and share my results?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">Yes. Photos and videos are kept in your in-app gallery and can be downloaded or shared — for example with your dentist.</p></details>
-      <details style="border-top:1px solid #e3d9dd; border-bottom:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>The preview doesn't look right. What now?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">Try a new photo in better light with a clearer smile. If a result is clearly broken, contact us with the photo and we'll look into it and restore the credit.</p></details>
-    </div>
-  </section>
-
-  <section id="faq-credits" style="padding:64px 80px; display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; border-top:1px solid #e3d9dd">
-    <div><div style="font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:#e6007e; margin-bottom:16px">03</div><h2 style="font-weight:500; font-size:40px; line-height:1; letter-spacing:-.03em; margin:0">Credits &amp; payment</h2></div>
-    <div style="display:flex; flex-direction:column">
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>What does it cost?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">The app is free to download. Previews use credits: 10 for €9,99, 25 for €29,99 or 50 for €49,99, bought in the app through the App Store.</p></details>
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>Is there a subscription?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">No. You buy credits once and use them when you like. Credits don't expire.</p></details>
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>How many credits does a video use?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">The credit cost is shown in the app before you confirm, so there are no surprises.</p></details>
-      <details style="border-top:1px solid #e3d9dd; border-bottom:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>Can I get a refund?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">Purchases are handled by Apple and follow App Store refund rules. For failed generations, contact us and we'll restore the credit.</p></details>
-    </div>
-  </section>
-
-  <section id="faq-privacy" style="padding:64px 80px; display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; border-top:1px solid #e3d9dd">
-    <div><div style="font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:#e6007e; margin-bottom:16px">04</div><h2 style="font-weight:500; font-size:40px; line-height:1; letter-spacing:-.03em; margin:0">Privacy</h2></div>
-    <div style="display:flex; flex-direction:column">
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>What happens to my photos?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">Your photos remain private and are never shared without your permission. They're used only to generate your previews.</p></details>
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>Do you use my photos to train AI?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">No — not without your explicit permission. See the privacy policy for full details.</p></details>
-      <details style="border-top:1px solid #e3d9dd; border-bottom:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>Who is behind the app?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">Orthoclear, operated by CC Lab Technology Ltd., Dublin, Ireland — the team behind the Toothfairy™ patient app. We operate under EU law.</p></details>
-    </div>
-  </section>
-
-  <section id="faq-pro" style="padding:64px 80px 96px; display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; border-top:1px solid #e3d9dd">
-    <div><div style="font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:#e6007e; margin-bottom:16px">05</div><h2 style="font-weight:500; font-size:40px; line-height:1; letter-spacing:-.03em; margin:0">For practices</h2></div>
-    <div style="display:flex; flex-direction:column">
-      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>Can I use it in my practice?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">Yes. Many dentists use it in the chair to start the conversation about aligners, veneers or whitening. <a href="/pages/professionals" style="color:#e6007e; border-bottom:1px solid #e6007e">See the professionals page</a> or book a demo.</p></details>
-      <details style="border-top:1px solid #e3d9dd; border-bottom:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between; gap:24px"><span>Is there volume pricing or invoicing?</span><span style="color:#e6007e; transition:transform .3s; flex:none">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:620px">Yes, for practices and dental chains. Use the contact form below and mention your number of chairs.</p></details>
-    </div>
-  </section>
-
-  <section id="contact" style="margin:0 80px 96px; padding:96px; border-radius:24px; background:#fff; display:grid; grid-template-columns:.9fr 1.1fr; gap:80px; align-items:start">
-    <div>
-      <div style="font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:#e6007e; margin-bottom:24px">Contact</div>
-      <h2 style="font-weight:500; font-size:56px; line-height:.98; letter-spacing:-.03em; margin:0 0 24px">Still have a question?</h2>
-      <p style="font-size:17px; line-height:1.6; color:#6b5f65; margin:0 0 40px; text-wrap:pretty">We reply within one working day. For a failed preview, attach the photo you used so we can check it and restore your credit.</p>
-      <div style="display:flex; flex-direction:column; gap:14px; font-size:15px; color:#6b5f65">
-        <span>Email <a href="mailto:support@ortho-clear.com" style="color:#1a1517; border-bottom:1px solid #cfc3c8">support@ortho-clear.com</a></span>
-        <span>CC Lab Technology Ltd. · Merchants House, 27–30 Merchant's Quay, Dublin 8, Ireland</span>
-      </div>
-    </div>
-    {% form 'contact', id: 'contact-form' %}{% if form.posted_successfully? %}<div style="border:1px solid #e3d9dd; border-radius:16px; padding:48px; display:flex; flex-direction:column; gap:16px; min-height:420px; justify-content:center"><div style="font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:#e6007e">Message sent</div><h3 style="margin:0; font-size:32px; font-weight:500; letter-spacing:-.02em">Thanks. We'll reply within one working day.</h3></div>{% else %}<div style="display:grid; grid-template-columns:1fr 1fr; gap:16px">{% if form.errors %}<div style="grid-column:1 / -1; color:#e6007e; font-size:14px">{{ form.errors | default_errors }}</div>{% endif %}
-<label style="display:flex; flex-direction:column; gap:8px; font-size:13px; color:#6b5f65">Name<input name="contact[name]" type="text" required placeholder="Your name" style="background:#f4eef0; border:1px solid #e3d9dd; color:#1a1517; border-radius:8px; padding:16px; font-size:16px; outline:none; box-sizing:border-box; width:100%"></label>
-<label style="display:flex; flex-direction:column; gap:8px; font-size:13px; color:#6b5f65">Email<input name="contact[email]" type="email" required placeholder="you@example.com" style="background:#f4eef0; border:1px solid #e3d9dd; color:#1a1517; border-radius:8px; padding:16px; font-size:16px; outline:none; box-sizing:border-box; width:100%"></label>
-<label style="grid-column:1 / -1; display:flex; flex-direction:column; gap:8px; font-size:13px; color:#6b5f65">Topic<select name="contact[Topic]" style="background:#f4eef0; border:1px solid #e3d9dd; color:#1a1517; border-radius:8px; padding:16px; font-size:16px; outline:none; box-sizing:border-box; width:100%"><option>A preview didn't work</option><option>Credits or payment</option><option>Privacy or my data</option><option>Using it in my practice</option><option>Something else</option></select></label>
-<label style="grid-column:1 / -1; display:flex; flex-direction:column; gap:8px; font-size:13px; color:#6b5f65">Message<textarea name="contact[body]" rows="4" placeholder="Tell us what happened or what you'd like to know" style="background:#f4eef0; border:1px solid #e3d9dd; color:#1a1517; border-radius:8px; padding:16px; font-size:16px; outline:none; resize:vertical; box-sizing:border-box; width:100%"></textarea></label>
-<button type="submit" data-smile style="grid-column:1 / -1; background:#e6007e; color:#fff; border:0; padding:20px; border-radius:8px; font-size:16px; font-weight:700; cursor:pointer; margin-top:8px; display:inline-flex; align-items:center; justify-content:center; gap:12px"><span>Send message</span><span data-smile-arc></span></button>
-<p style="grid-column:1 / -1; margin:0; font-size:13px; color:#9a8e94; line-height:1.5">We only use your details to answer your message. See our privacy policy.</p></div>{% endif %}{% endform %}
-  </section>
-
-  <footer style="padding:40px 80px 56px; border-top:1px solid #e3d9dd; display:grid; grid-template-columns:1fr 1fr; gap:48px; font-size:13px; color:#6b5f65; line-height:1.6">
-    <p style="margin:0; text-wrap:pretty"><strong style="color:#1a1517">Important.</strong> Toothfairy™ AI is intended for visualisation and inspiration purposes only. Results are simulated previews and should not be considered medical, dental or orthodontic advice.</p>
-    <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-end"><span>© 2021–2026 CC Lab Technology Ltd. · Orthoclear</span><div style="display:flex; gap:24px"><a href="/policies/privacy-policy">Privacy policy</a><a href="/policies/terms-of-service">Terms</a><a href="mailto:support@ortho-clear.com">support@ortho-clear.com</a></div></div>
-  </footer>
+  <div class="tf-qs">
+    {%- for block in section.blocks -%}
+      <details class="tf-q" {% if block.settings.open %}open{% endif %} {{ block.shopify_attributes }}>
+        <summary><span>{{ block.settings.question }}</span><span class="tf-q__icon" aria-hidden="true">+</span></summary>
+        <div class="tf-q__a tf-rte">{{ block.settings.answer }}</div>
+      </details>
+    {%- endfor -%}
+  </div>
+</div>
 </div>
 
 {% schema %}
-{ "name": "Toothfairy — FAQ", "settings": [], "presets": [{ "name": "Toothfairy — FAQ" }] }
+{
+  "name": "TF FAQ",
+  "tag": "section",
+  "class": "tf-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "info": "Optional, e.g. 01."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FAQ"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 32,
+      "max": 104,
+      "step": 2,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor ID",
+      "default": "faq",
+      "info": "Lets menu links jump here, e.g. #how. Leave empty for none."
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "Line above section",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Question?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Answer.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "open",
+          "label": "Open by default",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TF FAQ",
+      "blocks": [
+        {
+          "type": "question"
+        },
+        {
+          "type": "question"
+        },
+        {
+          "type": "question"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
