@@ -235,6 +235,18 @@ input, select, textarea, button { font: inherit; }
 .tf-col__media { height: 260px; margin-top: auto; padding: 20px 40px 0; border-radius: 12px; overflow: hidden; background: var(--tf-pink-panel); }
 .tf-col__media .tf-screen { border-radius: 24px 24px 0 0; }
 
+/* Hover: the screen lifts out of its pink panel (mouse devices only).
+   The screen is 12px taller than the panel so lifting never shows a gap. */
+.tf-col__media .tf-screen { height: calc(100% + 12px); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .tf-col__media { transition: background-color .5s ease; }
+  .tf-col__media .tf-screen { transition: transform .6s var(--tf-ease), box-shadow .6s ease; }
+  .tf-col__num { transition: letter-spacing .5s var(--tf-ease); }
+  .tf-col:hover .tf-col__media { background-color: #f8d3e5; }
+  .tf-col:hover .tf-col__media .tf-screen { transform: translateY(-10px); box-shadow: 0 -10px 36px rgba(230, 0, 126, .16); }
+  .tf-col:hover .tf-col__num { letter-spacing: .32em; }
+}
+
 /* Panels ------------------------------------------------------------------ */
 .tf-panel { display: grid; gap: 80px; align-items: center; padding: var(--tf-panel-pad); border-radius: 24px; }
 
@@ -446,6 +458,19 @@ input, select, textarea, button { font: inherit; }
   .tf-ba__label { bottom: 16px; }
   .tf-video .tf-btn { width: 100%; }
   .tf-video__glow { width: 420px; height: 420px; }
+}
+
+/* Scroll effects ---------------------------------------------------------- */
+/* Fade-up on entering the screen. The class is added by toothfairy.js, so without
+   JavaScript, in the theme editor or with reduced motion everything simply shows. */
+.tf-reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--tf-ease) var(--tf-d, 0ms), transform .9s var(--tf-ease) var(--tf-d, 0ms); }
+.tf-reveal.is-in { opacity: 1; transform: none; }
+/* Phones rise out of their panel as it scrolls into view (browsers with scroll-driven animations). */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .tf-flow__phone, .tf-video__phone { animation: tf-rise linear both; animation-timeline: view(); animation-range: entry 10% cover 40%; }
+    @keyframes tf-rise { from { transform: translateY(16%); } to { transform: none; } }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

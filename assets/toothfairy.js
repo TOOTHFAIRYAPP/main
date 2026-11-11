@@ -71,7 +71,36 @@
     if (link) { var menu = link.closest('details'); if (menu) menu.removeAttribute('open'); }
   });
 
-  function init(root) { initSliders(root); initForms(root); updateHeader(); }
+  // Scroll reveal: content fades up as it enters the screen; siblings come in one after another.
+  var REVEAL = [
+    '.tf-ba__head', '.tf-ba', '.tf-col', '.tf-flow > div:first-child', '.tf-flow__visual',
+    '.tf-video__text', '.tf-card', '.tf-pricing > div:first-child', '.tf-plan',
+    '.tf-faq > div:first-child', '.tf-q', '.tf-cta > *', '.tf-form-panel > div:first-child',
+    '.tf-form-panel form', '.tf-footer'
+  ].join(',');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var designMode = window.Shopify && window.Shopify.designMode;
+  var observer = (!reduceMotion && !designMode && 'IntersectionObserver' in window) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('is-in'); observer.unobserve(entry.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 }) : null;
+  function initReveal(root) {
+    if (!observer) return;
+    root.querySelectorAll(REVEAL).forEach(function (el) {
+      if (el.dataset.tfReveal) return;
+      el.dataset.tfReveal = '1';
+      // Already on screen at load: leave it alone, so nothing flickers.
+      if (el.getBoundingClientRect().top < window.innerHeight) return;
+      var i = 0, sib = el;
+      while ((sib = sib.previousElementSibling) && i < 5) { if (sib.matches(REVEAL)) i++; }
+      el.style.setProperty('--tf-d', (i * 90) + 'ms');
+      el.classList.add('tf-reveal');
+      observer.observe(el);
+    });
+  }
+
+  function init(root) { initSliders(root); initForms(root); initReveal(root); updateHeader(); }
   init(document);
   // Re-run when a section is added or changed in the theme editor.
   document.addEventListener('shopify:section:load', function (e) { init(e.target); });
