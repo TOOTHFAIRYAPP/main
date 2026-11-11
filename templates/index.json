@@ -64,6 +64,7 @@
         "cta_label": "App Store",
         "cta_link": "",
         "cta_style": "outline",
+        "sticky": true,
         "anchor": "",
         "border_top": false,
         "padding_top": 28,
@@ -85,8 +86,12 @@
         "left_screen": "screen-onboarding.png",
         "center_image": "shopify://shop_images/9B624872-24B9-4871-A892-78B98C108219.png",
         "center_screen": "screen-result.png",
+        "center_video": "shopify://files/videos/hero-phone.mp4",
+        "center_video_url": "",
         "right_image": "shopify://shop_images/Schermafbeelding_2026-11-09_om_09.05.56.png",
         "right_screen": "screen-gallery.png",
+        "fan_out": true,
+        "tilt": true,
         "anchor": "",
         "border_top": false,
         "padding_top": 120,
@@ -156,21 +161,6 @@
     },
     "video": {
       "type": "tf-video-feature",
-      "settings": {
-        "eyebrow": "Smile video previews",
-        "heading": "See it while you talk, laugh, live.",
-        "heading_size": 56,
-        "text": "A still photo shows the result. A video shows the feeling. Toothfairy™ AI turns your preview into a short animation you can watch again and again.",
-        "video": "shopify://files/videos/smile-video.mp4",
-        "video_url": "",
-        "anchor": "video",
-        "border_top": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "button_label": "Download on the App Store",
-        "button_link": "",
-        "show_watermark": false
-      },
       "blocks": {
         "point_1": {
           "type": "point",
@@ -198,7 +188,22 @@
         "point_1",
         "point_2",
         "point_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Smile video previews",
+        "heading": "See it while you talk, laugh, live.",
+        "heading_size": 56,
+        "text": "A still photo shows the result. A video shows the feeling. Toothfairy™ AI turns your preview into a short animation you can watch again and again.",
+        "button_label": "Download on the App Store",
+        "button_link": "",
+        "video": "shopify://files/videos/smile-video.mp4",
+        "video_url": "",
+        "show_watermark": false,
+        "anchor": "video",
+        "border_top": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     },
     "testimonials": {
       "type": "tf-cards",
