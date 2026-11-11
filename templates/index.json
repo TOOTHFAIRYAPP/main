@@ -245,9 +245,9 @@
           "settings": {
             "name": "10 credits",
             "badge": "",
-            "description": "€1,00 per preview",
+            "description": "€0,50 per preview",
             "action_style": "price",
-            "action_text": "€9,99",
+            "action_text": "€4,99",
             "action_link": "#",
             "highlight": false
           }
@@ -257,9 +257,9 @@
           "settings": {
             "name": "25 credits",
             "badge": "Popular",
-            "description": "€1,20 per preview",
+            "description": "€0,40 per preview",
             "action_style": "price",
-            "action_text": "€29,99",
+            "action_text": "€9,99",
             "action_link": "#",
             "highlight": true
           }
@@ -269,9 +269,9 @@
           "settings": {
             "name": "50 credits",
             "badge": "",
-            "description": "€1,00 per preview",
+            "description": "€0,30 per preview",
             "action_style": "price",
-            "action_text": "€49,99",
+            "action_text": "€14,99",
             "action_link": "#",
             "highlight": false
           }

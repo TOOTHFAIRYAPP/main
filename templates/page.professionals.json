@@ -222,9 +222,9 @@
           "settings": {
             "name": "50 credits",
             "badge": "",
-            "description": "€1,00 per preview · in-app",
+            "description": "€0,30 per preview · in-app",
             "action_style": "price",
-            "action_text": "€49,99",
+            "action_text": "€14,99",
             "action_link": "#",
             "highlight": false
           }
