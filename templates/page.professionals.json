@@ -11,11 +11,6 @@
   "sections": {
     "header": {
       "type": "tf-header",
-      "settings": {
-        "cta_label": "Book a demo",
-        "cta_link": "#pro-demo",
-        "cta_style": "primary"
-      },
       "blocks": {
         "link_1": {
           "type": "link",
@@ -64,37 +59,66 @@
         "link_3",
         "link_4",
         "link_5"
-      ]
+      ],
+      "settings": {
+        "cta_label": "Book a demo",
+        "cta_link": "#pro-demo",
+        "cta_style": "primary",
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
     },
     "hero": {
       "type": "tf-hero-split",
-      "settings": {}
+      "settings": {
+        "eyebrow": "For dental professionals",
+        "heading": "Show the outcome before the treatment plan.",
+        "heading_size": 84,
+        "text": "Toothfairy™ AI gives patients a realistic, natural-looking preview of their enhanced smile from a single photo — in the chair, in seconds. A clearer conversation, a more confident yes.",
+        "primary_label": "Book a 20-minute demo",
+        "primary_link": "#pro-demo",
+        "secondary_label": "See how it fits your workflow",
+        "secondary_link": "#pro-flow",
+        "back_image": "shopify://shop_images/9B624872-24B9-4871-A892-78B98C108219.png",
+        "back_screen": "screen-onboarding.png",
+        "front_image": "shopify://shop_images/Schermafbeelding_2026-11-09_om_09.05.56.png",
+        "front_screen": "screen-result.png",
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 96,
+        "padding_bottom": 80
+      }
     },
     "why": {
       "type": "tf-columns",
-      "settings": {
-        "anchor": "pro-why"
-      },
       "blocks": {
         "column_1": {
           "type": "column",
           "settings": {
             "heading": "Shorter path to acceptance",
-            "text": "Patients decide on what they can see. A preview of their own face makes aligners, veneers or whitening concrete instead of abstract."
+            "text": "Patients decide on what they can see. A preview of their own face makes aligners, veneers or whitening concrete instead of abstract.",
+            "video_url": "",
+            "media_screen": "none"
           }
         },
         "column_2": {
           "type": "column",
           "settings": {
             "heading": "Honest expectations",
-            "text": "Results stay natural and are clearly labelled as visualisations — never a clinical promise. Fewer surprises, fewer difficult conversations later."
+            "text": "Results stay natural and are clearly labelled as visualisations — never a clinical promise. Fewer surprises, fewer difficult conversations later.",
+            "video_url": "",
+            "media_screen": "none"
           }
         },
         "column_3": {
           "type": "column",
           "settings": {
             "heading": "Nothing to install at the practice",
-            "text": "Runs on any iPhone. No scanner, no software licence, no onboarding project. Buy credits, start today."
+            "text": "Runs on any iPhone. No scanner, no software licence, no onboarding project. Buy credits, start today.",
+            "video_url": "",
+            "media_screen": "none"
           }
         }
       },
@@ -102,13 +126,17 @@
         "column_1",
         "column_2",
         "column_3"
-      ]
+      ],
+      "settings": {
+        "show_media": false,
+        "anchor": "pro-why",
+        "border_top": true,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     },
     "flow": {
       "type": "tf-feature-steps",
-      "settings": {
-        "anchor": "pro-flow"
-      },
       "blocks": {
         "step_1": {
           "type": "step",
@@ -136,11 +164,21 @@
         "step_1",
         "step_2",
         "step_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "In the chair",
+        "heading": "Three minutes, start to finish.",
+        "heading_size": 52,
+        "phone_image": "shopify://shop_images/Schermafbeelding_2026-11-09_om_09.04.10.png",
+        "phone_screen": "screen-style.png",
+        "anchor": "pro-flow",
+        "border_top": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     },
     "facts": {
       "type": "tf-cards",
-      "settings": {},
       "blocks": {
         "fact_1": {
           "type": "fact",
@@ -168,29 +206,34 @@
         "fact_1",
         "fact_2",
         "fact_3"
-      ]
+      ],
+      "settings": {
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 120,
+        "padding_bottom": 96
+      }
     },
     "pricing": {
       "type": "tf-pricing",
-      "settings": {
-        "heading": "Practice plans",
-        "heading_size": 52,
-        "anchor": "pro-pricing",
-        "text": "One credit per preview. Buy packs in the app, or talk to us about volume pricing and multi-chair use."
-      },
       "blocks": {
         "plan_1": {
           "type": "plan",
           "settings": {
             "name": "50 credits",
+            "badge": "",
             "description": "€1,00 per preview · in-app",
-            "action_text": "€49,99"
+            "action_style": "price",
+            "action_text": "€49,99",
+            "action_link": "#",
+            "highlight": false
           }
         },
         "plan_2": {
           "type": "plan",
           "settings": {
             "name": "Practice volume",
+            "badge": "",
             "description": "Custom packs, invoicing, multiple devices",
             "action_style": "link",
             "action_text": "Talk to us",
@@ -202,9 +245,12 @@
           "type": "plan",
           "settings": {
             "name": "Orthoclear partners",
+            "badge": "",
             "description": "Included for partner practices",
             "action_style": "note",
-            "action_text": "On request"
+            "action_text": "On request",
+            "action_link": "#",
+            "highlight": false
           }
         }
       },
@@ -212,11 +258,34 @@
         "plan_1",
         "plan_2",
         "plan_3"
-      ]
+      ],
+      "settings": {
+        "heading": "Practice plans",
+        "heading_size": 52,
+        "text": "One credit per preview. Buy packs in the app, or talk to us about volume pricing and multi-chair use.",
+        "anchor": "pro-pricing",
+        "border_top": true,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     },
     "demo": {
       "type": "tf-demo-form",
-      "settings": {}
+      "settings": {
+        "heading": "Book a demo",
+        "heading_size": 56,
+        "text": "A 20-minute video call. We'll run a preview on a photo you choose, walk through the in-chair flow and answer pricing questions.",
+        "email": "support@ortho-clear.com",
+        "roles": "Dentist\nOrthodontist\nPractice manager\nDental chain / DSO\nOther",
+        "chairs": "1–2\n3–5\n6–10\nMore than 10",
+        "subject": "Demo request — Toothfairy AI",
+        "button_label": "Request a demo",
+        "legal": "By submitting you agree to be contacted about Toothfairy™ AI. No newsletters.",
+        "anchor": "pro-demo",
+        "border_top": false,
+        "padding_top": 0,
+        "padding_bottom": 96
+      }
     }
   },
   "order": [
