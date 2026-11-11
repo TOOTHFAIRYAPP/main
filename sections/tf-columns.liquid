@@ -8,7 +8,9 @@
       <p class="tf-col__text">{{ b.text }}</p>
       {%- if section.settings.show_media -%}
         <div class="tf-col__media"><div class="tf-screen">
-          {%- if b.video_url != blank -%}
+          {%- if b.video != blank -%}
+            {{ b.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '720x' }}
+          {%- elsif b.video_url != blank -%}
             <video src="{{ b.video_url }}" autoplay muted loop playsinline></video>
           {%- else -%}
             {% render 'tf-screen', image: b.media_image, fallback: b.media_screen, sizes: '320px' %}
@@ -87,10 +89,16 @@
           "label": "Text"
         },
         {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Optional. Plays muted on a loop instead of the screen."
+        },
+        {
           "type": "url",
           "id": "video_url",
-          "label": "Video (MP4 URL)",
-          "info": "Optional. Plays instead of the screen."
+          "label": "Or video URL (MP4)",
+          "info": "Only used when no video is picked above."
         },
         {
           "type": "image_picker",

@@ -7,10 +7,12 @@
     {%- if s.text != blank -%}<p class="tf-body">{{ s.text }}</p>{%- endif -%}
   </div>
   <div class="tf-video__frame">
-    {%- if s.video_url != blank -%}
+    {%- if s.video != blank -%}
+      {{ s.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '720x' }}
+    {%- elsif s.video_url != blank -%}
       <video src="{{ s.video_url }}" autoplay muted loop playsinline></video>
     {%- else -%}
-      <div class="tf-video__empty">Add a video URL in the theme editor</div>
+      <div class="tf-video__empty">Add a video in the theme editor</div>
     {%- endif -%}
   </div>
 </div>
@@ -51,10 +53,16 @@
       "default": "A still photo shows the result. A video shows the feeling. Toothfairy™ AI turns your preview into a short animation you can watch again and again."
     },
     {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "info": "Plays muted on a loop. Portrait (9:16) works best."
+    },
+    {
       "type": "url",
       "id": "video_url",
-      "label": "Video (MP4 URL)",
-      "info": "Upload the MP4 under Content → Files and paste its URL. Portrait (9:16) works best."
+      "label": "Or video URL (MP4)",
+      "info": "Only used when no video is picked above."
     },
     {
       "type": "header",
