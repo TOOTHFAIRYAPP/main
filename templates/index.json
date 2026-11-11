@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "main": {
+      "type": "tf-landing"
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
