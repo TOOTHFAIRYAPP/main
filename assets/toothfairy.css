@@ -144,6 +144,8 @@ input, select, textarea, button { font: inherit; }
 }
 .tf-section--header.is-scrolled .tf-header__logo img { transform: scale(.8); }
 .tf-section--header.is-scrolled .tf-header__cta, .tf-section--header.is-scrolled .tf-menu > summary { border-radius: 999px; }
+/* Hide while scrolling down past the first screen, come back on scroll up. */
+.tf-section--header.is-scrolled.is-hidden .tf-header { transform: translateY(calc(-100% - 40px)); box-shadow: inset 0 0 0 1px transparent, 0 12px 36px rgba(26, 21, 23, 0), 0 1px 2px rgba(26, 21, 23, 0); pointer-events: none; }
 .tf-wrap[id], .tf-wrap form[id] { scroll-margin-top: 104px; }
 
 /* Hero — centred, three floating phones (landing) ------------------------- */

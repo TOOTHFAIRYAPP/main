@@ -12,7 +12,7 @@ All pages match the 1440px design on desktop and reflow for tablet and phone.
 ## Sections
 | Section | Used for |
 | --- | --- |
-| TF Header | Logo, menu links (blocks) and button. One per page, so every page can have its own menu. Stays at the top while scrolling and turns into a floating capsule; can be switched off. |
+| TF Header | Logo, menu links (blocks) and button. One per page, so every page can have its own menu. Turns into a floating capsule on scroll, slides away while scrolling down and returns on scroll up; can be switched off. |
 | TF Hero (centred) | Landing hero with three floating phones. |
 | TF Hero (split) | Professionals hero with two phones. |
 | TF Page intro | FAQ heading, intro text and jump links. |

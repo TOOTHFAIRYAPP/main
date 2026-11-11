@@ -39,16 +39,32 @@
     });
   }
 
-  // Sticky header: compact, frosted look once the page has scrolled.
-  var ticking = false;
+  // Sticky header: becomes a capsule once the page scrolls, slides away while
+  // scrolling down past the first part of the page, and returns on scroll up.
+  var ticking = false, lastY = window.scrollY, HIDE_AFTER = 480, DELTA = 6;
   function updateHeader() {
     ticking = false;
-    var scrolled = window.scrollY > 8;
-    document.querySelectorAll('.tf-section--header').forEach(function (h) { h.classList.toggle('is-scrolled', scrolled); });
+    var y = Math.max(0, window.scrollY), dy = y - lastY;
+    document.querySelectorAll('.tf-section--header').forEach(function (h) {
+      h.classList.toggle('is-scrolled', y > 8);
+      var nav = h.querySelector('.tf-header');
+      var sticky = nav && nav.hasAttribute('data-sticky');
+      var menu = h.querySelector('.tf-menu');
+      var busy = (menu && menu.open) || h.contains(document.activeElement);
+      if (!sticky || y < HIDE_AFTER || busy) h.classList.remove('is-hidden');
+      else if (dy > DELTA) h.classList.add('is-hidden');
+      else if (dy < -DELTA) h.classList.remove('is-hidden');
+    });
+    if (Math.abs(dy) > DELTA) lastY = y;
   }
   window.addEventListener('scroll', function () {
     if (!ticking) { ticking = true; requestAnimationFrame(updateHeader); }
   }, { passive: true });
+  // Keyboard users: bring the header back when focus moves into it.
+  document.addEventListener('focusin', function (e) {
+    var h = e.target.closest && e.target.closest('.tf-section--header');
+    if (h) h.classList.remove('is-hidden');
+  });
   // Close the mobile menu after tapping a link in it.
   document.addEventListener('click', function (e) {
     var link = e.target.closest && e.target.closest('.tf-menu__panel a');
