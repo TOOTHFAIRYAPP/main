@@ -1,12 +1,16 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "header": {
       "type": "tf-header",
-      "settings": {
-        "cta_label": "App Store",
-        "cta_link": "",
-        "cta_style": "outline"
-      },
       "blocks": {
         "link_1": {
           "type": "link",
@@ -55,28 +59,63 @@
         "link_3",
         "link_4",
         "link_5"
-      ]
+      ],
+      "settings": {
+        "cta_label": "App Store",
+        "cta_link": "",
+        "cta_style": "outline",
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
     },
     "hero": {
       "type": "tf-hero-center",
-      "settings": {}
+      "settings": {
+        "eyebrow": "AI smile simulation · iPhone",
+        "heading": "Your future smile,\nfrom one selfie.",
+        "heading_size": 104,
+        "text": "Realistic, natural-looking previews in seconds. Then watch it move in an AI-generated video.",
+        "primary_label": "Download on the App Store",
+        "primary_link": "",
+        "secondary_label": "Watch the video",
+        "secondary_link": "#video",
+        "left_image": "shopify://shop_images/Schermafbeelding_2026-11-09_om_09.04.10.png",
+        "left_screen": "screen-onboarding.png",
+        "center_image": "shopify://shop_images/Schermafbeelding_2026-11-09_om_09.04.49.png",
+        "center_screen": "screen-result.png",
+        "right_image": "shopify://shop_images/Schermafbeelding_2026-11-09_om_09.05.56.png",
+        "right_screen": "screen-gallery.png",
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 120,
+        "padding_bottom": 80
+      }
     },
     "before_after": {
       "type": "tf-before-after",
-      "settings": {}
+      "settings": {
+        "heading": "Enhanced. Not replaced.",
+        "heading_size": 56,
+        "text": "Drag the handle. The preview keeps your features, your expression and your proportions.",
+        "before_label": "Before",
+        "after_label": "After",
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 120,
+        "padding_bottom": 96
+      }
     },
     "how": {
       "type": "tf-columns",
-      "settings": {
-        "show_media": true,
-        "anchor": "how"
-      },
       "blocks": {
         "column_1": {
           "type": "column",
           "settings": {
             "heading": "Take a selfie",
             "text": "Or pick one from your library. Good light, relaxed smile.",
+            "video_url": "",
             "media_screen": "screen-onboarding.png"
           }
         },
@@ -85,6 +124,7 @@
           "settings": {
             "heading": "Pick a style",
             "text": "Several natural enhancement styles — from subtle alignment to brighter.",
+            "video_url": "",
             "media_screen": "screen-style.png"
           }
         },
@@ -93,6 +133,7 @@
           "settings": {
             "heading": "Watch it move",
             "text": "Generate a short video of your enhanced smile. Save it or share it.",
+            "video_url": "",
             "media_screen": "screen-result.png"
           }
         }
@@ -101,15 +142,31 @@
         "column_1",
         "column_2",
         "column_3"
-      ]
+      ],
+      "settings": {
+        "show_media": true,
+        "anchor": "how",
+        "border_top": true,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     },
     "video": {
       "type": "tf-video-feature",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Smile video previews",
+        "heading": "See it while you talk, laugh, live.",
+        "heading_size": 56,
+        "text": "A still photo shows the result. A video shows the feeling. Toothfairy™ AI turns your preview into a short animation you can watch again and again.",
+        "video_url": "",
+        "anchor": "video",
+        "border_top": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     },
     "testimonials": {
       "type": "tf-cards",
-      "settings": {},
       "blocks": {
         "quote_1": {
           "type": "quote",
@@ -137,18 +194,27 @@
         "quote_1",
         "quote_2",
         "quote_3"
-      ]
+      ],
+      "settings": {
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 120,
+        "padding_bottom": 96
+      }
     },
     "pricing": {
       "type": "tf-pricing",
-      "settings": {},
       "blocks": {
         "plan_1": {
           "type": "plan",
           "settings": {
             "name": "10 credits",
+            "badge": "",
             "description": "€1,00 per preview",
-            "action_text": "€9,99"
+            "action_style": "price",
+            "action_text": "€9,99",
+            "action_link": "#",
+            "highlight": false
           }
         },
         "plan_2": {
@@ -157,7 +223,9 @@
             "name": "25 credits",
             "badge": "Popular",
             "description": "€1,20 per preview",
+            "action_style": "price",
             "action_text": "€29,99",
+            "action_link": "#",
             "highlight": true
           }
         },
@@ -165,8 +233,12 @@
           "type": "plan",
           "settings": {
             "name": "50 credits",
+            "badge": "",
             "description": "€1,00 per preview",
-            "action_text": "€49,99"
+            "action_style": "price",
+            "action_text": "€49,99",
+            "action_link": "#",
+            "highlight": false
           }
         }
       },
@@ -174,11 +246,19 @@
         "plan_1",
         "plan_2",
         "plan_3"
-      ]
+      ],
+      "settings": {
+        "heading": "Credits, not subscriptions.",
+        "heading_size": 56,
+        "text": "Free download. One credit per smile preview. Credits never expire.",
+        "anchor": "pricing",
+        "border_top": true,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     },
     "faq": {
       "type": "tf-faq",
-      "settings": {},
       "blocks": {
         "question_1": {
           "type": "question",
@@ -192,21 +272,24 @@
           "type": "question",
           "settings": {
             "question": "What happens to my photos?",
-            "answer": "<p>They remain private and are never shared without your permission.</p>"
+            "answer": "<p>They remain private and are never shared without your permission.</p>",
+            "open": false
           }
         },
         "question_3": {
           "type": "question",
           "settings": {
             "question": "How long does it take?",
-            "answer": "<p>Seconds for a photo preview. Video takes a little longer.</p>"
+            "answer": "<p>Seconds for a photo preview. Video takes a little longer.</p>",
+            "open": false
           }
         },
         "question_4": {
           "type": "question",
           "settings": {
             "question": "Which devices?",
-            "answer": "<p>iPhone with iOS 18 or later; also Apple silicon Macs and Apple Vision.</p>"
+            "answer": "<p>iPhone with iOS 18 or later; also Apple silicon Macs and Apple Vision.</p>",
+            "open": false
           }
         }
       },
@@ -215,11 +298,30 @@
         "question_2",
         "question_3",
         "question_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "FAQ",
+        "heading_size": 56,
+        "anchor": "faq",
+        "border_top": false,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     },
     "cta": {
       "type": "tf-cta",
-      "settings": {}
+      "settings": {
+        "show_symbol": true,
+        "heading": "One selfie away.",
+        "heading_size": 88,
+        "button_label": "Download on the App Store",
+        "button_link": "",
+        "anchor": "",
+        "border_top": true,
+        "padding_top": 140,
+        "padding_bottom": 140
+      }
     }
   },
   "order": [
