@@ -148,7 +148,7 @@ input, select, textarea, button { font: inherit; }
 .tf-section--header.is-scrolled.is-hidden .tf-header { transform: translateY(calc(-100% - 40px)); box-shadow: inset 0 0 0 1px transparent, 0 12px 36px rgba(26, 21, 23, 0), 0 1px 2px rgba(26, 21, 23, 0); pointer-events: none; }
 .tf-wrap[id], .tf-wrap form[id] { scroll-margin-top: 104px; }
 
-/* Hero — centred, three floating phones (landing) ------------------------- */
+/* Hero — centred, three phones (landing) ---------------------------------- */
 .tf-hero-c { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .tf-hero-c .tf-eyebrow { margin-bottom: 32px; }
 .tf-hero-c .tf-h1 { max-width: 1100px; margin-bottom: 32px; }
@@ -159,25 +159,87 @@ input, select, textarea, button { font: inherit; }
   .tf-hero-c__stage { container-type: inline-size; }
   .tf-hero-c__phones { --u: min(1px, calc(100cqi / 940)); }
 }
-.tf-hero-c__phones { position: relative; display: flex; justify-content: center; align-items: flex-end; gap: calc(24 * var(--u)); padding-bottom: calc(24 * var(--u)); }
+.tf-hero-c__phones {
+  position: relative; display: flex; justify-content: center; align-items: flex-end;
+  gap: calc(24 * var(--u)); padding-bottom: calc(24 * var(--u)); perspective: 1400px;
+}
 .tf-hero-c__glow {
   position: absolute; left: 50%; top: 50%; width: calc(720 * var(--u)); height: calc(520 * var(--u)); border-radius: 50%;
   background: radial-gradient(closest-side, rgba(230, 0, 126, .28), rgba(230, 0, 126, 0));
   transform: translate(-50%, -50%); animation: tf-glow 7s ease-in-out infinite; pointer-events: none;
 }
-.tf-hero-c .tf-phone--side { width: calc(280 * var(--u)); height: calc(580 * var(--u)); padding: calc(10 * var(--u)); border-radius: calc(44 * var(--u)); }
-.tf-hero-c .tf-phone--side .tf-screen { border-radius: calc(36 * var(--u)); }
-.tf-hero-c .tf-phone--l { transform: rotate(-6deg) translateY(calc(24 * var(--u))); animation: tf-float-l 7s ease-in-out infinite; }
-.tf-hero-c .tf-phone--r { transform: rotate(6deg) translateY(calc(24 * var(--u))); animation: tf-float-r 8s ease-in-out infinite; animation-delay: -4s; }
-.tf-hero-c .tf-phone--c {
-  width: calc(320 * var(--u)); height: calc(660 * var(--u)); padding: calc(12 * var(--u)); border-radius: calc(48 * var(--u));
-  box-shadow: 0 40px 100px rgba(230, 0, 126, .18); animation: tf-float-c 6s ease-in-out infinite; animation-delay: -2s;
+.tf-hero-c__floor {
+  position: absolute; left: 50%; bottom: calc(-6 * var(--u)); width: calc(760 * var(--u)); height: calc(60 * var(--u));
+  transform: translateX(-50%); border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(26, 21, 23, .20), rgba(26, 21, 23, 0));
 }
-.tf-hero-c .tf-phone--c .tf-screen { border-radius: calc(38 * var(--u)); }
-@keyframes tf-float-l { 0%,100% { transform: rotate(-6deg) translateY(calc(24 * var(--u))); } 50% { transform: rotate(-7deg) translateY(calc(6 * var(--u))); } }
-@keyframes tf-float-c { 0%,100% { transform: translateY(0); } 50% { transform: translateY(calc(-22 * var(--u))); } }
-@keyframes tf-float-r { 0%,100% { transform: rotate(6deg) translateY(calc(24 * var(--u))); } 50% { transform: rotate(7deg) translateY(calc(6 * var(--u))); } }
 @keyframes tf-glow { 0%,100% { opacity: .55; transform: translate(-50%, -50%) scale(1); } 50% { opacity: .9; transform: translate(-50%, -50%) scale(1.12); } }
+
+/* Slots hold the position (and the scroll fan-out); devices hold the mouse tilt. */
+.tf-hero-c__slot { position: relative; flex: none; }
+.tf-hero-c__slot--c { z-index: 2; }
+.tf-hero-c__slot--l { transform: translateY(calc(24 * var(--u))) rotate(-6deg); }
+.tf-hero-c__slot--r { transform: translateY(calc(24 * var(--u))) rotate(6deg); }
+
+/* Realistic iPhone: metal rim, black bezel, Dynamic Island, side buttons, glass sheen. */
+.tf-device {
+  --rim: calc(3 * var(--u)); --bezel: calc(7 * var(--u)); --r: calc(44 * var(--u));
+  position: relative; padding: var(--bezel); border: var(--rim) solid transparent; border-radius: var(--r);
+  background:
+    linear-gradient(#0d0b0c, #0d0b0c) padding-box,
+    linear-gradient(150deg, #7a7075 0%, #2a2427 22%, #574f53 48%, #1d191b 70%, #6a6166 100%) border-box;
+  box-shadow: 0 calc(30 * var(--u)) calc(60 * var(--u)) rgba(26, 21, 23, .22), 0 calc(6 * var(--u)) calc(14 * var(--u)) rgba(26, 21, 23, .12);
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .5s var(--tf-ease);
+  will-change: transform;
+}
+.tf-device--side { width: calc(280 * var(--u)); height: calc(580 * var(--u)); }
+.tf-device--center {
+  --bezel: calc(9 * var(--u)); --r: calc(50 * var(--u));
+  width: calc(320 * var(--u)); height: calc(660 * var(--u));
+  box-shadow: 0 calc(40 * var(--u)) calc(100 * var(--u)) rgba(230, 0, 126, .20), 0 calc(30 * var(--u)) calc(60 * var(--u)) rgba(26, 21, 23, .22);
+}
+.tf-device .tf-screen { border-radius: calc(var(--r) - var(--rim) - var(--bezel) + calc(2 * var(--u))); }
+.tf-device .tf-screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.tf-device .tf-screen::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(125deg, rgba(255, 255, 255, .14) 0%, rgba(255, 255, 255, 0) 32%);
+}
+.tf-device__island {
+  position: absolute; z-index: 1; top: calc(10 * var(--u)); left: 50%; transform: translateX(-50%);
+  width: 32%; height: calc(26 * var(--u)); border-radius: 999px; background: #000;
+}
+/* Side buttons: power on the right, action + volume on the left. */
+.tf-device::before, .tf-device::after {
+  content: ''; position: absolute; width: calc(3 * var(--u)); border-radius: calc(2 * var(--u));
+  background: linear-gradient(90deg, #2a2427, #6a6166);
+}
+.tf-device::before { right: calc(-1 * var(--rim) - 3 * var(--u)); top: 27%; height: 13%; }
+.tf-device::after {
+  left: calc(-1 * var(--rim) - 3 * var(--u)); top: 18%; height: 5%;
+  box-shadow: 0 calc(46 * var(--u)) 0 0 #4a4246, 0 calc(100 * var(--u)) 0 0 #4a4246;
+}
+.tf-device--center::after { box-shadow: 0 calc(52 * var(--u)) 0 0 #4a4246, 0 calc(112 * var(--u)) 0 0 #4a4246; }
+
+/* Fan-out: the phones start tucked together and spread while the page scrolls,
+   and the group drifts slightly slower than the page. Browsers without
+   scroll-driven animations show the final layout. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-tf-fan] .tf-hero-c__slot--l { animation: tf-fan-l linear both; animation-timeline: scroll(root block); animation-range: 0px 420px; }
+    [data-tf-fan] .tf-hero-c__slot--r { animation: tf-fan-r linear both; animation-timeline: scroll(root block); animation-range: 0px 420px; }
+    [data-tf-fan] .tf-hero-c__phones { animation: tf-drift linear both; animation-timeline: scroll(root block); animation-range: 0px 900px; }
+  }
+}
+@keyframes tf-fan-l {
+  from { transform: translateX(calc(150 * var(--u))) translateY(calc(44 * var(--u))) rotate(-1deg) scale(.92); }
+  to   { transform: translateY(calc(24 * var(--u))) rotate(-6deg); }
+}
+@keyframes tf-fan-r {
+  from { transform: translateX(calc(-150 * var(--u))) translateY(calc(44 * var(--u))) rotate(1deg) scale(.92); }
+  to   { transform: translateY(calc(24 * var(--u))) rotate(6deg); }
+}
+@keyframes tf-drift { from { transform: none; } to { transform: translateY(calc(90 * var(--u))); } }
 
 /* Hero — split, two phones (professionals) -------------------------------- */
 .tf-hero-s { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
@@ -489,6 +551,7 @@ input, select, textarea, button { font: inherit; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tf-hero-c__glow, .tf-hero-c .tf-phone, .tf-video__glow { animation: none !important; }
+  .tf-hero-c__glow, .tf-video__glow { animation: none !important; }
+  .tf-device { transition: none; }
   .tf-btn, .tf-dot, .tf-q__icon, .tf-section--header .tf-wrap, .tf-section--header .tf-header, .tf-section--header .tf-header__logo img { transition: none; }
 }

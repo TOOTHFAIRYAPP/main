@@ -13,7 +13,7 @@ All pages match the 1440px design on desktop and reflow for tablet and phone.
 | Section | Used for |
 | --- | --- |
 | TF Header | Logo, menu links (blocks) and button. One per page, so every page can have its own menu. Turns into a floating capsule on scroll, slides away while scrolling down and returns on scroll up; can be switched off. |
-| TF Hero (centred) | Landing hero with three floating phones. |
+| TF Hero (centred) | Landing hero with three realistic iPhones: optional looping video in the middle one, fan-out on scroll and a mouse tilt (both can be switched off). |
 | TF Hero (split) | Professionals hero with two phones. |
 | TF Page intro | FAQ heading, intro text and jump links. |
 | TF Before / after | Drag slider. |

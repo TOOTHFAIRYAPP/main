@@ -100,7 +100,30 @@
     });
   }
 
-  function init(root) { initSliders(root); initForms(root); initReveal(root); updateHeader(); }
+  // Hero tilt: the phones turn a few degrees towards the mouse (desktop only).
+  var canTilt = !reduceMotion && !designMode && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  function initTilt(root) {
+    if (!canTilt) return;
+    root.querySelectorAll('[data-tf-tilt]').forEach(function (stage) {
+      if (stage.dataset.tfTiltReady) return;
+      stage.dataset.tfTiltReady = '1';
+      var phones = stage.querySelector('.tf-hero-c__phones');
+      var area = stage.closest('.tf-hero-c') || stage;
+      var raf = 0, mx = 0, my = 0;
+      function apply() {
+        raf = 0;
+        var r = stage.getBoundingClientRect();
+        var x = Math.max(-1, Math.min(1, (mx - (r.left + r.width / 2)) / (r.width / 2)));
+        var y = Math.max(-1, Math.min(1, (my - (r.top + r.height / 2)) / (r.height / 2)));
+        phones.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg');
+        phones.style.setProperty('--rx', (-y * 5).toFixed(2) + 'deg');
+      }
+      area.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; if (!raf) raf = requestAnimationFrame(apply); });
+      area.addEventListener('mouseleave', function () { phones.style.setProperty('--ry', '0deg'); phones.style.setProperty('--rx', '0deg'); });
+    });
+  }
+
+  function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); updateHeader(); }
   init(document);
   // Re-run when a section is added or changed in the theme editor.
   document.addEventListener('shopify:section:load', function (e) { init(e.target); });
