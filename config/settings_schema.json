@@ -15,6 +15,13 @@
         "id": "app_store_url",
         "label": "App Store link",
         "info": "Used by every App Store button whose own link is empty."
+      },
+      {
+        "type": "checkbox",
+        "id": "smart_app_banner",
+        "label": "Show App Store banner in Safari on iPhone",
+        "default": true,
+        "info": "Apple's own banner at the top of the page, with the app icon and an Open/Get button."
       }
     ]
   }

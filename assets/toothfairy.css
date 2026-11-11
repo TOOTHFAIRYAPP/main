@@ -117,6 +117,19 @@ input, select, textarea, button { font: inherit; }
 .tf-menu__panel a { padding: 16px 0; border-top: 1px solid var(--tf-line); }
 .tf-menu__panel a:first-child { border-top: 0; }
 
+/* Sticky header: stays on top, turns compact and frosted once the page scrolls */
+.tf-section--header:has(.tf-header[data-sticky]) { position: sticky; top: 0; z-index: 30; }
+.tf-section--header .tf-wrap { transition: padding .3s var(--tf-ease), background-color .3s ease, box-shadow .3s ease; }
+.tf-section--header .tf-header__logo img { transition: height .3s var(--tf-ease); }
+.tf-section--header.is-scrolled .tf-wrap {
+  padding-top: 14px; padding-bottom: 14px;
+  background: rgba(244, 238, 240, .86);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px);
+  box-shadow: 0 1px 0 var(--tf-line), 0 12px 32px rgba(26, 21, 23, .06);
+}
+.tf-section--header.is-scrolled .tf-header__logo img { height: 34px; }
+.tf-wrap[id], .tf-wrap form[id] { scroll-margin-top: 88px; }
+
 /* Hero — centred, three floating phones (landing) ------------------------- */
 .tf-hero-c { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .tf-hero-c .tf-eyebrow { margin-bottom: 32px; }
@@ -384,6 +397,9 @@ input, select, textarea, button { font: inherit; }
   :root { --tf-gutter: 20px; --tf-panel-pad: 40px 24px; --tf-space: .62; }
   .tf-header__logo img { height: 36px; }
   .tf-header__cta { padding: 12px 16px; }
+  .tf-section--header.is-scrolled .tf-wrap { padding-top: 10px; padding-bottom: 10px; }
+  .tf-section--header.is-scrolled .tf-header__logo img { height: 30px; }
+  .tf-wrap[id], .tf-wrap form[id] { scroll-margin-top: 72px; }
   .tf-lead, .tf-hero-c .tf-lead { font-size: 18px; }
   .tf-hero-c .tf-eyebrow, .tf-hero-s .tf-eyebrow { margin-bottom: 20px; }
   .tf-hero-c .tf-lead, .tf-hero-s .tf-lead { margin-bottom: 32px; }
@@ -416,5 +432,5 @@ input, select, textarea, button { font: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   .tf-hero-c__glow, .tf-hero-c .tf-phone, .tf-video__glow { animation: none !important; }
-  .tf-btn, .tf-dot, .tf-q__icon { transition: none; }
+  .tf-btn, .tf-dot, .tf-q__icon, .tf-section--header .tf-wrap, .tf-section--header .tf-header__logo img { transition: none; }
 }

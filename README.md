@@ -6,13 +6,13 @@ All pages match the 1440px design on desktop and reflow for tablet and phone.
 
 ## Install via GitHub
 1. Shopify admin → Online Store → Themes → **Add theme → Connect from GitHub** → pick this repo and branch.
-2. Theme settings → **Toothfairy → App Store link**.
+2. Theme settings → **Toothfairy → App Store link**. The app ID in that link also drives Safari's App Store banner on iPhone (can be switched off there).
 3. Create a page **Professionals** (template `page.professionals`) and a page **FAQ** (template `page.faq`).
 
 ## Sections
 | Section | Used for |
 | --- | --- |
-| TF Header | Logo, menu links (blocks) and button. One per page, so every page can have its own menu. |
+| TF Header | Logo, menu links (blocks) and button. One per page, so every page can have its own menu. Stays at the top while scrolling (turns compact and frosted); can be switched off. |
 | TF Hero (centred) | Landing hero with three floating phones. |
 | TF Hero (split) | Professionals hero with two phones. |
 | TF Page intro | FAQ heading, intro text and jump links. |

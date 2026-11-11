@@ -1,5 +1,5 @@
 <div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
-<nav class="tf-header" aria-label="Main">
+<nav class="tf-header"{% if section.settings.sticky %} data-sticky{% endif %} aria-label="Main">
   <a class="tf-header__logo" href="{{ routes.root_url }}"><img src="{{ 'logo-dark.svg' | asset_url }}" alt="Toothfairy" width="160" height="44"></a>
   <div class="tf-header__links">
     {%- for block in section.blocks -%}
@@ -29,7 +29,7 @@
 {
   "name": "TF Header",
   "tag": "section",
-  "class": "tf-section",
+  "class": "tf-section tf-section--header",
   "settings": [
     {
       "type": "text",
@@ -58,6 +58,12 @@
         }
       ],
       "default": "primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Stay at the top while scrolling",
+      "default": true
     },
     {
       "type": "header",

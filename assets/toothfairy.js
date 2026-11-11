@@ -39,7 +39,23 @@
     });
   }
 
-  function init(root) { initSliders(root); initForms(root); }
+  // Sticky header: compact, frosted look once the page has scrolled.
+  var ticking = false;
+  function updateHeader() {
+    ticking = false;
+    var scrolled = window.scrollY > 8;
+    document.querySelectorAll('.tf-section--header').forEach(function (h) { h.classList.toggle('is-scrolled', scrolled); });
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(updateHeader); }
+  }, { passive: true });
+  // Close the mobile menu after tapping a link in it.
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('.tf-menu__panel a');
+    if (link) { var menu = link.closest('details'); if (menu) menu.removeAttribute('open'); }
+  });
+
+  function init(root) { initSliders(root); initForms(root); updateHeader(); }
   init(document);
   // Re-run when a section is added or changed in the theme editor.
   document.addEventListener('shopify:section:load', function (e) { init(e.target); });
