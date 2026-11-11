@@ -161,6 +161,7 @@
         "heading": "See it while you talk, laugh, live.",
         "heading_size": 56,
         "text": "A still photo shows the result. A video shows the feeling. Toothfairy™ AI turns your preview into a short animation you can watch again and again.",
+        "video": "shopify://files/videos/smile-video.mp4",
         "video_url": "",
         "anchor": "video",
         "border_top": false,
