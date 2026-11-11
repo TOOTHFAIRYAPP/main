@@ -10,7 +10,11 @@
   assign height = height | default: 992
 -%}
 {%- if image != blank -%}
-  {{ image | image_url: width: 1600 | image_tag: alt: alt, loading: loading, sizes: sizes, widths: '320, 480, 640, 960, 1280, 1600' }}
+  {%- comment -%} Follow the focal point set in Shopify (Content → Files, or the image picker). Unset (centre) keeps the top of the screen, as for app screenshots. {%- endcomment -%}
+  {%- assign focal = image.presentation.focal_point | default: '' -%}
+  {%- if focal == blank or focal == '50.0% 50.0%' or focal == '50% 50%' -%}{%- assign focal = 'top' -%}{%- endif -%}
+  {%- assign focal_style = 'object-position: ' | append: focal -%}
+  {{ image | image_url: width: 1600 | image_tag: alt: alt, loading: loading, sizes: sizes, widths: '320, 480, 640, 960, 1280, 1600', style: focal_style }}
 {%- elsif fallback != blank and fallback != 'none' -%}
   <img src="{{ fallback | asset_url }}" alt="{{ alt | escape }}" loading="{{ loading }}" width="{{ width }}" height="{{ height }}">
 {%- endif -%}
