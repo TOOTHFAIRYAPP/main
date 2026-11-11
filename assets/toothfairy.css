@@ -309,7 +309,7 @@ input, select, textarea, button { font: inherit; }
 /* Pricing ----------------------------------------------------------------- */
 .tf-pricing .tf-h2 { margin-bottom: 24px; }
 .tf-plans { display: flex; flex-direction: column; }
-.tf-plan { display: grid; grid-template-columns: 1fr 1fr auto; grid-template-areas: "name desc action"; align-items: baseline; gap: 24px; padding: 28px 0; border-top: 1px solid var(--tf-line); }
+.tf-plan { position: relative; display: grid; grid-template-columns: 1fr 1fr minmax(160px, auto); grid-template-areas: "name desc action"; align-items: baseline; gap: 24px; padding: 28px 0; border-top: 1px solid var(--tf-line); }
 .tf-plan:last-child { border-bottom: 1px solid var(--tf-line); }
 .tf-plan--highlight { color: var(--tf-pink); }
 .tf-plan__name { grid-area: name; font-size: 22px; }
@@ -319,6 +319,21 @@ input, select, textarea, button { font: inherit; }
 .tf-plan__price { font-size: 32px; font-weight: 500; }
 .tf-plan__link { font-size: 16px; font-weight: 700; border-bottom: 2px solid var(--tf-pink); }
 .tf-plan__note { font-size: 16px; color: var(--tf-muted); }
+
+/* Hover: a white card fades in behind the row; name and price grow a little. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .tf-plan::before {
+    content: ''; position: absolute; z-index: 0; inset: -1px -24px; border-radius: 16px;
+    background: var(--tf-paper); box-shadow: 0 16px 40px rgba(26, 21, 23, .07);
+    opacity: 0; transform: scale(.97); transition: opacity .35s ease, transform .45s var(--tf-ease);
+  }
+  .tf-plan > * { position: relative; z-index: 1; transition: transform .45s var(--tf-ease); }
+  .tf-plan__name { transform-origin: left center; }
+  .tf-plan__action { transform-origin: right center; }
+  .tf-plan:hover::before { opacity: 1; transform: none; }
+  .tf-plan:hover .tf-plan__name { transform: scale(1.06); }
+  .tf-plan:hover .tf-plan__action { transform: scale(1.12); }
+}
 
 /* FAQ --------------------------------------------------------------------- */
 .tf-faq .tf-eyebrow { margin-bottom: 16px; }
