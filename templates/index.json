@@ -166,8 +166,39 @@
         "anchor": "video",
         "border_top": false,
         "padding_top": 0,
-        "padding_bottom": 0
-      }
+        "padding_bottom": 0,
+        "button_label": "Download on the App Store",
+        "button_link": "",
+        "show_watermark": false
+      },
+      "blocks": {
+        "point_1": {
+          "type": "point",
+          "settings": {
+            "label": "~30 seconds",
+            "text": "to create your video"
+          }
+        },
+        "point_2": {
+          "type": "point",
+          "settings": {
+            "label": "Save or share",
+            "text": "straight to WhatsApp or your dentist"
+          }
+        },
+        "point_3": {
+          "type": "point",
+          "settings": {
+            "label": "Natural movement",
+            "text": "no cartoon effects"
+          }
+        }
+      },
+      "block_order": [
+        "point_1",
+        "point_2",
+        "point_3"
+      ]
     },
     "testimonials": {
       "type": "tf-cards",

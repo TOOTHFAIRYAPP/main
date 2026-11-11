@@ -1,19 +1,33 @@
 <div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
 {%- assign s = section.settings -%}
 <div class="tf-panel tf-video">
-  <div>
+  {%- if s.show_watermark -%}<img class="tf-video__mark" src="{{ 'symbol-dark.svg' | asset_url }}" alt="" width="560" height="560" loading="lazy">{%- endif -%}
+  <div class="tf-video__text">
     {%- if s.eyebrow != blank -%}<div class="tf-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
     <h2 class="tf-h2">{{ s.heading }}</h2>
     {%- if s.text != blank -%}<p class="tf-body">{{ s.text }}</p>{%- endif -%}
-  </div>
-  <div class="tf-video__frame">
-    {%- if s.video != blank -%}
-      {{ s.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '720x' }}
-    {%- elsif s.video_url != blank -%}
-      <video src="{{ s.video_url }}" autoplay muted loop playsinline></video>
-    {%- else -%}
-      <div class="tf-video__empty">Add a video in the theme editor</div>
+    {%- if section.blocks.size > 0 -%}
+      <ul class="tf-video__points">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}><strong>{{ block.settings.label }}</strong><span>{{ block.settings.text }}</span></li>
+        {%- endfor -%}
+      </ul>
     {%- endif -%}
+    {%- if s.button_label != blank -%}
+      <a class="tf-btn tf-btn--light" href="{{ s.button_link | default: settings.app_store_url }}"><span>{{ s.button_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>
+    {%- endif -%}
+  </div>
+  <div class="tf-video__stage">
+    <div class="tf-video__glow"></div>
+    <div class="tf-video__phone"><div class="tf-screen">
+      {%- if s.video != blank -%}
+        {{ s.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '720x' }}
+      {%- elsif s.video_url != blank -%}
+        <video src="{{ s.video_url }}" autoplay muted loop playsinline></video>
+      {%- else -%}
+        <div class="tf-video__empty">Add a video in the theme editor</div>
+      {%- endif -%}
+    </div></div>
   </div>
 </div>
 </div>
@@ -53,16 +67,39 @@
       "default": "A still photo shows the result. A video shows the feeling. Toothfairy™ AI turns your preview into a short animation you can watch again and again."
     },
     {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button",
+      "default": "Download on the App Store",
+      "info": "Leave empty to hide the button."
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "Empty = App Store link."
+    },
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
       "type": "video",
       "id": "video",
       "label": "Video",
-      "info": "Plays muted on a loop. Portrait (9:16) works best."
+      "info": "Plays muted on a loop inside the phone. Portrait (9:16) works best."
     },
     {
       "type": "url",
       "id": "video_url",
       "label": "Or video URL (MP4)",
       "info": "Only used when no video is picked above."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_watermark",
+      "label": "Show large symbol in the background",
+      "default": false
     },
     {
       "type": "header",
@@ -102,9 +139,52 @@
       "default": 0
     }
   ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Point"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "TF Video feature"
+      "name": "TF Video feature",
+      "blocks": [
+        {
+          "type": "point",
+          "settings": {
+            "label": "~30 seconds",
+            "text": "to create your video"
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "label": "Save or share",
+            "text": "straight to WhatsApp or your dentist"
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "label": "Natural movement",
+            "text": "no cartoon effects"
+          }
+        }
+      ]
     }
   ]
 }

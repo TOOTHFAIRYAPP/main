@@ -220,17 +220,39 @@ input, select, textarea, button { font: inherit; }
 .tf-flow__phone { height: 100%; padding: 10px 10px 0; border-radius: 36px 36px 0 0; background: var(--tf-ink); }
 .tf-flow__phone .tf-screen { border-radius: 28px 28px 0 0; }
 
-/* Video feature (pink) */
-.tf-video { grid-template-columns: 1fr 1fr; gap: 64px; background: var(--tf-pink); color: #fff; }
+/* Video feature (pink): text left, phone rising from the bottom edge */
+.tf-video { position: relative; overflow: hidden; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; padding-bottom: 0; background: var(--tf-pink); color: #fff; }
+.tf-video__text { position: relative; z-index: 1; align-self: center; padding-bottom: 96px; }
 .tf-video .tf-eyebrow { color: var(--tf-pink-tint); margin-bottom: 24px; }
 .tf-video .tf-h2 { margin-bottom: 24px; }
-.tf-video .tf-body { color: var(--tf-pink-tint); }
-.tf-video__frame { position: relative; aspect-ratio: 9 / 16; border-radius: 16px; background: var(--tf-ink); overflow: hidden; }
-.tf-video__frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tf-video .tf-body { color: var(--tf-pink-tint); max-width: 520px; }
+.tf-video__points { list-style: none; margin: 32px 0 0; padding: 0; max-width: 520px; font-size: 15px; line-height: 1.45; }
+.tf-video__points li { display: grid; grid-template-columns: minmax(130px, 38%) 1fr; gap: 16px; align-items: baseline; padding: 14px 0; border-top: 1px solid rgba(255, 255, 255, .28); }
+.tf-video__points li:last-child { border-bottom: 1px solid rgba(255, 255, 255, .28); }
+.tf-video__points strong { font-weight: 500; color: #fff; }
+.tf-video__points span { color: var(--tf-pink-tint); }
+.tf-video .tf-btn { margin-top: 32px; }
+.tf-btn--light { background: #fff; color: var(--tf-pink); font-weight: 700; border: 0; transition: background .35s ease; }
+.tf-btn--light:hover { background: var(--tf-pink-tint); opacity: 1; }
+.tf-btn--light .tf-dot, .tf-btn--light:hover .tf-dot, .tf-btn--light:focus-visible .tf-dot { background: var(--tf-pink); }
+.tf-video__stage { position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; }
+.tf-video__glow {
+  position: absolute; left: 50%; top: 50%; width: 560px; height: 560px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, .34), rgba(255, 255, 255, 0));
+  transform: translate(-50%, -50%); animation: tf-glow 7s ease-in-out infinite; pointer-events: none;
+}
+.tf-video__phone {
+  position: relative; width: clamp(240px, 22.23vw, 320px); aspect-ratio: 320 / 500;
+  padding: 12px 12px 0; border-radius: 48px 48px 0 0; background: var(--tf-ink);
+  box-shadow: 0 -20px 80px rgba(26, 21, 23, .18);
+}
+.tf-video__phone .tf-screen { border-radius: 38px 38px 0 0; }
+.tf-video__phone video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .tf-video__empty {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center;
   background: repeating-linear-gradient(135deg, #2a2326 0 16px, #332b2f 16px 32px); font-size: 13px; line-height: 1.6; color: var(--tf-pink-tint);
 }
+.tf-video__mark { position: absolute; top: -150px; right: -150px; width: 560px; height: 560px; opacity: .07; pointer-events: none; }
 
 /* Cards (testimonials and facts) ----------------------------------------- */
 .tf-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -324,6 +346,7 @@ input, select, textarea, button { font: inherit; }
 @media (max-width: 1280px) {
   :root { --tf-gutter: 48px; --tf-panel-pad: 64px; }
   .tf-split, .tf-panel { gap: 56px; }
+  .tf-video__text { padding-bottom: 64px; }
 }
 
 /* ≤1024: two-column blocks stack ----------------------------------------- */
@@ -334,7 +357,9 @@ input, select, textarea, button { font: inherit; }
   .tf-hero-s__visual { width: 100%; max-width: 560px; justify-self: center; }
   .tf-panel { grid-template-columns: 1fr; gap: 48px; }
   .tf-flow__visual { max-width: 554px; justify-self: center; }
-  .tf-video__frame { width: 100%; max-width: 420px; justify-self: center; }
+  .tf-video { gap: 48px; }
+  .tf-video__text { padding-bottom: 0; }
+  .tf-video__mark { width: 400px; height: 400px; top: -120px; right: -120px; }
   .tf-form-panel .tf-body { margin-bottom: 24px; }
 }
 
@@ -385,9 +410,11 @@ input, select, textarea, button { font: inherit; }
   .tf-sent { min-height: 0; padding: 32px 24px; }
   .tf-sent__title { font-size: 26px; }
   .tf-ba__label { bottom: 16px; }
+  .tf-video .tf-btn { width: 100%; }
+  .tf-video__glow { width: 420px; height: 420px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tf-hero-c__glow, .tf-hero-c .tf-phone { animation: none !important; }
+  .tf-hero-c__glow, .tf-hero-c .tf-phone, .tf-video__glow { animation: none !important; }
   .tf-btn, .tf-dot, .tf-q__icon { transition: none; }
 }
