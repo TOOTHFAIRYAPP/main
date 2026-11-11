@@ -1,0 +1,144 @@
+<div>
+<div class="tf-page" style="max-width:1440px; margin:0 auto; position:relative; background:#f4eef0; color:#1a1517; font-family:'Space Grotesk', sans-serif">
+  
+  <nav style="display:flex; justify-content:space-between; align-items:center; padding:28px 80px">
+    <div style="display:flex; align-items:center; gap:12px">
+      <img src="{{ 'logo-dark.svg' | asset_url }}" alt="Toothfairy" style="height:44px; width:auto; display:block">
+    </div>
+    <div style="display:flex; gap:36px; font-size:15px; color:#6b5f65"><a href="#how">How it works</a><a href="#video">Video</a><a href="#pricing">Pricing</a><a href="/pages/faq">FAQ</a><a href="/pages/professionals" style="color:#e6007e">For professionals</a></div>
+    <a href="{{ settings.app_store_url }}" style="border:1px solid #cfc3c8; color:#1a1517; padding:12px 22px; border-radius:8px; font-size:14px; font-weight:500">App Store</a>
+  </nav>
+
+  <header style="padding:120px 80px 80px; text-align:center; display:flex; flex-direction:column; align-items:center">
+    <div style="font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:#e6007e; margin-bottom:32px">AI smile simulation · iPhone</div>
+    <h1 style="font-weight:500; font-size:104px; line-height:.95; letter-spacing:-.04em; margin:0 0 32px; max-width:1100px; text-wrap:balance">Your future smile,<br>from one selfie.</h1>
+    <p style="font-size:21px; line-height:1.5; color:#6b5f65; max-width:620px; margin:0 0 48px; text-wrap:pretty">Realistic, natural-looking previews in seconds. Then watch it move in an AI-generated video.</p>
+    <div style="display:flex; gap:12px">
+      <a data-smile href="{{ settings.app_store_url }}" style="background:#e6007e; color:#fff; padding:18px 32px; border-radius:8px; font-size:16px; font-weight:700; display:inline-flex; align-items:center; gap:12px"><span>Download on the App Store</span><span data-smile-arc></span></a>
+      <a data-smile-ghost href="#video" style="border:1px solid #cfc3c8; padding:18px 32px; border-radius:8px; font-size:16px; font-weight:500; display:inline-flex; align-items:center; gap:12px"><span>Watch the video</span><span data-smile-arc></span></a>
+    </div>
+    <div style="display:flex; gap:24px; margin-top:96px; align-items:flex-end; position:relative">
+      <div style="position:absolute; left:50%; top:50%; width:720px; height:520px; border-radius:50%; background:radial-gradient(closest-side, rgba(230,0,126,.28), rgba(230,0,126,0)); transform:translate(-50%,-50%); animation:tf-glow 7s ease-in-out infinite; pointer-events:none"></div>
+      <div style="width:280px; height:580px; border-radius:44px; background:#1a1517; padding:10px; transform:rotate(-6deg) translateY(24px); animation:tf-float-l 7s ease-in-out infinite; position:relative">
+        <div style="width:100%; height:100%; border-radius:36px; overflow:hidden; background:#fff"><img src="{{ 'screen-onboarding.png' | asset_url }}" alt="" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:0"></div>
+      </div>
+      <div style="width:320px; height:660px; border-radius:48px; background:#1a1517; padding:12px; box-shadow:0 40px 100px rgba(230,0,126,.18); animation:tf-float-c 6s ease-in-out infinite; animation-delay:-2s; position:relative">
+        <div style="width:100%; height:100%; border-radius:38px; overflow:hidden; background:#fff"><img src="{{ 'screen-result.png' | asset_url }}" alt="" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:0"></div>
+      </div>
+      <div style="width:280px; height:580px; border-radius:44px; background:#1a1517; padding:10px; transform:rotate(6deg) translateY(24px); animation:tf-float-r 8s ease-in-out infinite; animation-delay:-4s; position:relative">
+        <div style="width:100%; height:100%; border-radius:36px; overflow:hidden; background:#fff"><img src="{{ 'screen-gallery.png' | asset_url }}" alt="" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:0"></div>
+      </div>
+    </div>
+  </header>
+
+  <section style="padding:120px 80px 96px">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; gap:64px">
+      <h2 style="font-weight:500; font-size:56px; line-height:1; letter-spacing:-.03em; margin:0; max-width:620px">Enhanced. Not replaced.</h2>
+      <p style="font-size:17px; line-height:1.6; color:#6b5f65; margin:0; max-width:460px">Drag the handle. The preview keeps your features, your expression and your proportions.</p>
+    </div>
+    <div style="position:relative; height:640px; border-radius:16px; overflow:hidden; background:repeating-linear-gradient(135deg,#e3d9dd 0 16px,#ebe3e6 16px 32px)">
+      <img src="{{ 'teeth-before.png' | asset_url }}" alt="Before" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block">
+      <div data-ba-after style="position:absolute; inset:0; width:50%; overflow:hidden">
+        <img src="{{ 'teeth-after.png' | asset_url }}" alt="After" style="position:absolute; inset:0; width:1280px; height:100%; object-fit:cover; object-position:50% 50%; display:block">
+      </div>
+      <div data-ba-line style="position:absolute; top:0; bottom:0; left:50%; width:2px; background:#e6007e; transform:translateX(-1px)"></div>
+      <div data-ba-handle style="position:absolute; top:50%; left:50%; width:56px; height:56px; border-radius:8px; background:#e6007e; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; font-size:14px; color:#fff">◀▶</div>
+      <input type="range" min="0" max="100" value="50" data-ba-range aria-label="Compare before and after" style="position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:ew-resize; margin:0">
+      <span style="position:absolute; bottom:24px; left:24px; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#6b5f65">Before</span>
+      <span style="position:absolute; bottom:24px; right:24px; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#e6007e">After</span>
+    </div>
+  </section>
+
+  <section id="how" style="padding:96px 80px; border-top:1px solid #e3d9dd">
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0">
+      <div style="padding:0 40px 0 0; border-right:1px solid #e3d9dd; display:flex; flex-direction:column; gap:24px">
+        <div style="font-size:13px; letter-spacing:.2em; color:#e6007e">01</div>
+        <h3 style="margin:0; font-size:32px; font-weight:500; letter-spacing:-.02em; line-height:1.1">Take a selfie</h3>
+        <p style="margin:0; color:#6b5f65; line-height:1.6; font-size:16px">Or pick one from your library. Good light, relaxed smile.</p>
+        <div style="height:260px; border-radius:12px; margin-top:auto; overflow:hidden; background:#fbdfec; padding:20px 40px 0; box-sizing:border-box"><div style="width:100%; height:100%; border-radius:24px 24px 0 0; overflow:hidden; background:#fff"><img src="{{ 'screen-onboarding.png' | asset_url }}" alt="" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:0"></div></div>
+      </div>
+      <div style="padding:0 40px; border-right:1px solid #e3d9dd; display:flex; flex-direction:column; gap:24px">
+        <div style="font-size:13px; letter-spacing:.2em; color:#e6007e">02</div>
+        <h3 style="margin:0; font-size:32px; font-weight:500; letter-spacing:-.02em; line-height:1.1">Pick a style</h3>
+        <p style="margin:0; color:#6b5f65; line-height:1.6; font-size:16px">Several natural enhancement styles — from subtle alignment to brighter.</p>
+        <div style="height:260px; border-radius:12px; margin-top:auto; overflow:hidden; background:#fbdfec; padding:20px 40px 0; box-sizing:border-box"><div style="width:100%; height:100%; border-radius:24px 24px 0 0; overflow:hidden; background:#fff"><img src="{{ 'screen-style.png' | asset_url }}" alt="" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:0"></div></div>
+      </div>
+      <div style="padding:0 0 0 40px; display:flex; flex-direction:column; gap:24px">
+        <div style="font-size:13px; letter-spacing:.2em; color:#e6007e">03</div>
+        <h3 style="margin:0; font-size:32px; font-weight:500; letter-spacing:-.02em; line-height:1.1">Watch it move</h3>
+        <p style="margin:0; color:#6b5f65; line-height:1.6; font-size:16px">Generate a short video of your enhanced smile. Save it or share it.</p>
+        <div style="height:260px; border-radius:12px; margin-top:auto; overflow:hidden; background:#fbdfec; padding:20px 40px 0; box-sizing:border-box"><div style="width:100%; height:100%; border-radius:24px 24px 0 0; overflow:hidden; background:#fff"><div style="position:relative; width:100%; height:100%">{% if section.settings.video_url_2 != blank %}<video src="{{ section.settings.video_url_2 }}" autoplay muted loop playsinline style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; display:block"></video>{% else %}<img src="{{ 'screen-result.png' | asset_url }}" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; display:block">{% endif %}</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="video" style="margin:0 80px; padding:96px; border-radius:24px; background:#e6007e; color:#fff; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center">
+    <div>
+      <div style="font-size:13px; letter-spacing:.2em; text-transform:uppercase; margin-bottom:24px; color:#fde6f1">Smile video previews</div>
+      <h2 style="font-weight:500; font-size:56px; line-height:1; letter-spacing:-.03em; margin:0 0 24px">See it while you talk, laugh, live.</h2>
+      <p style="font-size:17px; line-height:1.6; margin:0; color:#fde6f1; text-wrap:pretty">A still photo shows the result. A video shows the feeling. Toothfairy™ AI turns your preview into a short animation you can watch again and again.</p>
+    </div>
+    <div style="position:relative; aspect-ratio:9/16; border-radius:16px; background:#1a1517; overflow:hidden">{% if section.settings.video_url != blank %}<video src="{{ section.settings.video_url }}" autoplay muted loop playsinline style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block"></video>{% else %}<div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,#2a2326 0 16px,#332b2f 16px 32px); display:flex; align-items:center; justify-content:center; text-align:center; padding:24px; box-sizing:border-box; font-family:'Space Grotesk', monospace; font-size:13px; color:#fde6f1; line-height:1.6">Add a video URL in the theme editor</div>{% endif %}</div>
+  </section>
+
+  <section style="padding:120px 80px 96px">
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px">
+      <figure style="margin:0; border:1px solid #e3d9dd; border-radius:16px; padding:40px; display:flex; flex-direction:column; gap:32px">
+        <blockquote style="margin:0; font-size:22px; line-height:1.35; text-wrap:pretty">“It looked like me on a very good day. Nothing fake about it.”</blockquote>
+        <figcaption style="font-size:14px; color:#6b5f65">Sanne, 29 — Utrecht</figcaption>
+      </figure>
+      <figure style="margin:0; border:1px solid #e3d9dd; border-radius:16px; padding:40px; display:flex; flex-direction:column; gap:32px">
+        <blockquote style="margin:0; font-size:22px; line-height:1.35; text-wrap:pretty">“The video made it click. I finally booked the consultation I'd been putting off.”</blockquote>
+        <figcaption style="font-size:14px; color:#6b5f65">Daniel, 41 — Rotterdam</figcaption>
+      </figure>
+      <figure style="margin:0; border:1px solid #e3d9dd; border-radius:16px; padding:40px; display:flex; flex-direction:column; gap:32px">
+        <blockquote style="margin:0; font-size:22px; line-height:1.35; text-wrap:pretty">“I use it with patients to set expectations. It's honest about being a preview.”</blockquote>
+        <figcaption style="font-size:14px; color:#6b5f65">Dr. M. de Vries — Orthodontist</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="pricing" style="padding:96px 80px; border-top:1px solid #e3d9dd; display:grid; grid-template-columns:.8fr 1.2fr; gap:80px">
+    <div>
+      <h2 style="font-weight:500; font-size:56px; line-height:1; letter-spacing:-.03em; margin:0 0 24px">Credits, not subscriptions.</h2>
+      <p style="font-size:17px; line-height:1.6; color:#6b5f65; margin:0">Free download. One credit per smile preview. Credits never expire.</p>
+    </div>
+    <div style="display:flex; flex-direction:column">
+      <div style="display:grid; grid-template-columns:1fr 1fr auto; align-items:baseline; gap:24px; padding:28px 0; border-top:1px solid #e3d9dd"><span style="font-size:22px">10 credits</span><span style="color:#6b5f65">€1,00 per preview</span><span style="font-size:32px; font-weight:500">€9,99</span></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr auto; align-items:baseline; gap:24px; padding:28px 0; border-top:1px solid #e3d9dd; color:#e6007e"><span style="font-size:22px">25 credits <span style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin-left:12px">Popular</span></span><span style="color:#6b5f65">€1,20 per preview</span><span style="font-size:32px; font-weight:500">€29,99</span></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr auto; align-items:baseline; gap:24px; padding:28px 0; border-top:1px solid #e3d9dd; border-bottom:1px solid #e3d9dd"><span style="font-size:22px">50 credits</span><span style="color:#6b5f65">€1,00 per preview</span><span style="font-size:32px; font-weight:500">€49,99</span></div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding:96px 80px; display:grid; grid-template-columns:.8fr 1.2fr; gap:80px">
+    <h2 style="font-weight:500; font-size:56px; line-height:1; letter-spacing:-.03em; margin:0">FAQ</h2>
+    <div style="display:flex; flex-direction:column">
+      <details style="border-top:1px solid #e3d9dd; padding:24px 0" open><summary style="font-size:20px; display:flex; justify-content:space-between">Is this a medical prediction? <span style="color:#e6007e">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:600px">No. Toothfairy™ AI creates simulated previews for visualisation and inspiration only — not medical, dental or orthodontic advice.</p></details>
+      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between">What happens to my photos? <span style="color:#e6007e">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:600px">They remain private and are never shared without your permission.</p></details>
+      <details style="border-top:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between">How long does it take? <span style="color:#e6007e">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:600px">Seconds for a photo preview. Video takes a little longer.</p></details>
+      <details style="border-top:1px solid #e3d9dd; border-bottom:1px solid #e3d9dd; padding:24px 0"><summary style="font-size:20px; display:flex; justify-content:space-between">Which devices? <span style="color:#e6007e">+</span></summary><p style="margin:16px 0 0; color:#6b5f65; line-height:1.6; font-size:16px; max-width:600px">iPhone with iOS 18 or later; also Apple silicon Macs and Apple Vision.</p></details>
+    </div>
+  </section>
+
+  <section style="padding:140px 80px; text-align:center; border-top:1px solid #e3d9dd">
+    <img src="{{ 'symbol-dark.svg' | asset_url }}" alt="" style="width:88px; height:88px; margin:0 auto 32px; display:block">
+    <h2 style="font-weight:500; font-size:88px; line-height:.95; letter-spacing:-.04em; margin:0 0 40px">One selfie away.</h2>
+    <a data-smile href="{{ settings.app_store_url }}" style="background:#e6007e; color:#fff; padding:20px 36px; border-radius:8px; font-size:17px; font-weight:700; display:inline-flex; align-items:center; gap:12px"><span>Download on the App Store</span><span data-smile-arc></span></a>
+  </section>
+
+  <footer style="padding:40px 80px 56px; border-top:1px solid #e3d9dd; display:grid; grid-template-columns:1fr 1fr; gap:48px; font-size:13px; color:#6b5f65; line-height:1.6">
+    <p style="margin:0; text-wrap:pretty"><strong style="color:#1a1517">Important.</strong> Toothfairy™ AI is intended for visualisation and inspiration purposes only. Results are simulated previews and should not be considered medical, dental or orthodontic advice.</p>
+    <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-end"><span>© 2021–2026 CC Lab Technology Ltd. · Orthoclear</span><div style="display:flex; gap:24px"><a href="/policies/privacy-policy">Privacy policy</a><a href="/policies/terms-of-service">Terms</a><a href="mailto:support@ortho-clear.com">support@ortho-clear.com</a></div></div>
+  </footer>
+</div></div>
+
+{% schema %}
+{
+  "name": "Toothfairy — Landing",
+  "settings": [
+    { "type": "url", "id": "video_url", "label": "Smile video (MP4 URL)", "info": "Upload the MP4 under Content → Files and paste its URL." },
+    { "type": "url", "id": "video_url_2", "label": "Step 3 phone video (MP4 URL)" }
+  ],
+  "presets": [{ "name": "Toothfairy — Landing" }]
+}
+{% endschema %}

@@ -1,0 +1,13 @@
+{%- comment -%}
+  Phone screenshot: a theme-editor image when one is picked, otherwise the bundled asset.
+  Params: image (image|blank), fallback (asset filename), sizes, loading
+{%- endcomment -%}
+{%- liquid
+  assign loading = loading | default: 'lazy'
+  assign sizes = sizes | default: '280px'
+-%}
+{%- if image != blank -%}
+  {{ image | image_url: width: 944 | image_tag: alt: '', loading: loading, sizes: sizes, widths: '320, 472, 640, 944' }}
+{%- else -%}
+  <img src="{{ fallback | asset_url }}" alt="" width="472" height="992" loading="{{ loading }}">
+{%- endif -%}

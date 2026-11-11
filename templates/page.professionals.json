@@ -1,0 +1,119 @@
+{
+  "sections": {
+    "main": {
+      "type": "tf-professionals",
+      "blocks": {
+        "reason_1": {
+          "type": "reason",
+          "settings": {
+            "heading": "Shorter path to acceptance",
+            "text": "Patients decide on what they can see. A preview of their own face makes aligners, veneers or whitening concrete instead of abstract."
+          }
+        },
+        "reason_2": {
+          "type": "reason",
+          "settings": {
+            "heading": "Honest expectations",
+            "text": "Results stay natural and are clearly labelled as visualisations — never a clinical promise. Fewer surprises, fewer difficult conversations later."
+          }
+        },
+        "reason_3": {
+          "type": "reason",
+          "settings": {
+            "heading": "Nothing to install at the practice",
+            "text": "Runs on any iPhone. No scanner, no software licence, no onboarding project. Buy credits, start today."
+          }
+        },
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "heading": "Take the photo during intake",
+            "text": "A relaxed smile under normal operatory light is enough."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "heading": "Pick the treatment you're proposing",
+            "text": "Aligner progress, veneers upgrade or whitening boost — one tap."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "heading": "Compare, animate, share",
+            "text": "Before/after side by side, optional video, sent to the patient to discuss at home."
+          }
+        },
+        "fact_1": {
+          "type": "fact",
+          "settings": {
+            "label": "Privacy",
+            "text": "Patient photos remain private and are never shared without permission. Processed under EU law by CC Lab Technology Ltd., Dublin."
+          }
+        },
+        "fact_2": {
+          "type": "fact",
+          "settings": {
+            "label": "Scope",
+            "text": "Visualisation and inspiration only. Toothfairy™ AI does not diagnose, plan or replace clinical judgement — and says so to the patient."
+          }
+        },
+        "fact_3": {
+          "type": "fact",
+          "settings": {
+            "label": "Built by",
+            "text": "Orthoclear — the team behind the Toothfairy™ patient app used throughout aligner treatment. Dental first, AI second."
+          }
+        },
+        "plan_1": {
+          "type": "plan",
+          "settings": {
+            "name": "50 credits",
+            "description": "€1,00 per preview · in-app",
+            "action_style": "price",
+            "action_text": "€49,99"
+          }
+        },
+        "plan_2": {
+          "type": "plan",
+          "settings": {
+            "name": "Practice volume",
+            "description": "Custom packs, invoicing, multiple devices",
+            "action_style": "link",
+            "action_text": "Talk to us",
+            "action_link": "#pro-demo",
+            "highlight": true
+          }
+        },
+        "plan_3": {
+          "type": "plan",
+          "settings": {
+            "name": "Orthoclear partners",
+            "description": "Included for partner practices",
+            "action_style": "note",
+            "action_text": "On request"
+          }
+        }
+      },
+      "block_order": [
+        "reason_1",
+        "reason_2",
+        "reason_3",
+        "step_1",
+        "step_2",
+        "step_3",
+        "fact_1",
+        "fact_2",
+        "fact_3",
+        "plan_1",
+        "plan_2",
+        "plan_3"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

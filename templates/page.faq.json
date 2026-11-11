@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "main": {
+      "type": "tf-faq"
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
