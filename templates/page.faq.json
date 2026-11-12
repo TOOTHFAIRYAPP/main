@@ -203,13 +203,22 @@
             "answer": "<p>Try a new photo in better light with a clearer smile. If a result is clearly broken, contact us with the photo and we'll look into it and restore the credit.</p>",
             "open": false
           }
+        },
+        "question_clinic": {
+          "type": "question",
+          "settings": {
+            "question": "Can you help me find a clinic?",
+            "answer": "<p>Yes. If you love your after photo, we can put you in touch with a highly curated network of clinics and doctors who can help you reach your smile goals. They'll tell you honestly what's possible for your teeth.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
         "question_1",
         "question_2",
         "question_3",
-        "question_4"
+        "question_4",
+        "question_clinic"
       ]
     },
     "faq_credits": {
@@ -334,11 +343,20 @@
             "answer": "<p>Yes, for practices and dental chains. Use the contact form below and mention your number of chairs.</p>",
             "open": false
           }
+        },
+        "question_network": {
+          "type": "question",
+          "settings": {
+            "question": "Can my practice join the clinic network?",
+            "answer": "<p>Yes, practices that share our standards can apply. Use the <a href=\"/pages/professionals#pro-demo\">demo form on the professionals page</a> and choose “Joining the clinic network”.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
         "question_1",
-        "question_2"
+        "question_2",
+        "question_network"
       ]
     },
     "contact": {

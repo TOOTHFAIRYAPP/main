@@ -1,9 +1,10 @@
 <div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
 {%- assign s = section.settings -%}
-<div class="tf-panel tf-flow">
+<div class="tf-panel tf-flow{% if s.reverse %} tf-flow--reverse{% endif %}">
   <div>
     {%- if s.eyebrow != blank -%}<div class="tf-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
     <h2 class="tf-h2">{{ s.heading }}</h2>
+    {%- if s.text != blank -%}<p class="tf-body">{{ s.text }}</p>{%- endif -%}
     <ol class="tf-steps">
       {%- for block in section.blocks -%}
         <li class="tf-step" {{ block.shopify_attributes }}>
@@ -12,6 +13,9 @@
         </li>
       {%- endfor -%}
     </ol>
+    {%- if s.button_label != blank -%}
+      <a class="tf-btn tf-btn--primary" href="{{ s.button_link | default: settings.app_store_url }}"><span>{{ s.button_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>
+    {%- endif -%}
   </div>
   <div class="tf-flow__visual"><div class="tf-flow__phone"><div class="tf-screen">{% render 'tf-screen', image: section.settings.phone_image, fallback: section.settings.phone_screen, sizes: '(max-width: 600px) 80vw, 400px' %}</div></div></div>
 </div>
@@ -44,6 +48,30 @@
       "step": 2,
       "unit": "px",
       "default": 52
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Intro text",
+      "info": "Optional, shown under the heading."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button",
+      "info": "Optional, shown under the steps. Leave empty to hide."
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "Empty = App Store link. Use #pro-demo to jump to the demo form."
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse",
+      "label": "Phone on the left",
+      "default": false
     },
     {
       "type": "image_picker",

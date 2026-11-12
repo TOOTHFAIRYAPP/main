@@ -18,7 +18,7 @@ All pages match the 1440px design on desktop and reflow for tablet and phone.
 | TF Page intro | FAQ heading, intro text and jump links. |
 | TF Before / after | Drag slider. |
 | TF Numbered columns | "How it works" (with phone screens) and "Why" (text only). |
-| TF Steps + phone | "In the chair" panel. |
+| TF Steps + phone | "In the chair" and the clinic-network panels: steps, optional intro text and button, phone left or right. |
 | TF Video feature | Pink panel: text, short points (blocks), App Store button and a video in a phone rising from the bottom edge. Optional background symbol. |
 | TF Cards | Testimonials and fact cards. |
 | TF Pricing | Credit packs and practice plans. |

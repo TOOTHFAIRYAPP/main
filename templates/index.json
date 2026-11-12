@@ -361,6 +361,51 @@
         "padding_top": 140,
         "padding_bottom": 140
       }
+    },
+    "clinics": {
+      "type": "tf-feature-steps",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "heading": "Like your after photo",
+            "text": "Keep the preview you love — it's your starting point."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "heading": "Ask to be put in touch",
+            "text": "Tell us you'd like to take the next step towards that smile."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "heading": "Meet a curated clinic",
+            "text": "A selected clinic or doctor from our network gives you an honest consultation and a plan that fits your teeth."
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "eyebrow": "From preview to real smile",
+        "heading": "Love your result? Make it real.",
+        "heading_size": 52,
+        "text": "Happy with your after photo? We can put you in touch with a highly curated network of clinics and doctors who can help you reach your smile goals.",
+        "button_label": "Download on the App Store",
+        "button_link": "",
+        "reverse": true,
+        "phone_screen": "screen-result.png",
+        "anchor": "clinics",
+        "border_top": false,
+        "padding_top": 96,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -369,6 +414,7 @@
     "before_after",
     "how",
     "video",
+    "clinics",
     "testimonials",
     "pricing",
     "faq",

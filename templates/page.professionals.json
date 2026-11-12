@@ -286,6 +286,51 @@
         "padding_top": 0,
         "padding_bottom": 96
       }
+    },
+    "network": {
+      "type": "tf-feature-steps",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "heading": "A patient loves their preview",
+            "text": "They like their after photo and want to know what's possible in real life."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "heading": "We introduce them to your practice",
+            "text": "Patients are put in touch with a clinic or doctor from our curated network."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "heading": "You take it from there",
+            "text": "Consultation, diagnosis and treatment plan stay fully in your hands."
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "eyebrow": "Clinic network",
+        "heading": "Patients who love their preview, introduced to you.",
+        "heading_size": 52,
+        "text": "When patients like their after photo, Toothfairy™ AI puts them in touch with a highly curated network of clinics and doctors who help them reach their smile goals. Practices that share our standards can apply to join.",
+        "button_label": "Apply to join the network",
+        "button_link": "#pro-demo",
+        "reverse": true,
+        "phone_screen": "screen-gallery.png",
+        "anchor": "pro-network",
+        "border_top": false,
+        "padding_top": 0,
+        "padding_bottom": 96
+      }
     }
   },
   "order": [
@@ -294,6 +339,7 @@
     "why",
     "flow",
     "facts",
+    "network",
     "pricing",
     "demo"
   ]
