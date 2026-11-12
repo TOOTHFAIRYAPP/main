@@ -116,7 +116,19 @@ button { color: inherit; }
 /* Header ------------------------------------------------------------------ */
 .tf-header { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 24px; overflow: visible; }
 .tf-header__logo { flex: none; display: block; }
-.tf-header__logo img { height: 32px; width: auto; max-width: none; }
+.tf-header__logo .tf-logo { height: 32px; width: auto; max-width: none; }
+.tf-logo { display: block; overflow: visible; }
+.tf-header__logo:hover { opacity: 1; }
+.tf-logo__eye, .tf-logo__smile, .tf-logo__dot { transform-box: fill-box; transform-origin: center; }
+.tf-logo__smile { transform-origin: center top; transition: transform .45s var(--tf-ease); }
+@media (prefers-reduced-motion: no-preference) {
+  /* The "oo" eyes blink every few seconds; the smile grows a little on hover; the i-dot pops once on load. */
+  .tf-logo__eye { animation: tf-blink 6.5s ease-in-out 2.5s infinite; }
+  .tf-logo__dot { animation: tf-dot-pop .9s var(--tf-ease) .4s both; }
+  .tf-header__logo:hover .tf-logo__smile, .tf-header__logo:focus-visible .tf-logo__smile { transform: scale(1.08, 1.16); }
+}
+@keyframes tf-blink { 0%, 93%, 100% { transform: none; } 94.5% { transform: scaleY(.35); } 96% { transform: none; } }
+@keyframes tf-dot-pop { 0% { transform: scale(0); } 60% { transform: scale(1.25); } 100% { transform: none; } }
 .tf-header__links { display: flex; gap: 36px; font-size: 15px; color: var(--tf-muted); }
 .tf-header__links .is-accent { color: var(--tf-pink-text); }
 .tf-header__links .is-current { color: var(--tf-ink); }
@@ -184,7 +196,7 @@ html.tf-menu-open { overflow: hidden; }
   border-radius: 999px; box-shadow: inset 0 0 0 1px transparent, 0 12px 36px rgba(26, 21, 23, 0), 0 1px 2px rgba(26, 21, 23, 0);
   transition: margin .45s var(--tf-ease), background-color .35s ease, box-shadow .35s ease, transform .45s var(--tf-ease);
 }
-.tf-section--header .tf-header__logo img { transform-origin: left center; transition: transform .45s var(--tf-ease); }
+.tf-section--header .tf-header__logo .tf-logo { transform-origin: left center; transition: transform .45s var(--tf-ease); }
 .tf-section--header .tf-header__cta, .tf-section--header .tf-menu > summary { transition: border-radius .35s ease; }
 .tf-section--header.is-scrolled .tf-wrap { background-color: transparent; }
 .tf-section--header.is-scrolled .tf-header {
@@ -193,7 +205,7 @@ html.tf-menu-open { overflow: hidden; }
   -webkit-backdrop-filter: saturate(1.5) blur(16px); backdrop-filter: saturate(1.5) blur(16px);
   box-shadow: inset 0 0 0 1px rgba(26, 21, 23, .06), 0 12px 36px rgba(26, 21, 23, .10), 0 1px 2px rgba(26, 21, 23, .04);
 }
-.tf-section--header.is-scrolled .tf-header__logo img { transform: scale(.8); }
+.tf-section--header.is-scrolled .tf-header__logo .tf-logo { transform: scale(.8); }
 .tf-section--header.is-scrolled .tf-header__cta, .tf-section--header.is-scrolled .tf-menu > summary { border-radius: 999px; }
 /* Hide while scrolling down past the first screen, come back on scroll up. */
 .tf-section--header.is-scrolled.is-hidden .tf-header { transform: translateY(calc(-100% - 40px)); box-shadow: inset 0 0 0 1px transparent, 0 12px 36px rgba(26, 21, 23, 0), 0 1px 2px rgba(26, 21, 23, 0); pointer-events: none; }
@@ -691,7 +703,7 @@ html.tf-menu-open { overflow: hidden; }
 /* ≤600: phone ------------------------------------------------------------- */
 @media (max-width: 600px) {
   :root { --tf-gutter: 20px; --tf-panel-pad: 40px 24px; --tf-space: .62; }
-  .tf-header__logo img { height: 32px; }
+  .tf-header__logo .tf-logo { height: 32px; }
   .tf-header__cta { padding: 12px 16px; }
   .tf-header__cta--store { display: none; } /* the hero badge and the menu already link to the App Store */
   .tf-section--header .tf-header { --cap-py: 8px; --cap-pl: 16px; --cap-pr: 8px; }
@@ -823,5 +835,5 @@ html.tf-menu-open { overflow: hidden; }
   .tf-ticker__item, .tf-burger i, .tf-menu__arrow, .tf-menu > summary,
   .tf-cookie, .tf-switch, .tf-switch > span, .tf-appbar,
   .tf-ba__handle, .tf-face__smile, .tf-face__pupil, .tf-face__pupils,
-  .tf-btn, .tf-dot, .tf-q__icon, .tf-section--header .tf-wrap, .tf-section--header .tf-header, .tf-section--header .tf-header__logo img { transition: none; }
+  .tf-btn, .tf-dot, .tf-q__icon, .tf-section--header .tf-wrap, .tf-section--header .tf-header, .tf-section--header .tf-header__logo .tf-logo { transition: none; }
 }

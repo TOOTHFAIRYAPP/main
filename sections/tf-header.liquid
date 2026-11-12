@@ -1,6 +1,6 @@
 <div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
 <nav class="tf-header"{% if section.settings.sticky %} data-sticky{% endif %} aria-label="Main">
-  <a class="tf-header__logo" href="{{ routes.root_url }}"><img src="{{ 'logo-dark.svg' | asset_url }}" alt="Toothfairy" width="113" height="32"></a>
+  <a class="tf-header__logo" href="{{ routes.root_url }}">{% render 'tf-logo' %}</a>
   <div class="tf-header__links">
     {%- for block in section.blocks -%}
       <a href="{{ block.settings.link }}" class="{% if block.settings.style != 'normal' %}is-{{ block.settings.style }}{% endif %}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
