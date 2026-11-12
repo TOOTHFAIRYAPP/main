@@ -48,6 +48,7 @@
         tab.addEventListener('click', function () {
           [].forEach.call(tabs, function (t, j) { t.classList.toggle('is-active', i === j); t.setAttribute('aria-pressed', i === j ? 'true' : 'false'); });
           [].forEach.call(afters, function (a, j) { a.classList.toggle('is-active', i === j); });
+          [].forEach.call(box.parentElement.querySelectorAll('[data-tf-tab-note]'), function (nt) { nt.hidden = +nt.dataset.tfTabNote !== i; });
           look(i ? 'right' : 'left');
         });
       });

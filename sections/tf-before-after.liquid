@@ -77,6 +77,11 @@
   <span class="tf-ba__label tf-ba__label--before">{{ s.before_label }}</span>
   <span class="tf-ba__label tf-ba__label--after">{{ s.after_label }}</span>
 </div>
+{%- if has_tabs -%}
+  {%- if s.note_1 != blank -%}<p class="tf-ba__tabnote" data-tf-tab-note="0">{{ s.note_1 }}</p>{%- endif -%}
+  {%- if s.note_2 != blank -%}<p class="tf-ba__tabnote" data-tf-tab-note="1" hidden>{{ s.note_2 }}</p>{%- endif -%}
+  {%- if s.note_3 != blank and s.tab_3 != blank -%}<p class="tf-ba__tabnote" data-tf-tab-note="2" hidden>{{ s.note_3 }}</p>{%- endif -%}
+{%- endif -%}
 {%- endif -%}
 {%- if s.disclaimer != blank -%}
 <p class="tf-ba__disclaimer"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 7v4.2M8 4.6v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>{{ s.disclaimer }}</span></p>
@@ -199,17 +204,17 @@
     {
       "type": "text",
       "id": "note_1",
-      "label": "Card 1 small note"
+      "label": "Card / tab 1 small note"
     },
     {
       "type": "text",
       "id": "note_2",
-      "label": "Card 2 small note"
+      "label": "Card / tab 2 small note"
     },
     {
       "type": "text",
       "id": "note_3",
-      "label": "Card 3 small note",
+      "label": "Card / tab 3 small note",
       "default": "Composite bonding may be needed in addition to further enhance the result."
     },
     {

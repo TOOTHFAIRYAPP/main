@@ -108,7 +108,7 @@
         "tab_1": "Veneers",
         "tab_2": "Whitening",
         "tab_3": "Aligners",
-        "layout": "cards",
+        "layout": "tabs",
         "note_3": "Composite bonding may be needed in addition to further enhance the result.",
         "anchor": "",
         "border_top": false,

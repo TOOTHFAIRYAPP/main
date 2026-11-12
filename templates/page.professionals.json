@@ -184,7 +184,7 @@
         "heading": "Every treatment, one photo.",
         "heading_size": 56,
         "text": "Drag to compare. Show veneers, whitening or aligner outcomes chairside, so the conversation starts from the result.",
-        "layout": "cards",
+        "layout": "tabs",
         "before_label": "Before",
         "after_label": "After",
         "tab_1": "Veneers",

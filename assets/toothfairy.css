@@ -372,6 +372,10 @@ html.tf-menu-open { overflow: hidden; }
 .tf-ba__tab:focus-visible { outline: 2px solid var(--tf-pink); outline-offset: 3px; }
 .tf-ba__after { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; }
 .tf-ba__after.is-active { opacity: 1; }
+.tf-ba__tabnote { display: flex; gap: 6px; margin: 16px 0 0; font-size: 14px; line-height: 1.5; color: var(--tf-muted); animation: tf-fade-in .4s ease; }
+.tf-ba__tabnote::before { content: '*'; color: var(--tf-pink); font-weight: 700; }
+.tf-ba__tabnote + .tf-ba__disclaimer { margin-top: 8px; }
+@keyframes tf-fade-in { from { opacity: 0; } to { opacity: 1; } }
 .tf-ba__disclaimer { display: flex; align-items: flex-start; gap: 8px; max-width: 720px; margin: 20px 0 0; font-size: 13px; line-height: 1.5; color: var(--tf-muted); }
 .tf-ba__disclaimer svg { flex: none; margin-top: 2px; }
 /* Skip link: visible only when focused with the keyboard. */
