@@ -114,7 +114,7 @@
           "type": "part",
           "settings": {
             "heading": "Company details",
-            "text": "<p><strong>CC Lab Technology Holding Limited</strong></p><p>Registered office: Merchants House, 27–30 Merchant's Quay, Dublin 8, Ireland</p><p>Registered in Ireland, company number: [add CRO number]</p><p>Email: <a href=\"mailto:support@toothfairy.app\">support@toothfairy.app</a></p>"
+            "text": "<p><strong>CC Lab Technology Holding Limited</strong></p><p>Registered office: Merchants House, 27–30 Merchant's Quay, Dublin 8, Ireland</p><p>Registered in Ireland</p><p>Email: <a href=\"mailto:support@toothfairy.app\">support@toothfairy.app</a></p>"
           }
         },
         "part_2": {
