@@ -128,7 +128,7 @@
           "type": "part",
           "settings": {
             "heading": "Legal",
-            "text": "<p><a href=\"/pages/privacy\">Privacy policy</a> · <a href=\"/pages/terms\">Terms of use</a> · <a href=\"/pages/support\">Support</a></p>"
+            "text": "<p><a href=\"/pages/privacy\">Privacy policy</a> · <a href=\"/pages/terms-of-service\">Terms of use</a> · <a href=\"/pages/support\">Support</a></p>"
           }
         }
       },
