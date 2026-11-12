@@ -72,9 +72,9 @@ input, select, textarea, button { font: inherit; }
   padding: 18px 32px; border-radius: 8px; font-size: 16px; line-height: 1.2;
   cursor: pointer; text-align: center;
 }
-.tf-btn--primary { background: var(--tf-pink); color: #fff; font-weight: 700; border: 0; transition: background .35s ease; }
+.tf-btn--primary { background: var(--tf-pink); color: #fff; font-weight: 700; border: 0; transition: background .35s ease, border-radius .4s var(--tf-ease); }
 .tf-btn--primary:hover { background: var(--tf-pink-deep); opacity: 1; }
-.tf-btn--ghost { border: 1px solid var(--tf-ghost-line); font-weight: 500; transition: border-color .35s ease; }
+.tf-btn--ghost { border: 1px solid var(--tf-ghost-line); font-weight: 500; transition: border-color .35s ease, border-radius .4s var(--tf-ease); }
 .tf-btn--ghost:hover { border-color: var(--tf-pink); opacity: 1; }
 .tf-btn--large { padding: 20px 36px; font-size: 17px; }
 .tf-dot {
@@ -84,6 +84,8 @@ input, select, textarea, button { font: inherit; }
 }
 .tf-btn--ghost .tf-dot { background: var(--tf-pink); }
 .tf-btn:hover .tf-dot, .tf-btn:focus-visible .tf-dot { width: 16px; transform: translateX(4px); }
+/* Hover: buttons round into a capsule, like the button in the scrolled header. */
+.tf-btn:hover, .tf-btn:focus-visible, .tf-header__cta:hover, .tf-header__cta:focus-visible { border-radius: 999px; }
 .tf-btn--primary:hover .tf-dot, .tf-btn--primary:focus-visible .tf-dot { background: #fff; }
 .tf-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .tf-wrap a:focus-visible, .tf-wrap button:focus-visible, .tf-wrap summary:focus-visible { outline: 2px solid var(--tf-pink); outline-offset: 3px; }
@@ -100,7 +102,7 @@ input, select, textarea, button { font: inherit; }
 .tf-header__links .is-accent { color: var(--tf-pink); }
 .tf-header__links .is-current { color: var(--tf-ink); }
 .tf-header__actions { display: flex; align-items: center; gap: 12px; }
-.tf-header__cta { padding: 12px 22px; border-radius: 8px; font-size: 14px; white-space: nowrap; }
+.tf-header__cta { padding: 12px 22px; border-radius: 8px; font-size: 14px; white-space: nowrap; transition: border-radius .4s var(--tf-ease); }
 .tf-header__cta--primary { background: var(--tf-pink); color: #fff; font-weight: 700; }
 .tf-header__cta--outline { border: 1px solid var(--tf-ghost-line); color: var(--tf-ink); font-weight: 500; }
 .tf-menu { display: none; }
@@ -341,7 +343,7 @@ input, select, textarea, button { font: inherit; }
 .tf-video__points strong { font-weight: 500; color: #fff; }
 .tf-video__points span { color: var(--tf-pink-tint); }
 .tf-video .tf-btn { margin-top: 32px; }
-.tf-btn--light { background: #fff; color: var(--tf-pink); font-weight: 700; border: 0; transition: background .35s ease; }
+.tf-btn--light { background: #fff; color: var(--tf-pink); font-weight: 700; border: 0; transition: background .35s ease, border-radius .4s var(--tf-ease); }
 .tf-btn--light:hover { background: var(--tf-pink-tint); opacity: 1; }
 .tf-btn--light .tf-dot, .tf-btn--light:hover .tf-dot, .tf-btn--light:focus-visible .tf-dot { background: var(--tf-pink); }
 .tf-video__stage { position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; }
