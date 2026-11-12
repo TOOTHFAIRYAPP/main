@@ -304,9 +304,22 @@
         var best = 0, bestD = Infinity, start = track.scrollLeft;
         [].forEach.call(items, function (item, i) { var d = Math.abs(item.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft) - start); if (d < bestD) { bestD = d; best = i; } });
         [].forEach.call(dots.children, function (d, i) { d.classList.toggle('is-active', i === best); });
+        [].forEach.call(items, function (it, i) { it.classList.toggle('is-active', i === best); });
+        track.classList.add('is-ready');
       };
       track.addEventListener('scroll', function () { requestAnimationFrame(update); }, { passive: true });
       update();
+    });
+  }
+
+  // Pricing on touch screens: the row crossing the middle of the screen gets the hover look.
+  var planObserver = ('IntersectionObserver' in window && window.matchMedia('(hover: none)').matches) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { en.target.classList.toggle('is-focus', en.isIntersecting); });
+  }, { rootMargin: '-48% 0px -48% 0px' }) : null;
+  function initPlanFocus(root) {
+    if (!planObserver) return;
+    root.querySelectorAll('.tf-plan').forEach(function (p) {
+      if (p.dataset.tfFocus) return; p.dataset.tfFocus = '1'; planObserver.observe(p);
     });
   }
 
@@ -338,7 +351,7 @@
     });
   }
 
-  function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); initQr(root); initTickers(root); initSliderDots(root); initVideos(root); updateHeader(); }
+  function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); initQr(root); initTickers(root); initSliderDots(root); initVideos(root); initPlanFocus(root); updateHeader(); }
   init(document);
   // Re-run when a section is added or changed in the theme editor.
   document.addEventListener('shopify:section:load', function (e) { init(e.target); });

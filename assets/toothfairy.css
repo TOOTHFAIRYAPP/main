@@ -701,6 +701,46 @@ html.tf-menu-open { overflow: hidden; }
   }
 }
 
+/* Touch devices: subtle motion in place of the mouse hover effects -------- */
+@media (hover: none) and (prefers-reduced-motion: no-preference) {
+  /* Press feedback: buttons sink a little under the finger. */
+  .tf-btn, .tf-header__cta, .tf-burger, .tf-slider-dots button { -webkit-tap-highlight-color: transparent; }
+  .tf-btn, .tf-header__cta { transition: transform .25s var(--tf-ease), background .35s ease, border-radius .4s var(--tf-ease); }
+  .tf-btn:active, .tf-header__cta:active { transform: scale(.96); }
+
+  /* Hero phones float gently, each a little out of step. */
+  .tf-hero-c .tf-device { animation: tf-float 6s ease-in-out infinite; }
+  .tf-hero-c__slot--l .tf-device { animation-delay: -2s; }
+  .tf-hero-c__slot--r .tf-device { animation-delay: -4s; }
+  @keyframes tf-float { 0%, 100% { transform: none; } 50% { transform: translateY(calc(-8 * var(--u))); } }
+
+  /* Swipe sliders: the card in focus is full size and lit; its neighbours step back.
+     Step cards get the desktop hover look (screen lifts out of a deeper pink panel). */
+  @media (max-width: 860px) {
+    [data-tf-slider] > * { transition: transform .5s var(--tf-ease), opacity .5s ease; }
+    [data-tf-slider].is-ready > :not(.is-active) { transform: scale(.95); opacity: .65; }
+  }
+  .tf-col__media { transition: background-color .5s ease; }
+  .tf-col__media .tf-screen { transition: transform .7s var(--tf-ease) .1s, box-shadow .7s ease .1s; }
+  .tf-col__num { transition: letter-spacing .6s var(--tf-ease); }
+  .tf-col.is-active .tf-col__media { background-color: #f8d3e5; }
+  .tf-col.is-active .tf-col__media .tf-screen { transform: translateY(-10px); box-shadow: 0 -10px 36px rgba(230, 0, 126, .16); }
+  .tf-col.is-active .tf-col__num { letter-spacing: .32em; }
+
+  /* Pricing: the row in the middle of the screen gets the white card, like hover on desktop. */
+  .tf-plan::before {
+    content: ''; position: absolute; z-index: 0; inset: -1px -16px; border-radius: 16px;
+    background: var(--tf-paper); box-shadow: 0 16px 40px rgba(26, 21, 23, .07);
+    opacity: 0; transform: scale(.97); transition: opacity .45s ease, transform .55s var(--tf-ease);
+  }
+  .tf-plan > * { position: relative; z-index: 1; transition: transform .55s var(--tf-ease); }
+  .tf-plan__name { transform-origin: left center; }
+  .tf-plan__action { transform-origin: right center; }
+  .tf-plan.is-focus::before { opacity: 1; transform: none; }
+  .tf-plan.is-focus .tf-plan__name { transform: scale(1.05); }
+  .tf-plan.is-focus .tf-plan__action { transform: scale(1.08); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tf-hero-c__glow, .tf-video__glow, .tf-menu__panel, .tf-menu__link, .tf-menu__foot { animation: none !important; }
   .tf-device { transition: none; }
