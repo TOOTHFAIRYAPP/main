@@ -128,12 +128,15 @@ button { color: inherit; }
 .tf-menu > summary::-webkit-details-marker { display: none; }
 .tf-menu[open] > summary { border-radius: 999px; background: var(--tf-ink); border-color: var(--tf-ink); color: #fff; }
 /* Hamburger that morphs into an X */
-.tf-burger { position: relative; width: 18px; height: 12px; }
-.tf-burger i { position: absolute; left: 0; width: 100%; height: 1.6px; border-radius: 2px; background: currentColor; transition: transform .4s var(--tf-ease), top .4s var(--tf-ease); }
-.tf-burger i:first-child { top: 2px; }
-.tf-burger i:last-child { top: 8.4px; }
-.tf-menu[open] .tf-burger i:first-child { top: 5.2px; transform: rotate(45deg); }
-.tf-menu[open] .tf-burger i:last-child { top: 5.2px; transform: rotate(-45deg); }
+/* Burger in the brand's own shapes: an ink line over the pink smile from the logo.
+   Opening morphs both into a cross (the smile straightens out). */
+.tf-burger { position: relative; width: 20px; height: 14px; }
+.tf-burger i { position: absolute; left: 0; width: 100%; box-sizing: border-box; border-radius: 2px; transition: transform .45s var(--tf-ease), top .45s var(--tf-ease), height .45s var(--tf-ease), width .45s var(--tf-ease), left .45s var(--tf-ease), border-radius .45s var(--tf-ease), border-width .45s var(--tf-ease), border-color .3s ease; }
+.tf-burger i:first-child { top: 1px; height: 2px; background: currentColor; }
+.tf-burger i:last-child { top: 6.5px; left: 4px; width: 12px; height: 7px; border: 2.2px solid var(--tf-pink); border-top-width: 0; border-radius: 0 0 7px 7px; }
+.tf-menu > summary:hover .tf-burger i:last-child { left: 2.5px; width: 15px; }
+.tf-menu[open] .tf-burger i:first-child { top: 6px; transform: rotate(45deg); }
+.tf-menu[open] .tf-burger i:last-child { top: 6px; left: 0; width: 100%; height: 2px; border-width: 0 0 2px; border-color: currentColor; border-radius: 2px; transform: rotate(-45deg); }
 /* Menu card: frosted, floats under the header, dims the page around it */
 .tf-menu__panel {
   position: absolute; z-index: 20; top: calc(100% + 10px); left: 0; right: 0;
