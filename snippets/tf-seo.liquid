@@ -1,0 +1,79 @@
+{%- comment -%}
+  Page title, description, favicon and share tags. Titles and descriptions for the three
+  Toothfairy pages come from Theme settings → SEO & sharing; any other page uses its own
+  Shopify title/description with the site name appended.
+{%- endcomment -%}
+{%- liquid
+  assign site = settings.seo_site_name | default: shop.name
+  assign seo_title = ''
+  assign seo_desc = ''
+  if template.name == 'index'
+    assign seo_title = settings.seo_home_title
+    assign seo_desc = settings.seo_home_description
+  elsif template.name == 'page' and template.suffix == 'professionals'
+    assign seo_title = settings.seo_pro_title
+    assign seo_desc = settings.seo_pro_description
+  elsif template.name == 'page' and template.suffix == 'faq'
+    assign seo_title = settings.seo_faq_title
+    assign seo_desc = settings.seo_faq_description
+  endif
+  if seo_title == blank
+    assign seo_title = page_title | remove: shop.name | strip | remove_last: '–' | remove_last: '·' | strip
+    if seo_title == blank
+      assign seo_title = site
+    else
+      assign seo_title = seo_title | append: ' · ' | append: site
+    endif
+  endif
+  if seo_desc == blank
+    assign seo_desc = page_description | default: settings.seo_home_description
+  endif
+  if settings.share_image != blank
+    assign share_image = settings.share_image | image_url: width: 1200 | prepend: 'https:'
+  else
+    assign share_image = 'og-image.jpg' | asset_url | prepend: 'https:'
+  endif
+-%}
+<title>{{ seo_title | escape }}</title>
+{%- if seo_desc != blank %}
+<meta name="description" content="{{ seo_desc | strip_html | escape }}">
+{%- endif %}
+<link rel="canonical" href="{{ canonical_url }}">
+<meta name="theme-color" content="#f4eef0">
+{%- if settings.favicon != blank %}
+<link rel="icon" type="image/png" sizes="32x32" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+<link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180, height: 180 }}">
+{%- else %}
+<link rel="icon" type="image/svg+xml" href="{{ 'favicon.svg' | asset_url }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon-32.png' | asset_url }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ 'icon-192.png' | asset_url }}">
+<link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | asset_url }}">
+{%- endif %}
+<meta property="og:site_name" content="{{ site | escape }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:title" content="{{ seo_title | escape }}">
+<meta property="og:description" content="{{ seo_desc | strip_html | escape }}">
+<meta property="og:image" content="{{ share_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seo_title | escape }}">
+<meta name="twitter:description" content="{{ seo_desc | strip_html | escape }}">
+<meta name="twitter:image" content="{{ share_image }}">
+{%- if template.name == 'index' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": {{ site | json }},
+  "description": {{ seo_desc | strip_html | json }},
+  "operatingSystem": "iOS",
+  "applicationCategory": "HealthApplication",
+  "image": {{ share_image | json }},
+  {%- if settings.app_store_url != blank %}"downloadUrl": {{ settings.app_store_url | json }},{% endif %}
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "publisher": { "@type": "Organization", "name": "CC Lab Technology Ltd. · Orthoclear" }
+}
+</script>
+{%- endif %}

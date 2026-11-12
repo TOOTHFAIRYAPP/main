@@ -26,6 +26,80 @@
     ]
   },
   {
+    "name": "SEO & sharing",
+    "settings": [
+      {
+        "type": "text",
+        "id": "seo_site_name",
+        "label": "Site name",
+        "default": "Toothfairy AI",
+        "info": "Added to page titles and used when links are shared."
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Square image, at least 180 × 180. Empty = the bundled toothfairy face icon."
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Share image",
+        "info": "1200 × 630, shown when a link is shared (WhatsApp, LinkedIn, iMessage…). Empty = the bundled image."
+      },
+      {
+        "type": "header",
+        "content": "Landing page"
+      },
+      {
+        "type": "text",
+        "id": "seo_home_title",
+        "label": "Title",
+        "default": "Toothfairy AI — See your future smile from one selfie",
+        "info": "Aim for under 60 characters."
+      },
+      {
+        "type": "textarea",
+        "id": "seo_home_description",
+        "label": "Description",
+        "default": "Preview a realistic, natural-looking new smile from one selfie in seconds, then watch it move in an AI video. Free iPhone app, credits from €4,99.",
+        "info": "Aim for 120–155 characters."
+      },
+      {
+        "type": "header",
+        "content": "Professionals page"
+      },
+      {
+        "type": "text",
+        "id": "seo_pro_title",
+        "label": "Title",
+        "default": "Toothfairy AI for dentists — smile previews in the chair"
+      },
+      {
+        "type": "textarea",
+        "id": "seo_pro_description",
+        "label": "Description",
+        "default": "Show patients a realistic preview of their new smile from one photo, in seconds. Plus partner referrals for treatments in your area. Book a demo."
+      },
+      {
+        "type": "header",
+        "content": "FAQ page"
+      },
+      {
+        "type": "text",
+        "id": "seo_faq_title",
+        "label": "Title",
+        "default": "FAQ — Toothfairy AI smile simulator"
+      },
+      {
+        "type": "textarea",
+        "id": "seo_faq_description",
+        "label": "Description",
+        "default": "How Toothfairy AI smile previews work, what credits cost, how your photos are kept private, and how dental practices can use the app."
+      }
+    ]
+  },
+  {
     "name": "Cookie banner",
     "settings": [
       {

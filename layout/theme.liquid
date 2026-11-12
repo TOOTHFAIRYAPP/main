@@ -3,9 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page_title }}{% unless page_title contains shop.name %} · {{ shop.name }}{% endunless %}</title>
-  {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
-  <link rel="canonical" href="{{ canonical_url }}">
+  {% render 'tf-seo' %}
   {%- if settings.smart_app_banner and settings.app_store_url != blank -%}
     {%- assign app_id = settings.app_store_url | split: '/id' | last | split: '?' | first -%}
     <meta name="apple-itunes-app" content="app-id={{ app_id }}">
