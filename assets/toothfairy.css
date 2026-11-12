@@ -277,11 +277,29 @@ input, select, textarea, button { font: inherit; }
 .tf-ba__img, .tf-ba__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* Before on the left of the handle, after on the right — matching the labels. */
 .tf-ba__img--after { clip-path: inset(0 0 0 var(--pos)); }
-.tf-ba__line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; background: var(--tf-pink); transform: translateX(-1px); pointer-events: none; }
-.tf-ba__handle {
-  position: absolute; top: 50%; left: var(--pos); width: 56px; height: 56px; border-radius: 8px; background: var(--tf-pink);
-  transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; pointer-events: none;
+.tf-ba__line {
+  position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; transform: translateX(-1.5px); pointer-events: none;
+  background: #fff; box-shadow: 0 0 0 1px rgba(26, 21, 23, .06), 0 0 18px rgba(26, 21, 23, .25);
 }
+/* Handle: the toothfairy face from the logo. Its eyes look the way you drag. */
+.tf-ba__handle {
+  position: absolute; top: 50%; left: var(--pos); width: 68px; height: 68px; border-radius: 50%;
+  transform: translate(-50%, -50%); pointer-events: none;
+  display: grid; place-items: center; background: #fff;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, .45), 0 10px 28px rgba(26, 21, 23, .28);
+  transition: transform .35s var(--tf-ease), box-shadow .35s ease;
+}
+.tf-face { width: 44px; height: auto; overflow: visible; }
+.tf-face__smile, .tf-face__pupils { transform-box: fill-box; transform-origin: center; }
+.tf-face__smile { transition: transform .4s var(--tf-ease); }
+.tf-face__pupil { fill: #1a1517; transform-box: fill-box; transform-origin: center; transform: scale(0); transition: transform .3s var(--tf-ease); }
+.tf-face__pupils { transition: transform .3s var(--tf-ease); }
+.tf-ba:hover .tf-ba__handle, .tf-ba.is-dragging .tf-ba__handle { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 0 0 6px rgba(255, 255, 255, .5), 0 14px 34px rgba(26, 21, 23, .32); }
+.tf-ba:hover .tf-face__smile, .tf-ba.is-dragging .tf-face__smile { transform: scale(1.12, 1.18); }
+.tf-ba[data-look] .tf-face__pupil { transform: scale(1); }
+.tf-ba[data-look="left"] .tf-face__pupils { transform: translateX(-18px); }
+.tf-ba[data-look="right"] .tf-face__pupils { transform: translateX(18px); }
+.tf-ba__range:focus-visible ~ .tf-ba__handle { box-shadow: 0 0 0 4px var(--tf-pink), 0 10px 28px rgba(26, 21, 23, .28); }
 .tf-ba__range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
 .tf-ba__label { position: absolute; bottom: 24px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; pointer-events: none; }
 .tf-ba__label--before { left: 24px; color: var(--tf-muted); }
@@ -543,6 +561,8 @@ input, select, textarea, button { font: inherit; }
   .tf-sent { min-height: 0; padding: 32px 24px; }
   .tf-sent__title { font-size: 26px; }
   .tf-ba__label { bottom: 16px; }
+  .tf-ba__handle { width: 56px; height: 56px; }
+  .tf-face { width: 36px; }
   .tf-video .tf-btn { width: 100%; }
   .tf-video__glow { width: 420px; height: 420px; }
 }
@@ -563,5 +583,6 @@ input, select, textarea, button { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .tf-hero-c__glow, .tf-video__glow { animation: none !important; }
   .tf-device { transition: none; }
+  .tf-ba__handle, .tf-face__smile, .tf-face__pupil, .tf-face__pupils,
   .tf-btn, .tf-dot, .tf-q__icon, .tf-section--header .tf-wrap, .tf-section--header .tf-header, .tf-section--header .tf-header__logo img { transition: none; }
 }

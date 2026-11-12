@@ -1,13 +1,53 @@
 (function () {
-  // Before/after slider: the range input drives --pos on the box.
+  // Before/after slider: the range input drives --pos on the box. The logo face in the
+  // handle looks the way you drag, and nudges once when it first scrolls into view.
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function initSliders(root) {
     root.querySelectorAll('[data-tf-ba]').forEach(function (box) {
       var range = box.querySelector('input[type=range]');
       if (!range || box.dataset.tfReady) return;
       box.dataset.tfReady = '1';
+      var last = +range.value, lookTimer = 0, touched = false;
       var set = function () { box.style.setProperty('--pos', range.value + '%'); };
-      range.addEventListener('input', set);
+      var look = function (dir) {
+        box.setAttribute('data-look', dir);
+        clearTimeout(lookTimer);
+        lookTimer = setTimeout(function () { box.removeAttribute('data-look'); }, 650);
+      };
+      range.addEventListener('input', function () {
+        var v = +range.value;
+        if (v !== last) look(v < last ? 'left' : 'right');
+        last = v; set();
+      });
+      var start = function () { touched = true; box.classList.add('is-dragging'); };
+      var end = function () { box.classList.remove('is-dragging'); };
+      range.addEventListener('pointerdown', start);
+      range.addEventListener('keydown', function () { touched = true; });
+      window.addEventListener('pointerup', end);
+      range.addEventListener('blur', end);
       set();
+      // One gentle nudge when the slider first comes into view.
+      if (calm || !('IntersectionObserver' in window) || (window.Shopify && window.Shopify.designMode)) return;
+      var io = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        io.disconnect();
+        var keys = [[0, 50], [450, 40], [1050, 60], [1500, 50]], t0 = 0;
+        setTimeout(function () {
+          requestAnimationFrame(function step(ts) {
+            if (touched) return;
+            if (!t0) t0 = ts;
+            var t = ts - t0, i = 1;
+            while (i < keys.length - 1 && t > keys[i][0]) i++;
+            var a = keys[i - 1], b = keys[i], k = Math.min(1, Math.max(0, (t - a[0]) / (b[0] - a[0])));
+            k = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+            var v = a[1] + (b[1] - a[1]) * k;
+            if (Math.round(v) !== Math.round(last)) look(v < last ? 'left' : 'right');
+            range.value = v; last = v; set();
+            if (t < keys[keys.length - 1][0]) requestAnimationFrame(step);
+          });
+        }, 400);
+      }, { threshold: 0.6 });
+      io.observe(box);
     });
   }
 
