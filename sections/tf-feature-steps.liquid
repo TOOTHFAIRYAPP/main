@@ -17,7 +17,15 @@
       <a class="tf-btn tf-btn--primary" href="{{ s.button_link | default: settings.app_store_url }}"><span>{{ s.button_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>
     {%- endif -%}
   </div>
-  <div class="tf-flow__visual"><div class="tf-flow__phone"><div class="tf-screen">{% render 'tf-screen', image: section.settings.phone_image, fallback: section.settings.phone_screen, sizes: '(max-width: 600px) 80vw, 400px' %}</div></div></div>
+  <div class="tf-flow__visual"><div class="tf-flow__phone"><div class="tf-screen">
+    {%- if s.phone_video != blank -%}
+      {{ s.phone_video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '640x' }}
+    {%- elsif s.phone_video_url != blank -%}
+      <video src="{{ s.phone_video_url }}" autoplay muted loop playsinline></video>
+    {%- else -%}
+      {% render 'tf-screen', image: section.settings.phone_image, fallback: section.settings.phone_screen, sizes: '(max-width: 600px) 80vw, 400px' %}
+    {%- endif -%}
+  </div></div></div>
 </div>
 </div>
 
@@ -110,6 +118,17 @@
         }
       ],
       "default": "screen-style.webp"
+    },
+    {
+      "type": "video",
+      "id": "phone_video",
+      "label": "Phone — video",
+      "info": "Plays muted on a loop instead of the phone screen. Full-screen portrait recording works best."
+    },
+    {
+      "type": "url",
+      "id": "phone_video_url",
+      "label": "Phone — or video URL (MP4)"
     },
     {
       "type": "header",

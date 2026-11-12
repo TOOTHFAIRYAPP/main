@@ -174,7 +174,8 @@
         "anchor": "pro-flow",
         "border_top": false,
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "phone_video": "shopify://files/videos/hero-phone.mp4"
       }
     },
     "facts": {
