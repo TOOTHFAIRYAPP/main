@@ -220,7 +220,7 @@
   initCookies();
 
   // App Store QR codes (desktop only): load the generator on demand and draw a branded SVG.
-  var qrDesktop = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 1025px)').matches;
+  var qrDesktop = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 768px)').matches;
   var qrLib = null;
   function loadQrLib(src) {
     if (window.qrcode) return Promise.resolve();

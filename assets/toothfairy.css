@@ -252,7 +252,7 @@ input, select, textarea, button { font: inherit; }
 .tf-qr__text { display: flex; flex-direction: column; gap: 4px; max-width: 190px; }
 .tf-qr__text strong { font-size: 16px; font-weight: 500; color: var(--tf-ink); }
 .tf-qr__text span { font-size: 13px; line-height: 1.45; color: var(--tf-muted); }
-@media (hover: hover) and (pointer: fine) and (min-width: 1025px) {
+@media (hover: hover) and (pointer: fine) and (min-width: 768px) {
   .tf-qr { display: inline-flex; }
   .tf-qr--center { display: flex; width: fit-content; margin-left: auto; margin-right: auto; }
 }
