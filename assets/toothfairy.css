@@ -688,6 +688,14 @@ html.tf-menu-open { overflow: hidden; }
   .tf-video__stage { --u: .86px; }
 }
 
+/* Steps + phone on phones/tablets: show the complete iPhone (all four corners) and the
+   whole screen recording, instead of a phone cropped by the bottom of the panel. */
+@media (max-width: 860px) {
+  .tf-flow__visual { aspect-ratio: auto; display: flex; justify-content: center; padding: 32px 0; }
+  .tf-flow__phone { width: min(68%, 300px); height: auto; padding: 8px; border-radius: 42px; box-shadow: 0 24px 48px rgba(26, 21, 23, .16); }
+  .tf-flow__phone .tf-screen { height: auto; aspect-ratio: 590 / 1278; border-radius: 34px; }
+}
+
 /* Scroll effects ---------------------------------------------------------- */
 /* Fade-up on entering the screen. The class is added by toothfairy.js, so without
    JavaScript, in the theme editor or with reduced motion everything simply shows. */
