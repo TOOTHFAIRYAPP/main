@@ -90,6 +90,21 @@ input, select, textarea, button { font: inherit; }
 .tf-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .tf-wrap a:focus-visible, .tf-wrap button:focus-visible, .tf-wrap summary:focus-visible { outline: 2px solid var(--tf-pink); outline-offset: 3px; }
 
+/* Official App Store badge — used unaltered (no recolouring, no animation, no hover fade). */
+.tf-badge { display: inline-block; flex: none; line-height: 0; border-radius: 10px; }
+.tf-badge img { display: block; width: auto; height: 100%; max-width: none; }
+.tf-badge:hover { opacity: 1; }
+.tf-badge--m { height: 48px; }
+.tf-badge--l { height: 56px; }
+.tf-badge--xl { height: 60px; }
+.tf-video__badge, .tf-flow__badge { margin-top: 32px; }
+
+/* Eyebrow ticker — short lines take turns with a soft glide. */
+.tf-ticker { display: inline-grid; overflow: hidden; }
+.tf-ticker__item { grid-area: 1 / 1; justify-self: center; white-space: nowrap; opacity: 0; transform: translateY(80%); transition: opacity .55s ease, transform .7s var(--tf-ease); }
+.tf-ticker__item.is-active { opacity: 1; transform: none; }
+.tf-ticker__item.is-leaving { opacity: 0; transform: translateY(-80%); }
+
 /* Phones ------------------------------------------------------------------ */
 .tf-phone { background: var(--tf-ink); flex: none; position: relative; }
 .tf-screen { width: 100%; height: 100%; overflow: hidden; background: #fff; position: relative; }
@@ -596,6 +611,8 @@ input, select, textarea, button { font: inherit; }
   .tf-hero-c__stage { margin-top: 56px; }
   .tf-hero-s__visual { padding: 0 12px; }
   .tf-hero-c .tf-btn, .tf-hero-s .tf-btn { width: 100%; }
+  .tf-hero-c .tf-actions { flex-direction: column; align-items: center; }
+  .tf-badge--xl { height: 56px; }
   .tf-panel { margin-left: -8px; margin-right: -8px; border-radius: 20px; }
   .tf-flow .tf-h2 { margin-bottom: 28px; }
   .tf-flow .tf-h2 + .tf-body { margin: -8px 0 24px; }
@@ -641,6 +658,7 @@ input, select, textarea, button { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .tf-hero-c__glow, .tf-video__glow { animation: none !important; }
   .tf-device { transition: none; }
+  .tf-ticker__item,
   .tf-cookie, .tf-switch, .tf-switch > span,
   .tf-ba__handle, .tf-face__smile, .tf-face__pupil, .tf-face__pupils,
   .tf-btn, .tf-dot, .tf-q__icon, .tf-section--header .tf-wrap, .tf-section--header .tf-header, .tf-section--header .tf-header__logo img { transition: none; }

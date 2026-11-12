@@ -256,7 +256,25 @@
     }).catch(function () { boxes.forEach(function (b) { b.hidden = true; }); });
   }
 
-  function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); initQr(root); updateHeader(); }
+  // Eyebrow ticker: the lines take turns every few seconds (static with reduced motion).
+  function initTickers(root) {
+    root.querySelectorAll('[data-tf-ticker]').forEach(function (t) {
+      var items = t.querySelectorAll('.tf-ticker__item');
+      if (t.dataset.tfReady || items.length < 2 || calm) return;
+      t.dataset.tfReady = '1';
+      var i = 0;
+      setInterval(function () {
+        if (document.hidden) return;
+        var cur = items[i], next = items[(i + 1) % items.length];
+        cur.classList.remove('is-active'); cur.classList.add('is-leaving');
+        next.classList.remove('is-leaving'); next.classList.add('is-active');
+        setTimeout(function () { cur.classList.remove('is-leaving'); }, 700);
+        i = (i + 1) % items.length;
+      }, 2800);
+    });
+  }
+
+  function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); initQr(root); initTickers(root); updateHeader(); }
   init(document);
   // Re-run when a section is added or changed in the theme editor.
   document.addEventListener('shopify:section:load', function (e) { init(e.target); });

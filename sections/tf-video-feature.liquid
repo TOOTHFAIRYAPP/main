@@ -13,7 +13,9 @@
         {%- endfor -%}
       </ul>
     {%- endif -%}
-    {%- if s.button_label != blank -%}
+    {%- if s.button_link == blank and settings.appstore_badge and s.button_label != blank -%}
+      <div class="tf-video__badge">{% render 'tf-appstore-badge', size: 'm' %}</div>
+    {%- elsif s.button_label != blank -%}
       <a class="tf-btn tf-btn--light" href="{{ s.button_link | default: settings.app_store_url }}"><span>{{ s.button_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>
     {%- endif -%}
   </div>

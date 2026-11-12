@@ -34,6 +34,9 @@ Phone screens can be swapped by picking an image; otherwise one of the bundled a
 ## SEO, favicon and sharing
 `snippets/tf-seo.liquid` sets the page title, meta description, canonical URL, favicon (SVG + PNG + Apple touch icon), Open Graph / X share tags with a 1200×630 share image (`assets/og-image.jpg`) and app structured data on the home page. Titles and descriptions for the landing, Professionals and FAQ pages, the site name, a custom favicon and share image live under **Theme settings → SEO & sharing**; other pages use their own Shopify title with the site name appended.
 
+## App Store badge and eyebrow ticker
+Download buttons that link to the App Store (link field empty) show Apple's official badge (`assets/appstore-badge.svg`, unaltered from developer.apple.com) — switch off under **Theme settings → Toothfairy → Use the official App Store badge**. The landing hero's eyebrow rotates through the lines in **Eyebrow — rotating lines** (one per line; empty = static).
+
 ## App Store QR code
 `snippets/tf-qr.liquid` shows a "Scan to download" card on desktop (hidden on phones and tablets) under the landing hero buttons and the closing call to action. The code is drawn in the browser from the App Store link (shortened to `https://apps.apple.com/app/id…`, so it opens each visitor's own store) using `assets/qrcode-generator.js` (MIT), which only loads on desktop pages that show a card. Text and on/off: **Theme settings → Toothfairy**; per section: **Show App Store QR code**.
 

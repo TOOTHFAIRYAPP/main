@@ -18,6 +18,13 @@
       },
       {
         "type": "checkbox",
+        "id": "appstore_badge",
+        "label": "Use the official App Store badge",
+        "default": true,
+        "info": "Replaces download buttons that link to the App Store with Apple's badge."
+      },
+      {
+        "type": "checkbox",
         "id": "smart_app_banner",
         "label": "Show App Store banner in Safari on iPhone",
         "default": true,

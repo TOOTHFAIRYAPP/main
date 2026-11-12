@@ -1,11 +1,18 @@
 <div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
 {%- assign s = section.settings -%}
 <div class="tf-hero-c">
-  {%- if s.eyebrow != blank -%}<div class="tf-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+  {%- if s.eyebrow != blank -%}
+    {%- assign ticks = s.eyebrow_ticker | newline_to_br | split: '<br />' -%}
+    <div class="tf-eyebrow tf-ticker" data-tf-ticker>
+      <span class="tf-ticker__item is-active">{{ s.eyebrow }}</span>
+      {%- for t in ticks -%}{%- assign line = t | strip -%}{%- if line != blank -%}<span class="tf-ticker__item" aria-hidden="true">{{ line }}</span>{%- endif -%}{%- endfor -%}
+    </div>
+  {%- endif -%}
   <h1 class="tf-h1">{{ s.heading | newline_to_br }}</h1>
   {%- if s.text != blank -%}<p class="tf-lead">{{ s.text }}</p>{%- endif -%}
   <div class="tf-actions">
-    {%- if s.primary_label != blank -%}<a class="tf-btn tf-btn--primary" href="{{ s.primary_link | default: settings.app_store_url }}"><span>{{ s.primary_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>{%- endif -%}
+    {%- if s.primary_link == blank and settings.appstore_badge -%}{% render 'tf-appstore-badge', size: 'l' %}
+    {%- elsif s.primary_label != blank -%}<a class="tf-btn tf-btn--primary" href="{{ s.primary_link | default: settings.app_store_url }}"><span>{{ s.primary_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>{%- endif -%}
     {%- if s.secondary_label != blank -%}<a class="tf-btn tf-btn--ghost" href="{{ s.secondary_link }}"><span>{{ s.secondary_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>{%- endif -%}
   </div>
   {%- if s.show_qr -%}{% render 'tf-qr', align: 'center' %}{%- endif -%}
@@ -40,6 +47,13 @@
       "id": "eyebrow",
       "label": "Eyebrow",
       "default": "AI smile simulation · iPhone"
+    },
+    {
+      "type": "textarea",
+      "id": "eyebrow_ticker",
+      "label": "Eyebrow — rotating lines",
+      "default": "Natural results in seconds\nVeneers, whitening & more\nWatch your new smile move\nPhotos stay on your phone\nFrom €4,99 · No subscription",
+      "info": "One short line each (max ~28 characters). They take turns after the eyebrow. Leave empty for a static eyebrow."
     },
     {
       "type": "textarea",

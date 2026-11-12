@@ -21,7 +21,7 @@
         {%- if form.errors -%}<div class="tf-form__full tf-form__errors" role="alert">{{ form.errors | default_errors }}</div>{%- endif -%}
         <label class="tf-field">Name<input name="contact[name]" type="text" required autocomplete="name" placeholder="Your name" value="{{ form.name }}"></label>
         <label class="tf-field">Email<input name="contact[email]" type="email" required autocomplete="email" placeholder="you@example.com" value="{{ form.email }}"></label>
-        <label class="tf-field tf-form__full">Topic<select name="contact[Topic]">{% assign opts = s.topics | newline_to_br | split: '<br />' %}{% for o in opts %}{% assign o = o | strip %}{% if o != blank %}<option>{{ o }}</option>{% endif %}{% endfor %}</select></label>
+        <label class="tf-field tf-form__full">Topic<select name="contact[Topic]">{% assign opts = s.topics | newline_to_br | split: '<br />' %}{% for o in opts %}{% assign opt = o | strip %}{% if opt != blank %}<option>{{ opt }}</option>{% endif %}{% endfor %}</select></label>
         <label class="tf-field tf-form__full">Message<textarea name="contact[body]" rows="4" placeholder="Tell us what happened or what you'd like to know">{{ form.body }}</textarea></label>
         <button type="submit" class="tf-btn tf-btn--primary tf-form__full"><span>{{ s.button_label }}</span><span class="tf-dot" aria-hidden="true"></span></button>
         {%- if s.legal != blank -%}<p class="tf-form__full tf-form__legal">{{ s.legal }}</p>{%- endif -%}

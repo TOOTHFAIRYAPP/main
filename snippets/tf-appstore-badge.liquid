@@ -1,0 +1,7 @@
+{%- comment -%}
+  Apple's official "Download on the App Store" badge (unaltered artwork from developer.apple.com).
+  Params: size ('m' 48px, 'l' 56px, 'xl' 60px)
+{%- endcomment -%}
+<a class="tf-badge tf-badge--{{ size | default: 'l' }}" href="{{ settings.app_store_url }}" rel="noopener">
+  <img src="{{ 'appstore-badge.svg' | asset_url }}" alt="Download on the App Store" width="120" height="40" loading="lazy">
+</a>
