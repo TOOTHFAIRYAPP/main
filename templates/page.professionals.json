@@ -184,7 +184,7 @@
           "type": "fact",
           "settings": {
             "label": "Privacy",
-            "text": "Patient photos remain private and are never shared without permission. Processed under EU law by CC Lab Technology Ltd., Dublin."
+            "text": "Patient selfies and results are stored only on the device, never on our servers. Built by CC Lab Technology Ltd., Dublin, under EU law."
           }
         },
         "fact_2": {

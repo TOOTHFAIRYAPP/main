@@ -311,7 +311,7 @@
           "type": "question",
           "settings": {
             "question": "What happens to my photos?",
-            "answer": "<p>They remain private and are never shared without your permission.</p>",
+            "answer": "<p>Your selfies and after photos are saved only on your own phone. We don't store them on a server, so your images stay with you.</p>",
             "open": false
           }
         },

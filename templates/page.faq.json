@@ -192,7 +192,7 @@
           "type": "question",
           "settings": {
             "question": "Can I save and share my results?",
-            "answer": "<p>Yes. Photos and videos are kept in your in-app gallery and can be downloaded or shared — for example with your dentist.</p>",
+            "answer": "<p>Yes. Photos and videos are kept in the app's gallery on your phone. From there you can download or share them — for example with your dentist.</p>",
             "open": false
           }
         },
@@ -289,7 +289,7 @@
           "type": "question",
           "settings": {
             "question": "What happens to my photos?",
-            "answer": "<p>Your photos remain private and are never shared without your permission. They're used only to generate your previews.</p>",
+            "answer": "<p>Your selfies and after photos are saved only on your own phone, in the app's gallery. We don't store them on a server — your images stay with you.</p>",
             "open": false
           }
         },
@@ -297,7 +297,7 @@
           "type": "question",
           "settings": {
             "question": "Do you use my photos to train AI?",
-            "answer": "<p>No — not without your explicit permission. See the privacy policy for full details.</p>",
+            "answer": "<p>No. Your photos aren't stored on our servers, so they aren't collected or used to train AI.</p>",
             "open": false
           }
         },
