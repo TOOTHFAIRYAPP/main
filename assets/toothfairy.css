@@ -633,7 +633,7 @@ html.tf-menu-open { overflow: hidden; }
     flex: 0 0 min(84%, 420px); scroll-snap-align: start; padding: 24px; border: 1px solid var(--tf-line); border-radius: 20px; background: var(--tf-paper);
   }
   .tf-cols--media .tf-col { padding-bottom: 0; overflow: hidden; }
-  .tf-col__media { height: auto; aspect-ratio: 5 / 4; margin: 4px -24px 0; padding: 20px 16% 0; border-radius: 0; }
+  .tf-col__media { height: auto; aspect-ratio: 5 / 4; margin: auto -24px 0; padding: 20px 16% 0; border-radius: 0; }
   .tf-slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
   .tf-slider-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: var(--tf-ghost-line); cursor: pointer; transition: width .35s var(--tf-ease), background-color .3s ease; }
   .tf-slider-dots button.is-active { width: 22px; background: var(--tf-pink); }
