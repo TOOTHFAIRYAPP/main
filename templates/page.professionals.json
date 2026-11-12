@@ -251,7 +251,7 @@
             "name": "Partner subscription",
             "description": "Patient referrals for treatments in your area",
             "action_style": "price",
-            "action_text": "€199/mo",
+            "action_text": "€99/mo",
             "highlight": true
           }
         }
@@ -325,7 +325,7 @@
         "eyebrow": "Clinic network",
         "heading": "Patients who love their preview, introduced to you.",
         "heading_size": 52,
-        "text": "When patients like their after photo, Toothfairy® AI puts them in touch with a highly curated network of clinics and doctors who help them reach their smile goals. With a partner subscription of €199 per month, your practice receives referrals from potential patients in the app for treatments in your area.",
+        "text": "When patients like their after photo, Toothfairy® AI puts them in touch with a highly curated network of clinics and doctors who help them reach their smile goals. With a partner subscription of €99 per month, your practice receives referrals from potential patients in the app for treatments in your area.",
         "button_label": "Become a partner",
         "button_link": "#pro-demo",
         "reverse": true,

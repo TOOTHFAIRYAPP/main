@@ -340,7 +340,7 @@
           "type": "question",
           "settings": {
             "question": "What does it cost for practices?",
-            "answer": "<p>Credits cost the same as in the app: 10 for €4,99, 25 for €9,99 or 50 for €14,99. On top of that you can choose a partner subscription of €199 per month to receive referrals from potential patients in the app for treatments in your area.</p>",
+            "answer": "<p>Credits cost the same as in the app: 10 for €4,99, 25 for €9,99 or 50 for €14,99. On top of that you can choose a partner subscription of €99 per month to receive referrals from potential patients in the app for treatments in your area.</p>",
             "open": false
           }
         },
@@ -348,7 +348,7 @@
           "type": "question",
           "settings": {
             "question": "Can my practice join the clinic network?",
-            "answer": "<p>Yes, with the partner subscription of €199 per month. You'll receive referrals from potential patients in the app for treatments in your area. Use the <a href=\"/pages/professionals#pro-demo\">form on the professionals page</a> and choose “Partner subscription (referrals)”.</p>",
+            "answer": "<p>Yes, with the partner subscription of €99 per month. You'll receive referrals from potential patients in the app for treatments in your area. Use the <a href=\"/pages/professionals#pro-demo\">form on the professionals page</a> and choose “Partner subscription (referrals)”.</p>",
             "open": false
           }
         }
