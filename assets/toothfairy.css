@@ -475,11 +475,12 @@ input, select, textarea, button { font: inherit; }
 .tf-form-panel--dark .tf-sent__text { color: var(--tf-dark-muted); }
 
 /* Footer ------------------------------------------------------------------ */
-.tf-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; font-size: 13px; color: var(--tf-muted); line-height: 1.6; }
+.tf-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 48px; font-size: 13px; color: var(--tf-muted); line-height: 1.6; }
 .tf-footer__note { margin: 0; text-wrap: pretty; }
 .tf-footer__note strong { color: var(--tf-ink); }
 .tf-footer__meta { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
 .tf-footer__links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.tf-footer__legal { grid-column: 1 / -1; margin: 0; padding-top: 20px; border-top: 1px solid var(--tf-line); font-size: 12px; line-height: 1.5; color: var(--tf-placeholder); }
 
 .tf-footer__btn { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
 .tf-footer__btn:hover { opacity: .75; }
