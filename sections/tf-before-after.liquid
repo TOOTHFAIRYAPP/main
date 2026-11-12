@@ -55,9 +55,9 @@
 {%- if s.tab_1 != blank and s.tab_2 != blank -%}{%- assign has_tabs = true -%}{%- endif -%}
 {%- if has_tabs -%}
 <div class="tf-ba__tabs" role="group" aria-label="Treatment">
-  <button type="button" class="tf-ba__tab is-active" aria-pressed="true">{{ s.tab_1 }}</button>
-  <button type="button" class="tf-ba__tab" aria-pressed="false">{{ s.tab_2 }}</button>
-  {%- if s.tab_3 != blank -%}<button type="button" class="tf-ba__tab" aria-pressed="false">{{ s.tab_3 }}</button>{%- endif -%}
+  <button type="button" class="tf-ba__tab is-active" aria-pressed="true"><span class="tf-ba__tabimg">{%- if s.after_image != blank -%}{{ s.after_image | image_url: width: 192, height: 192, crop: 'center' | image_tag: alt: '', loading: 'lazy', width: 96, height: 96 }}{%- else -%}<img src="{{ 'teeth-thumb-veneers.webp' | asset_url }}" alt="" width="96" height="96" loading="lazy">{%- endif -%}</span><span class="tf-ba__tablabel">{{ s.tab_1 }}</span></button>
+  <button type="button" class="tf-ba__tab" aria-pressed="false"><span class="tf-ba__tabimg">{%- if s.after_image_2 != blank -%}{{ s.after_image_2 | image_url: width: 192, height: 192, crop: 'center' | image_tag: alt: '', loading: 'lazy', width: 96, height: 96 }}{%- else -%}<img src="{{ 'teeth-thumb-whitening.webp' | asset_url }}" alt="" width="96" height="96" loading="lazy">{%- endif -%}</span><span class="tf-ba__tablabel">{{ s.tab_2 }}</span></button>
+  {%- if s.tab_3 != blank -%}<button type="button" class="tf-ba__tab" aria-pressed="false"><span class="tf-ba__tabimg">{%- if s.after_image_3 != blank -%}{{ s.after_image_3 | image_url: width: 192, height: 192, crop: 'center' | image_tag: alt: '', loading: 'lazy', width: 96, height: 96 }}{%- else -%}<img src="{{ 'teeth-thumb-aligners.webp' | asset_url }}" alt="" width="96" height="96" loading="lazy">{%- endif -%}</span><span class="tf-ba__tablabel">{{ s.tab_3 }}</span></button>{%- endif -%}
 </div>
 {%- endif -%}
 <div class="tf-ba" data-tf-ba>
