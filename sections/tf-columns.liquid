@@ -1,5 +1,5 @@
 <div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
-<div class="tf-cols{% if section.settings.show_media %} tf-cols--media{% endif %}">
+<div class="tf-cols{% if section.settings.show_media %} tf-cols--media{% endif %}" data-tf-slider>
   {%- for block in section.blocks -%}
     {%- assign b = block.settings -%}
     <div class="tf-col" {{ block.shopify_attributes }}>

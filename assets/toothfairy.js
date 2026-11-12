@@ -142,6 +142,7 @@
     root.querySelectorAll(REVEAL).forEach(function (el) {
       if (el.dataset.tfReveal) return;
       el.dataset.tfReveal = '1';
+      if (el.closest('[data-tf-slider]') && window.matchMedia('(max-width: 860px)').matches) return;
       // Already on screen at load: leave it alone, so nothing flickers.
       if (el.getBoundingClientRect().top < window.innerHeight) return;
       var i = 0, sib = el;
@@ -286,7 +287,58 @@
     });
   }
 
-  function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); initQr(root); initTickers(root); updateHeader(); }
+  // Swipe sliders on small screens: dots that follow the scroll position.
+  function initSliderDots(root) {
+    root.querySelectorAll('[data-tf-slider]').forEach(function (track) {
+      if (track.dataset.tfDots) return;
+      var items = track.children; if (items.length < 2) return;
+      track.dataset.tfDots = '1';
+      var dots = document.createElement('div'); dots.className = 'tf-slider-dots';
+      [].forEach.call(items, function (item, i) {
+        var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Go to item ' + (i + 1));
+        b.addEventListener('click', function () { track.scrollTo({ left: item.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft), behavior: 'smooth' }); });
+        dots.appendChild(b);
+      });
+      track.insertAdjacentElement('afterend', dots);
+      var update = function () {
+        var best = 0, bestD = Infinity, start = track.scrollLeft;
+        [].forEach.call(items, function (item, i) { var d = Math.abs(item.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft) - start); if (d < bestD) { bestD = d; best = i; } });
+        [].forEach.call(dots.children, function (d, i) { d.classList.toggle('is-active', i === best); });
+      };
+      track.addEventListener('scroll', function () { requestAnimationFrame(update); }, { passive: true });
+      update();
+    });
+  }
+
+  // Videos: start muted inline playback explicitly (iOS can ignore the autoplay attribute),
+  // play only while visible, and offer a play button if the device still refuses (e.g. Low Power Mode).
+  var videoObserver = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      var v = en.target;
+      if (en.isIntersecting) tryPlay(v); else if (!v.paused) v.pause();
+    });
+  }, { threshold: 0.2 }) : null;
+  function tryPlay(v) {
+    var p = v.play();
+    if (p && p.catch) p.then(function () { v.parentElement.classList.remove('needs-tap'); }).catch(function () { v.parentElement.classList.add('needs-tap'); });
+  }
+  function initVideos(root) {
+    root.querySelectorAll('.tf-wrap video').forEach(function (v) {
+      if (v.dataset.tfReady) return;
+      v.dataset.tfReady = '1';
+      v.muted = true; v.defaultMuted = true; v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.playsInline = true; v.loop = true;
+      v.removeAttribute('controls');
+      var host = v.parentElement;
+      if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
+      var tap = document.createElement('button'); tap.type = 'button'; tap.className = 'tf-video-tap'; tap.setAttribute('aria-label', 'Play video');
+      tap.innerHTML = '<span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3.5v13l11-6.5z" fill="#1a1517"/></svg></span>';
+      tap.addEventListener('click', function () { v.play().then(function () { host.classList.remove('needs-tap'); }).catch(function () {}); });
+      host.appendChild(tap);
+      if (videoObserver) videoObserver.observe(v); else tryPlay(v);
+    });
+  }
+
+  function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); initQr(root); initTickers(root); initSliderDots(root); initVideos(root); updateHeader(); }
   init(document);
   // Re-run when a section is added or changed in the theme editor.
   document.addEventListener('shopify:section:load', function (e) { init(e.target); });
