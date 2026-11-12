@@ -113,7 +113,8 @@ input, select, textarea, button { font: inherit; }
 
 /* Header ------------------------------------------------------------------ */
 .tf-header { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 24px; overflow: visible; }
-.tf-header__logo img { height: 44px; width: auto; }
+.tf-header__logo { flex: none; display: block; }
+.tf-header__logo img { height: 32px; width: auto; max-width: none; }
 .tf-header__links { display: flex; gap: 36px; font-size: 15px; color: var(--tf-muted); }
 .tf-header__links .is-accent { color: var(--tf-pink); }
 .tf-header__links .is-current { color: var(--tf-ink); }
@@ -601,7 +602,7 @@ input, select, textarea, button { font: inherit; }
 /* ≤600: phone ------------------------------------------------------------- */
 @media (max-width: 600px) {
   :root { --tf-gutter: 20px; --tf-panel-pad: 40px 24px; --tf-space: .62; }
-  .tf-header__logo img { height: 36px; }
+  .tf-header__logo img { height: 32px; }
   .tf-header__cta { padding: 12px 16px; }
   .tf-section--header .tf-header { --cap-py: 8px; --cap-pl: 16px; --cap-pr: 8px; }
   .tf-section--header.is-scrolled .tf-header { transform: translateY(4px); }
