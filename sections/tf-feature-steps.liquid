@@ -24,7 +24,8 @@
     {%- if s.photo != blank -%}
       {{ s.photo | image_url: width: 1120 | image_tag: alt: s.photo_alt, loading: 'lazy', sizes: '(max-width: 860px) 100vw, 50vw', widths: '560, 840, 1120' }}
     {%- else -%}
-      <img src="{{ 'clinic-chair.webp' | asset_url }}" alt="{{ s.photo_alt | escape }}" width="1120" height="1400" loading="lazy">
+      {%- assign bundled = s.photo_bundled | default: 'clinic-chair.webp' -%}
+      <img src="{{ bundled | asset_url }}" alt="{{ s.photo_alt | escape }}" width="1120" height="1400" loading="lazy">
     {%- endif -%}
   </div>
   {%- else -%}
@@ -113,7 +114,23 @@
       "type": "image_picker",
       "id": "photo",
       "label": "Photo",
-      "info": "Used when Visual is Photo. Empty = bundled treatment-chair photo. Portrait works best."
+      "info": "Used when Visual is Photo. Portrait works best. Empty = the bundled photo below."
+    },
+    {
+      "type": "select",
+      "id": "photo_bundled",
+      "label": "Bundled photo",
+      "default": "clinic-chair.webp",
+      "options": [
+        {
+          "value": "clinic-chair.webp",
+          "label": "Patient holding an aligner"
+        },
+        {
+          "value": "clinic-room.webp",
+          "label": "Treatment room"
+        }
+      ]
     },
     {
       "type": "text",

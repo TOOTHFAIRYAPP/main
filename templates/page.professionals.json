@@ -356,7 +356,10 @@
         "anchor": "pro-network",
         "border_top": false,
         "padding_top": 0,
-        "padding_bottom": 96
+        "padding_bottom": 96,
+        "visual": "photo",
+        "photo_bundled": "clinic-room.webp",
+        "photo_alt": "Modern treatment room with a dental chair and a light box of a smiling patient holding a clear aligner"
       }
     },
     "cta": {
