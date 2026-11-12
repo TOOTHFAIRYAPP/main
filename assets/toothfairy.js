@@ -277,7 +277,11 @@
         return;
       }
       if (shopifyHasChoice) { remember({ analytics: c.analytics === 'yes', marketing: c.marketing === 'yes', preferences: c.preferences === 'yes' }); return; }
-      if (api.shouldShowBanner && api.shouldShowBanner()) open(false);
+      // No choice yet: show our banner. Do not rely on shouldShowBanner() alone, because it follows
+      // Shopify's own banner setting (which should be off, so only this banner shows).
+      var regionNeeds = api.shouldShowBanner ? api.shouldShowBanner() : true;
+      var anywhere = document.body.hasAttribute('data-tf-cookie-everywhere');
+      if (regionNeeds || anywhere) open(false);
     });
   }
   initCookies();

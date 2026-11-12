@@ -14,7 +14,7 @@
   {{ 'toothfairy.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
 </head>
-<body data-tf-page="{% if template.name == 'index' %}home{% else %}{{ template.suffix | default: template.name | handleize }}{% endif %}"{% if settings.appstore_provider_token != blank %} data-tf-pt="{{ settings.appstore_provider_token | strip | escape }}"{% endif %}>
+<body{% if settings.cookie_banner %} data-tf-cookie-everywhere{% endif %} data-tf-page="{% if template.name == 'index' %}home{% else %}{{ template.suffix | default: template.name | handleize }}{% endif %}"{% if settings.appstore_provider_token != blank %} data-tf-pt="{{ settings.appstore_provider_token | strip | escape }}"{% endif %}>
   <a class="tf-skip" href="#MainContent">Skip to content</a>
   <main id="MainContent" tabindex="-1"{% if template.suffix == 'faq' %} itemscope itemtype="https://schema.org/FAQPage"{% endif %}>
     {{ content_for_layout }}

@@ -843,3 +843,6 @@ html.tf-menu-open { overflow: hidden; }
   .tf-ba__handle, .tf-face__smile, .tf-face__pupil, .tf-face__pupils,
   .tf-btn, .tf-dot, .tf-q__icon, .tf-section--header .tf-wrap, .tf-section--header .tf-header, .tf-section--header .tf-header__logo .tf-logo { transition: none; }
 }
+
+/* Shopify's built-in cookie banner: hidden, the Toothfairy banner above uses the same Shopify consent API. */
+#shopify-pc__banner, #shopify-pc__prefs, .shopify-pc__banner__dialog, .shopify-pc__prefs__dialog { display: none !important; }
