@@ -220,49 +220,51 @@
         "plan_1": {
           "type": "plan",
           "settings": {
-            "name": "50 credits",
-            "badge": "",
-            "description": "€0,30 per preview · in-app",
+            "name": "10 credits",
+            "description": "€0,50 per preview · in-app",
             "action_style": "price",
-            "action_text": "€14,99",
-            "action_link": "#",
-            "highlight": false
+            "action_text": "€4,99"
           }
         },
         "plan_2": {
           "type": "plan",
           "settings": {
-            "name": "Practice volume",
-            "badge": "",
-            "description": "Custom packs, invoicing, multiple devices",
-            "action_style": "link",
-            "action_text": "Talk to us",
-            "action_link": "#pro-demo",
-            "highlight": true
+            "name": "25 credits",
+            "description": "€0,40 per preview · in-app",
+            "action_style": "price",
+            "action_text": "€9,99"
           }
         },
         "plan_3": {
           "type": "plan",
           "settings": {
-            "name": "Orthoclear partners",
-            "badge": "",
-            "description": "Included for partner practices",
-            "action_style": "note",
-            "action_text": "On request",
-            "action_link": "#",
-            "highlight": false
+            "name": "50 credits",
+            "description": "€0,30 per preview · in-app",
+            "action_style": "price",
+            "action_text": "€14,99"
+          }
+        },
+        "plan_4": {
+          "type": "plan",
+          "settings": {
+            "name": "Partner subscription",
+            "description": "Patient referrals for treatments in your area",
+            "action_style": "price",
+            "action_text": "€199/mo",
+            "highlight": true
           }
         }
       },
       "block_order": [
         "plan_1",
         "plan_2",
-        "plan_3"
+        "plan_3",
+        "plan_4"
       ],
       "settings": {
         "heading": "Practice plans",
         "heading_size": 52,
-        "text": "One credit per preview. Buy packs in the app, or talk to us about volume pricing and multi-chair use.",
+        "text": "Credits cost the same as in the app: one credit per preview. Want new patients as well? The partner subscription sends you referrals from people in your area.",
         "anchor": "pro-pricing",
         "border_top": true,
         "padding_top": 96,
@@ -284,7 +286,8 @@
         "anchor": "pro-demo",
         "border_top": false,
         "padding_top": 0,
-        "padding_bottom": 96
+        "padding_bottom": 96,
+        "interests": "Using Toothfairy™ AI in my practice\nPartner subscription (referrals)\nBoth"
       }
     },
     "network": {
@@ -300,8 +303,8 @@
         "step_2": {
           "type": "step",
           "settings": {
-            "heading": "We introduce them to your practice",
-            "text": "Patients are put in touch with a clinic or doctor from our curated network."
+            "heading": "We refer them to you",
+            "text": "Potential patients in your area who want the treatment are referred to your practice."
           }
         },
         "step_3": {
@@ -321,8 +324,8 @@
         "eyebrow": "Clinic network",
         "heading": "Patients who love their preview, introduced to you.",
         "heading_size": 52,
-        "text": "When patients like their after photo, Toothfairy™ AI puts them in touch with a highly curated network of clinics and doctors who help them reach their smile goals. Practices that share our standards can apply to join.",
-        "button_label": "Apply to join the network",
+        "text": "When patients like their after photo, Toothfairy™ AI puts them in touch with a highly curated network of clinics and doctors who help them reach their smile goals. With a partner subscription of €199 per month, your practice receives referrals from potential patients in the app for treatments in your area.",
+        "button_label": "Become a partner",
         "button_link": "#pro-demo",
         "reverse": true,
         "phone_screen": "screen-gallery.png",
