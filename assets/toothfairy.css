@@ -647,6 +647,7 @@ html.tf-menu-open { overflow: hidden; }
   :root { --tf-gutter: 20px; --tf-panel-pad: 40px 24px; --tf-space: .62; }
   .tf-header__logo img { height: 32px; }
   .tf-header__cta { padding: 12px 16px; }
+  .tf-header__cta--store { display: none; } /* the hero badge and the menu already link to the App Store */
   .tf-section--header .tf-header { --cap-py: 8px; --cap-pl: 16px; --cap-pr: 8px; }
   .tf-section--header.is-scrolled .tf-header { transform: translateY(4px); }
   .tf-wrap[id], .tf-wrap form[id] { scroll-margin-top: 84px; }

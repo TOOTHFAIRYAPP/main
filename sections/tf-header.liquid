@@ -8,7 +8,7 @@
   </div>
   <div class="tf-header__actions">
     {%- if section.settings.cta_label != blank -%}
-      <a class="tf-header__cta tf-header__cta--{{ section.settings.cta_style }}" href="{{ section.settings.cta_link | default: settings.app_store_url }}">{{ section.settings.cta_label }}</a>
+      <a class="tf-header__cta tf-header__cta--{{ section.settings.cta_style }}{% if section.settings.cta_link == blank %} tf-header__cta--store{% endif %}" href="{{ section.settings.cta_link | default: settings.app_store_url }}">{{ section.settings.cta_label }}</a>
     {%- endif -%}
     {%- if section.blocks.size > 0 -%}
     <details class="tf-menu" data-tf-menu>
