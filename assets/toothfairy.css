@@ -435,7 +435,7 @@ input, select, textarea, button { font: inherit; }
 /* Closing CTA ------------------------------------------------------------- */
 .tf-cta { text-align: center; }
 .tf-cta__symbol { width: 88px; height: 88px; margin: 0 auto 32px; }
-.tf-cta .tf-h2 { line-height: .95; letter-spacing: -.04em; margin-bottom: 40px; }
+.tf-cta .tf-h2 { font-size: clamp(44px, calc(var(--hs, 88) * 100vw / 1440), calc(var(--hs, 88) * 1px)); line-height: .95; letter-spacing: -.04em; margin-bottom: 40px; text-wrap: balance; }
 
 /* Forms ------------------------------------------------------------------- */
 .tf-form-panel { grid-template-columns: .9fr 1.1fr; align-items: start; scroll-margin-top: 24px; }
