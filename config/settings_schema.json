@@ -30,6 +30,13 @@
         "info": "Replaces download buttons that link to the App Store with Apple's badge."
       },
       {
+        "type": "text",
+        "id": "platform_note",
+        "label": "Platform note",
+        "default": "Only available for iPhone, for now.",
+        "info": "Small line under the App Store buttons. Leave empty to hide."
+      },
+      {
         "type": "checkbox",
         "id": "smart_app_banner",
         "label": "Show App Store banner in Safari on iPhone",

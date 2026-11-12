@@ -225,6 +225,10 @@ html.tf-menu-open { overflow: hidden; }
 .tf-hero-c .tf-lead { order: 3; }
 .tf-hero-c .tf-actions { order: 4; }
 .tf-hero-c .tf-qr { order: 5; }
+.tf-hero-c .tf-platform { order: 4; }
+.tf-platform { display: inline-flex; align-items: center; gap: 6px; margin: 16px 0 0; font-size: 13px; color: var(--tf-muted); }
+.tf-platform svg { flex: none; margin-top: -2px; }
+.tf-cta .tf-platform { margin-top: 18px; }
 @supports (width: 1cqi) {
   .tf-hero-c__stage { container-type: inline-size; }
   .tf-hero-c__phones { --u: min(1px, calc(100cqi / 940)); }

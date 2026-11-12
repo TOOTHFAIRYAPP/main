@@ -15,6 +15,7 @@
     {%- elsif s.primary_label != blank -%}<a class="tf-btn tf-btn--primary" href="{{ s.primary_link | default: settings.app_store_url }}"><span>{{ s.primary_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>{%- endif -%}
     {%- if s.secondary_label != blank -%}<a class="tf-btn tf-btn--ghost" href="{{ s.secondary_link }}"><span>{{ s.secondary_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>{%- endif -%}
   </div>
+  {%- if s.primary_link == blank -%}{% render 'tf-platform-note' %}{%- endif -%}
   {%- if s.show_qr -%}{% render 'tf-qr', align: 'center' %}{%- endif -%}
   <div class="tf-hero-c__stage"{% if s.fan_out %} data-tf-fan{% endif %}{% if s.tilt %} data-tf-tilt{% endif %}>
     <div class="tf-hero-c__phones">
