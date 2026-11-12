@@ -25,6 +25,21 @@
       range.addEventListener('keydown', function () { touched = true; });
       window.addEventListener('pointerup', end);
       range.addEventListener('blur', end);
+      // Touch: a sideways drag anywhere on the photo moves the handle; an up/down swipe still scrolls.
+      var sx = null, sy = 0, sideways = null;
+      box.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse') return; sx = e.clientX; sy = e.clientY; sideways = null; });
+      box.addEventListener('pointermove', function (e) {
+        if (sx === null || e.pointerType === 'mouse') return;
+        var dx = e.clientX - sx, dy = e.clientY - sy;
+        if (sideways === null && Math.abs(dx) + Math.abs(dy) > 6) sideways = Math.abs(dx) > Math.abs(dy);
+        if (!sideways) return;
+        var r = box.getBoundingClientRect(), v = Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100));
+        touched = true; box.classList.add('is-dragging');
+        if (Math.round(v) !== Math.round(last)) look(v < last ? 'left' : 'right');
+        range.value = v; last = v; set();
+      });
+      var stop = function () { sx = null; box.classList.remove('is-dragging'); };
+      box.addEventListener('pointerup', stop); box.addEventListener('pointercancel', stop);
       set();
       // Treatment tabs (e.g. Veneers / Whitening): swap the after photo, keep the handle where it is.
       var tabs = box.previousElementSibling && box.previousElementSibling.matches('.tf-ba__tabs') ? box.previousElementSibling.querySelectorAll('.tf-ba__tab') : [];

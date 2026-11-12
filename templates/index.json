@@ -108,6 +108,7 @@
         "tab_1": "Veneers",
         "tab_2": "Whitening",
         "tab_3": "Aligners",
+        "layout": "cards",
         "anchor": "",
         "border_top": false,
         "padding_top": 120,

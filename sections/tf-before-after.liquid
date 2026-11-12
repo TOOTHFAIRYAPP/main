@@ -4,6 +4,49 @@
   <h2 class="tf-h2">{{ s.heading }}</h2>
   {%- if s.text != blank -%}<p class="tf-body">{{ s.text }}</p>{%- endif -%}
 </div>
+{%- if s.layout == 'cards' -%}
+<div class="tf-ba-cards" data-tf-slider>
+  {%- for i in (1..3) -%}
+    {%- liquid
+      case i
+        when 1
+          assign t = s.tab_1
+          assign d = s.desc_1
+          assign img = s.card_after_1
+          assign fb = 'teeth-card-after.webp'
+        when 2
+          assign t = s.tab_2
+          assign d = s.desc_2
+          assign img = s.card_after_2
+          assign fb = 'teeth-card-after-whitening.webp'
+        when 3
+          assign t = s.tab_3
+          assign d = s.desc_3
+          assign img = s.card_after_3
+          assign fb = 'teeth-card-after-aligners.webp'
+      endcase
+    -%}
+    {%- if t != blank -%}
+    <figure class="tf-ba-card">
+      <div class="tf-ba tf-ba--card" data-tf-ba>
+        <div class="tf-ba__img">{% render 'tf-screen', image: s.card_before, fallback: 'teeth-card-before.webp', alt: s.before_label, width: 960, height: 720, sizes: '(min-width: 861px) 33vw, 84vw' %}</div>
+        <div class="tf-ba__img tf-ba__img--after">{% render 'tf-screen', image: img, fallback: fb, alt: t, width: 960, height: 720, sizes: '(min-width: 861px) 33vw, 84vw' %}</div>
+        <div class="tf-ba__line"></div>
+        <div class="tf-ba__handle" aria-hidden="true">{% render 'tf-face' %}</div>
+        <input class="tf-ba__range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: {{ t | escape }}">
+        <span class="tf-ba__label tf-ba__label--before">{{ s.before_label }}</span>
+        <span class="tf-ba__label tf-ba__label--after">{{ s.after_label }}</span>
+      </div>
+      <figcaption class="tf-ba-card__cap">
+        <span class="tf-ba-card__num">0{{ i }}</span>
+        <strong class="tf-ba-card__title">{{ t }}</strong>
+        {%- if d != blank -%}<span class="tf-ba-card__text">{{ d }}</span>{%- endif -%}
+      </figcaption>
+    </figure>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+{%- else -%}
 {%- assign has_tabs = false -%}
 {%- if s.tab_1 != blank and s.tab_2 != blank -%}{%- assign has_tabs = true -%}{%- endif -%}
 {%- if has_tabs -%}
@@ -30,6 +73,7 @@
   <span class="tf-ba__label tf-ba__label--before">{{ s.before_label }}</span>
   <span class="tf-ba__label tf-ba__label--after">{{ s.after_label }}</span>
 </div>
+{%- endif -%}
 </div>
 
 {% schema %}
@@ -59,6 +103,22 @@
       "id": "text",
       "label": "Text",
       "default": "Drag the handle. The preview keeps your features, your expression and your proportions."
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "cards",
+      "options": [
+        {
+          "value": "cards",
+          "label": "Cards (one slider per treatment)"
+        },
+        {
+          "value": "tabs",
+          "label": "One wide slider with tabs"
+        }
+      ]
     },
     {
       "type": "image_picker",
@@ -102,6 +162,52 @@
       "id": "after_image_3",
       "label": "Tab 3 after image",
       "info": "Empty = bundled aligners photo."
+    },
+    {
+      "type": "header",
+      "content": "Cards layout"
+    },
+    {
+      "type": "paragraph",
+      "content": "Card titles use the tab labels above. Card photos are 4:3; empty = bundled photos."
+    },
+    {
+      "type": "text",
+      "id": "desc_1",
+      "label": "Card 1 text",
+      "default": "New shape and shade with porcelain veneers."
+    },
+    {
+      "type": "text",
+      "id": "desc_2",
+      "label": "Card 2 text",
+      "default": "A brighter shade on your own natural teeth."
+    },
+    {
+      "type": "text",
+      "id": "desc_3",
+      "label": "Card 3 text",
+      "default": "Straighter alignment, same natural teeth."
+    },
+    {
+      "type": "image_picker",
+      "id": "card_before",
+      "label": "Card before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_after_1",
+      "label": "Card 1 after image"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_after_2",
+      "label": "Card 2 after image"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_after_3",
+      "label": "Card 3 after image"
     },
     {
       "type": "text",

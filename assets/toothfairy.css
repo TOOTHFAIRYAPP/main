@@ -362,7 +362,7 @@ html.tf-menu-open { overflow: hidden; }
 .tf-ba[data-look="left"] .tf-face__pupils { transform: translateX(-18px); }
 .tf-ba[data-look="right"] .tf-face__pupils { transform: translateX(18px); }
 .tf-ba__range:focus-visible ~ .tf-ba__handle { box-shadow: 0 0 0 4px var(--tf-pink), 0 10px 28px rgba(26, 21, 23, .28); }
-.tf-ba__range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+.tf-ba__range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; touch-action: pan-y; }
 /* Treatment tabs: same before photo, the after photo crossfades. */
 .tf-ba__tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
 .tf-ba__tab { padding: 10px 20px; border: 1px solid var(--tf-ghost-line); border-radius: 999px; background: transparent; font-size: 14px; font-weight: 500; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background-color .3s ease, border-color .3s ease, color .3s ease; }
@@ -371,7 +371,24 @@ html.tf-menu-open { overflow: hidden; }
 .tf-ba__tab:focus-visible { outline: 2px solid var(--tf-pink); outline-offset: 3px; }
 .tf-ba__after { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; }
 .tf-ba__after.is-active { opacity: 1; }
-.tf-ba__label { position: absolute; bottom: 24px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; pointer-events: none; }
+/* Cards layout: one compact slider per treatment. */
+.tf-ba-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.tf-ba-card { margin: 0; display: flex; flex-direction: column; border: 1px solid var(--tf-line); border-radius: 20px; background: var(--tf-paper); overflow: hidden; }
+.tf-ba--card { height: auto; aspect-ratio: 4 / 3; border-radius: 0; }
+.tf-ba--card .tf-ba__handle { width: 52px; height: 52px; }
+.tf-ba--card .tf-face { width: 34px; }
+.tf-ba--card .tf-ba__label { bottom: 14px; }
+.tf-ba--card .tf-ba__label--before { left: 14px; }
+.tf-ba--card .tf-ba__label--after { right: 14px; }
+.tf-ba-card__cap { display: flex; flex-direction: column; gap: 6px; padding: 22px 24px 26px; }
+.tf-ba-card__num { font-size: 12px; letter-spacing: .15em; color: var(--tf-pink); }
+.tf-ba-card__title { font-size: 22px; font-weight: 500; letter-spacing: -.01em; }
+.tf-ba-card__text { font-size: 15px; line-height: 1.5; color: var(--tf-muted); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .tf-ba-card { transition: transform .5s var(--tf-ease), box-shadow .5s ease; }
+  .tf-ba-card:hover { transform: translateY(-6px); box-shadow: 0 22px 48px rgba(26, 21, 23, .1); }
+}
+.tf-ba__label { position: absolute; bottom: 24px; padding: 5px 10px 5px 12px; border-radius: 999px; background: rgba(255, 255, 255, .82); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; pointer-events: none; }
 .tf-ba__label--before { left: 24px; color: var(--tf-muted); }
 .tf-ba__label--after { right: 24px; color: var(--tf-pink); }
 
@@ -635,12 +652,13 @@ html.tf-menu-open { overflow: hidden; }
   .tf-chips { margin-top: 40px; }
   .tf-ba__head { flex-direction: column; align-items: flex-start; gap: 20px; }
   /* Columns and cards: horizontal swipe slider, edge to edge */
-  .tf-cols, .tf-cards {
+  .tf-cols, .tf-cards, .tf-ba-cards {
     display: flex; gap: 12px; margin: 0 calc(-1 * var(--tf-gutter)); padding: 4px var(--tf-gutter) 8px;
     overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--tf-gutter);
     -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
-  .tf-cols::-webkit-scrollbar, .tf-cards::-webkit-scrollbar { display: none; }
+  .tf-cols::-webkit-scrollbar, .tf-cards::-webkit-scrollbar, .tf-ba-cards::-webkit-scrollbar { display: none; }
+  .tf-ba-card { flex: 0 0 min(84%, 420px); scroll-snap-align: start; }
   .tf-col, .tf-col:first-child, .tf-col:last-child, .tf-card {
     flex: 0 0 min(84%, 420px); scroll-snap-align: start; padding: 24px; border: 1px solid var(--tf-line); border-radius: 20px; background: var(--tf-paper);
   }
