@@ -380,14 +380,14 @@ html.tf-menu-open { overflow: hidden; }
 .tf-ba__tabs { display: flex; flex-wrap: wrap; gap: 22px; margin-bottom: 20px; }
 /* Round photo buttons: the treatment's result in a circle, its name underneath; pink ring when selected. */
 .tf-ba__tab { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0; border: 0; background: none; font-size: 14px; font-weight: 500; color: var(--tf-muted); cursor: pointer; -webkit-tap-highlight-color: transparent; transition: color .3s ease; }
-.tf-ba__tabimg { display: block; width: 72px; height: 72px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 3px var(--tf-bg), 0 0 0 4px var(--tf-ghost-line); transition: box-shadow .35s ease, transform .35s var(--tf-ease); }
-.tf-ba__tabimg img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.tf-ba__tabimg { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--tf-pink-panel); color: var(--tf-pink-text); transition: background-color .35s ease, color .35s ease, transform .35s var(--tf-ease), box-shadow .35s ease; }
+.tf-ba__tabimg svg { width: 26px; height: 26px; }
 .tf-ba__tab:hover { color: var(--tf-ink); }
 .tf-ba__tab:hover .tf-ba__tabimg { transform: scale(1.05); }
 .tf-ba__tab.is-active { color: var(--tf-ink); }
-.tf-ba__tab.is-active .tf-ba__tabimg { box-shadow: 0 0 0 3px var(--tf-bg), 0 0 0 5.5px var(--tf-pink); }
+.tf-ba__tab.is-active .tf-ba__tabimg { background: var(--tf-pink); color: #fff; box-shadow: 0 8px 20px rgba(230, 0, 126, .25); }
 .tf-ba__tab:focus-visible { outline: none; }
-.tf-ba__tab:focus-visible .tf-ba__tabimg { box-shadow: 0 0 0 3px var(--tf-bg), 0 0 0 5.5px var(--tf-ink); }
+.tf-ba__tab:focus-visible .tf-ba__tabimg { box-shadow: 0 0 0 3px var(--tf-bg), 0 0 0 5px var(--tf-ink); }
 .tf-ba__after { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; }
 .tf-ba__after.is-active { opacity: 1; }
 .tf-ba__tabnote { display: flex; gap: 6px; margin: 16px 0 0; font-size: 14px; line-height: 1.5; color: var(--tf-muted); animation: tf-fade-in .4s ease; }
