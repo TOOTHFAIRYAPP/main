@@ -305,7 +305,7 @@
           "type": "question",
           "settings": {
             "question": "Who is behind the app?",
-            "answer": "<p>Orthoclear, operated by CC Lab Technology Ltd., Dublin, Ireland — the team behind the Toothfairy™ patient app. We operate under EU law.</p>",
+            "answer": "<p>Toothfairy™ AI is made by CC Lab Technology Ltd. in Dublin, Ireland — the team behind the Toothfairy™ patient app. We operate under EU law.</p>",
             "open": false
           }
         }

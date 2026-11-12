@@ -19,7 +19,9 @@
   </div>
   <div class="tf-video__stage">
     <div class="tf-video__glow"></div>
-    <div class="tf-video__phone"><div class="tf-screen">
+    <div class="tf-device tf-device--video"><div class="tf-screen">
+      <div class="tf-video__status"><span class="tf-device__island"></span></div>
+      <div class="tf-video__media">
       {%- if s.video != blank -%}
         {{ s.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '720x' }}
       {%- elsif s.video_url != blank -%}
@@ -27,6 +29,7 @@
       {%- else -%}
         <div class="tf-video__empty">Add a video in the theme editor</div>
       {%- endif -%}
+      </div>
     </div></div>
   </div>
 </div>

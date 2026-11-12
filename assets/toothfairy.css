@@ -351,8 +351,8 @@ input, select, textarea, button { font: inherit; }
 .tf-flow__phone .tf-screen { border-radius: 28px 28px 0 0; }
 
 /* Video feature (pink): text left, phone rising from the bottom edge */
-.tf-video { position: relative; overflow: hidden; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; padding-bottom: 0; background: var(--tf-pink); color: #fff; }
-.tf-video__text { position: relative; z-index: 1; align-self: center; padding-bottom: 96px; }
+.tf-video { position: relative; overflow: hidden; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; background: var(--tf-pink); color: #fff; }
+.tf-video__text { position: relative; z-index: 1; }
 .tf-video .tf-eyebrow { color: var(--tf-pink-tint); margin-bottom: 24px; }
 .tf-video .tf-h2 { margin-bottom: 24px; }
 .tf-video .tf-body { color: var(--tf-pink-tint); max-width: 520px; }
@@ -365,19 +365,18 @@ input, select, textarea, button { font: inherit; }
 .tf-btn--light { background: #fff; color: var(--tf-pink); font-weight: 700; border: 0; transition: background .35s ease, border-radius .4s var(--tf-ease); }
 .tf-btn--light:hover { background: var(--tf-pink-tint); opacity: 1; }
 .tf-btn--light .tf-dot, .tf-btn--light:hover .tf-dot, .tf-btn--light:focus-visible .tf-dot { background: var(--tf-pink); }
-.tf-video__stage { position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; }
+.tf-video__stage { --u: 1px; position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; }
 .tf-video__glow {
   position: absolute; left: 50%; top: 50%; width: 560px; height: 560px; border-radius: 50%;
   background: radial-gradient(closest-side, rgba(255, 255, 255, .34), rgba(255, 255, 255, 0));
   transform: translate(-50%, -50%); animation: tf-glow 7s ease-in-out infinite; pointer-events: none;
 }
-.tf-video__phone {
-  position: relative; width: clamp(240px, 22.23vw, 320px); aspect-ratio: 320 / 500;
-  padding: 12px 12px 0; border-radius: 48px 48px 0 0; background: var(--tf-ink);
-  box-shadow: 0 -20px 80px rgba(26, 21, 23, .18);
-}
-.tf-video__phone .tf-screen { border-radius: 38px 38px 0 0; }
-.tf-video__phone video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+/* A complete iPhone (same frame as the hero): white status bar with the Dynamic Island,
+   then the video at its full 9:16 height, so nothing is cut off. */
+.tf-device--video { --bezel: calc(9 * var(--u)); --r: calc(50 * var(--u)); width: calc(300 * var(--u)); height: auto; }
+.tf-device--video .tf-screen { height: auto; background: #fff; }
+.tf-video__status { height: calc(44 * var(--u)); background: #fff; }
+.tf-video__media { position: relative; aspect-ratio: 9 / 16; background: #fff; }
 .tf-video__empty {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center;
   background: repeating-linear-gradient(135deg, #2a2326 0 16px, #332b2f 16px 32px); font-size: 13px; line-height: 1.6; color: var(--tf-pink-tint);
@@ -536,7 +535,6 @@ input, select, textarea, button { font: inherit; }
 @media (max-width: 1280px) {
   :root { --tf-gutter: 48px; --tf-panel-pad: 64px; }
   .tf-split, .tf-panel { gap: 56px; }
-  .tf-video__text { padding-bottom: 64px; }
 }
 
 /* ≤1024: two-column blocks stack ----------------------------------------- */
@@ -549,7 +547,6 @@ input, select, textarea, button { font: inherit; }
   .tf-flow__visual { max-width: 554px; justify-self: center; }
   .tf-flow--reverse .tf-flow__visual { order: 0; }
   .tf-video { gap: 48px; }
-  .tf-video__text { padding-bottom: 0; }
   .tf-video__mark { width: 400px; height: 400px; top: -120px; right: -120px; }
   .tf-form-panel .tf-body { margin-bottom: 24px; }
 }
@@ -610,6 +607,7 @@ input, select, textarea, button { font: inherit; }
   .tf-face { width: 36px; }
   .tf-video .tf-btn { width: 100%; }
   .tf-video__glow { width: 420px; height: 420px; }
+  .tf-video__stage { --u: .86px; }
 }
 
 /* Scroll effects ---------------------------------------------------------- */
@@ -620,7 +618,7 @@ input, select, textarea, button { font: inherit; }
 /* Phones rise out of their panel as it scrolls into view (browsers with scroll-driven animations). */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .tf-flow__phone, .tf-video__phone { animation: tf-rise linear both; animation-timeline: view(); animation-range: entry 10% cover 40%; }
+    .tf-flow__phone, .tf-device--video { animation: tf-rise linear both; animation-timeline: view(); animation-range: entry 10% cover 40%; }
     @keyframes tf-rise { from { transform: translateY(16%); } to { transform: none; } }
   }
 }
