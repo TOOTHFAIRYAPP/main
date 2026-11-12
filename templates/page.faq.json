@@ -61,7 +61,7 @@
       "type": "tf-page-intro",
       "settings": {
         "anchor": "faq-top",
-        "text": "Everything about how Toothfairy™ AI works, what it costs and how your photos are handled. Not here? <a href=\"#contact\">Send us a message.</a>"
+        "text": "Everything about how Toothfairy® AI works, what it costs and how your photos are handled. Not here? <a href=\"#contact\">Send us a message.</a>"
       },
       "blocks": {
         "chip_1": {
@@ -123,7 +123,7 @@
         "question_1": {
           "type": "question",
           "settings": {
-            "question": "What does Toothfairy™ AI do?",
+            "question": "What does Toothfairy® AI do?",
             "answer": "<p>It creates a realistic, natural-looking preview of an enhanced smile from a single selfie, and can turn that preview into a short animated video.</p>",
             "open": true
           }
@@ -305,7 +305,7 @@
           "type": "question",
           "settings": {
             "question": "Who is behind the app?",
-            "answer": "<p>Toothfairy™ AI is made by CC Lab Technology Ltd. in Dublin, Ireland — the team behind the Toothfairy™ patient app. We operate under EU law.</p>",
+            "answer": "<p>Toothfairy® AI is made by CC Lab Technology Ltd. in Dublin, Ireland — the team behind the Toothfairy® patient app. We operate under EU law.</p>",
             "open": false
           }
         }

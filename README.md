@@ -1,6 +1,6 @@
-# Toothfairy™ AI — Shopify theme
+# Toothfairy® AI — Shopify theme
 
-Online Store 2.0 theme with the Toothfairy™ AI landing, Professionals and FAQ pages.
+Online Store 2.0 theme with the Toothfairy® AI landing, Professionals and FAQ pages.
 Every part of the design is its own section, so it can be moved, hidden, duplicated or edited in the theme editor.
 All pages match the 1440px design on desktop and reflow for tablet and phone.
 

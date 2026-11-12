@@ -76,7 +76,7 @@
         "eyebrow": "For dental professionals",
         "heading": "Show the outcome before the treatment plan.",
         "heading_size": 84,
-        "text": "Toothfairy™ AI gives patients a realistic, natural-looking preview of their enhanced smile from a single photo — in the chair, in seconds. A clearer conversation, a more confident yes.",
+        "text": "Toothfairy® AI gives patients a realistic, natural-looking preview of their enhanced smile from a single photo — in the chair, in seconds. A clearer conversation, a more confident yes.",
         "primary_label": "Book a 20-minute demo",
         "primary_link": "#pro-demo",
         "secondary_label": "See how it fits your workflow",
@@ -192,14 +192,14 @@
           "type": "fact",
           "settings": {
             "label": "Scope",
-            "text": "Visualisation and inspiration only. Toothfairy™ AI does not diagnose, plan or replace clinical judgement — and says so to the patient."
+            "text": "Visualisation and inspiration only. Toothfairy® AI does not diagnose, plan or replace clinical judgement — and says so to the patient."
           }
         },
         "fact_3": {
           "type": "fact",
           "settings": {
             "label": "Built by",
-            "text": "CC Lab Technology Ltd. — the team behind the Toothfairy™ patient app used throughout aligner treatment. Dental first, AI second."
+            "text": "CC Lab Technology Ltd. — the team behind the Toothfairy® patient app used throughout aligner treatment. Dental first, AI second."
           }
         }
       },
@@ -283,12 +283,12 @@
         "chairs": "1–2\n3–5\n6–10\nMore than 10",
         "subject": "Demo request — Toothfairy AI",
         "button_label": "Request a demo",
-        "legal": "By submitting you agree to be contacted about Toothfairy™ AI. No newsletters.",
+        "legal": "By submitting you agree to be contacted about Toothfairy® AI. No newsletters.",
         "anchor": "pro-demo",
         "border_top": false,
         "padding_top": 0,
         "padding_bottom": 96,
-        "interests": "Using Toothfairy™ AI in my practice\nPartner subscription (referrals)\nBoth"
+        "interests": "Using Toothfairy® AI in my practice\nPartner subscription (referrals)\nBoth"
       }
     },
     "network": {
@@ -325,7 +325,7 @@
         "eyebrow": "Clinic network",
         "heading": "Patients who love their preview, introduced to you.",
         "heading_size": 52,
-        "text": "When patients like their after photo, Toothfairy™ AI puts them in touch with a highly curated network of clinics and doctors who help them reach their smile goals. With a partner subscription of €199 per month, your practice receives referrals from potential patients in the app for treatments in your area.",
+        "text": "When patients like their after photo, Toothfairy® AI puts them in touch with a highly curated network of clinics and doctors who help them reach their smile goals. With a partner subscription of €199 per month, your practice receives referrals from potential patients in the app for treatments in your area.",
         "button_label": "Become a partner",
         "button_link": "#pro-demo",
         "reverse": true,

@@ -192,7 +192,7 @@
         "eyebrow": "Smile video previews",
         "heading": "See it while you talk, laugh, live.",
         "heading_size": 56,
-        "text": "A still photo shows the result. A video shows the feeling. Toothfairy™ AI turns your preview into a short animation you can watch again and again.",
+        "text": "A still photo shows the result. A video shows the feeling. Toothfairy® AI turns your preview into a short animation you can watch again and again.",
         "button_label": "Download on the App Store",
         "button_link": "",
         "video": "shopify://files/videos/smile-video.mp4",
@@ -303,7 +303,7 @@
           "type": "question",
           "settings": {
             "question": "Is this a medical prediction?",
-            "answer": "<p>No. Toothfairy™ AI creates simulated previews for visualisation and inspiration only — not medical, dental or orthodontic advice.</p>",
+            "answer": "<p>No. Toothfairy® AI creates simulated previews for visualisation and inspiration only — not medical, dental or orthodontic advice.</p>",
             "open": true
           }
         },
