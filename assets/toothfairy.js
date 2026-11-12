@@ -219,7 +219,44 @@
   }
   initCookies();
 
-  function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); updateHeader(); }
+  // App Store QR codes (desktop only): load the generator on demand and draw a branded SVG.
+  var qrDesktop = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 1025px)').matches;
+  var qrLib = null;
+  function loadQrLib(src) {
+    if (window.qrcode) return Promise.resolve();
+    if (!qrLib) qrLib = new Promise(function (ok, fail) {
+      var s = document.createElement('script'); s.src = src; s.async = true; s.onload = ok; s.onerror = fail; document.head.appendChild(s);
+    });
+    return qrLib;
+  }
+  function drawQr(box) {
+    // Short, locale-neutral App Store link (fewer, larger dots; opens the visitor's own store).
+    var url = box.dataset.tfQr, id = (url.match(/id(\d{6,})/) || [])[1];
+    if (id) url = 'https://apps.apple.com/app/id' + id;
+    var qr = window.qrcode(0, 'Q'); qr.addData(url); qr.make();
+    // Standard square modules (reliable to scan, adjacent modules merge into solid shapes), pink finder
+    // "eyes" and a clear centre for the logo face (error correction Q covers it).
+    var n = qr.getModuleCount(), c = (n - 1) / 2, hole = n * 0.14, ink = '#1a1517', pink = '#e6007e', dark = [], eyes = [];
+    var isEye = function (r, k) { return [[2, 2], [2, n - 5], [n - 5, 2]].some(function (e) { return r >= e[0] && r < e[0] + 3 && k >= e[1] && k < e[1] + 3; }); };
+    for (var r = 0; r < n; r++) for (var k = 0; k < n; k++) {
+      if (!qr.isDark(r, k) || Math.hypot(r - c, k - c) < hole) continue;
+      (isEye(r, k) ? eyes : dark).push('<rect x="' + k + '" y="' + r + '" width="1.04" height="1.04"/>');
+    }
+    var svg = '<svg viewBox="0 0 ' + n + ' ' + n + '" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" shape-rendering="crispEdges">' +
+      '<g fill="' + ink + '">' + dark.join('') + '</g><g fill="' + pink + '">' + eyes.join('') + '</g></svg>';
+    var code = box.querySelector('.tf-qr__code');
+    code.insertAdjacentHTML('afterbegin', svg);
+  }
+  function initQr(root) {
+    if (!qrDesktop) return;
+    var boxes = [].filter.call(root.querySelectorAll('[data-tf-qr]'), function (b) { return !b.dataset.tfReady; });
+    if (!boxes.length) return;
+    loadQrLib(boxes[0].dataset.tfQrLib).then(function () {
+      boxes.forEach(function (b) { b.dataset.tfReady = '1'; try { drawQr(b); } catch (e) { b.hidden = true; } });
+    }).catch(function () { boxes.forEach(function (b) { b.hidden = true; }); });
+  }
+
+  function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); initQr(root); updateHeader(); }
   init(document);
   // Re-run when a section is added or changed in the theme editor.
   document.addEventListener('shopify:section:load', function (e) { init(e.target); });

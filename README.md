@@ -34,6 +34,9 @@ Phone screens can be swapped by picking an image; otherwise one of the bundled a
 ## SEO, favicon and sharing
 `snippets/tf-seo.liquid` sets the page title, meta description, canonical URL, favicon (SVG + PNG + Apple touch icon), Open Graph / X share tags with a 1200×630 share image (`assets/og-image.jpg`) and app structured data on the home page. Titles and descriptions for the landing, Professionals and FAQ pages, the site name, a custom favicon and share image live under **Theme settings → SEO & sharing**; other pages use their own Shopify title with the site name appended.
 
+## App Store QR code
+`snippets/tf-qr.liquid` shows a "Scan to download" card on desktop (hidden on phones and tablets) under the landing hero buttons and the closing call to action. The code is drawn in the browser from the App Store link (shortened to `https://apps.apple.com/app/id…`, so it opens each visitor's own store) using `assets/qrcode-generator.js` (MIT), which only loads on desktop pages that show a card. Text and on/off: **Theme settings → Toothfairy**; per section: **Show App Store QR code**.
+
 ## Cookie banner
 `snippets/tf-cookie-banner.liquid` (rendered from the layout) is a branded banner on top of Shopify's Customer Privacy API, so consent is stored and honoured by Shopify, pixels and apps. It appears only where Shopify says consent is needed, offers Accept all / Reject all at equal size plus per-category preferences, and can be reopened via **Cookie settings** in the footer. Text and on/off live under **Theme settings → Cookie banner**. Turn off Shopify's own banner (Settings → Customer privacy) so visitors don't see two.
 

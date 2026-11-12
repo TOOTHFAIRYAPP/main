@@ -4,6 +4,7 @@
   {%- if s.show_symbol -%}<img class="tf-cta__symbol" src="{{ 'symbol-dark.svg' | asset_url }}" alt="" width="88" height="88">{%- endif -%}
   <h2 class="tf-h2">{{ s.heading }}</h2>
   {%- if s.button_label != blank -%}<a class="tf-btn tf-btn--primary tf-btn--large" href="{{ s.button_link | default: settings.app_store_url }}"><span>{{ s.button_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>{%- endif -%}
+  {%- if s.show_qr and s.button_link == blank -%}{% render 'tf-qr', align: 'center' %}{%- endif -%}
 </div>
 </div>
 
@@ -46,6 +47,13 @@
       "id": "button_link",
       "label": "Button link",
       "info": "Empty = App Store link."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_qr",
+      "label": "Show App Store QR code (desktop)",
+      "default": true,
+      "info": "Only shown when the button leads to the App Store."
     },
     {
       "type": "header",

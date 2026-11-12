@@ -22,6 +22,29 @@
         "label": "Show App Store banner in Safari on iPhone",
         "default": true,
         "info": "Apple's own banner at the top of the page, with the app icon and an Open/Get button."
+      },
+      {
+        "type": "header",
+        "content": "App Store QR code (desktop)"
+      },
+      {
+        "type": "checkbox",
+        "id": "qr_enabled",
+        "label": "Show a QR code to the App Store on desktop",
+        "default": true,
+        "info": "Generated from the App Store link above. Hidden on phones and tablets."
+      },
+      {
+        "type": "text",
+        "id": "qr_heading",
+        "label": "QR heading",
+        "default": "Scan to download"
+      },
+      {
+        "type": "text",
+        "id": "qr_text",
+        "label": "QR text",
+        "default": "Point your iPhone camera here to get Toothfairy AI."
       }
     ]
   },

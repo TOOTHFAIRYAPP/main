@@ -1,0 +1,16 @@
+{%- comment -%}
+  App Store QR card for desktop visitors (hidden on phones and tablets).
+  The code is drawn in the browser from Theme settings → Toothfairy → App Store link.
+  Params: align ('center' | 'start')
+{%- endcomment -%}
+{%- if settings.app_store_url != blank and settings.qr_enabled -%}
+<div class="tf-qr{% if align == 'center' %} tf-qr--center{% endif %}" data-tf-qr="{{ settings.app_store_url | escape }}" data-tf-qr-lib="{{ 'qrcode-generator.js' | asset_url }}">
+  <div class="tf-qr__code" role="img" aria-label="QR code: download Toothfairy AI on the App Store">
+    <span class="tf-qr__logo">{% render 'tf-face' %}</span>
+  </div>
+  <div class="tf-qr__text">
+    <strong>{{ settings.qr_heading }}</strong>
+    <span>{{ settings.qr_text }}</span>
+  </div>
+</div>
+{%- endif -%}
