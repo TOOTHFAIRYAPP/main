@@ -210,12 +210,26 @@
     var moreBtn = box.querySelector('[data-tf-cookie-action="prefs"]');
     var saveBtn = box.querySelector('[data-tf-cookie-action="save"]');
     var inputs = box.querySelectorAll('[data-tf-consent]');
-    var api = null;
+    var api = null, KEY = 'tf-consent', YEAR = 365 * 864e5;
+    // The visitor's choice is also kept on this device, so the banner never asks twice
+    // even if Shopify's own consent cookie is missing (blocked, expired, cleared or not yet synced).
+    function saved() {
+      try { var v = JSON.parse(localStorage.getItem(KEY) || 'null'); return v && Date.now() - v.t < YEAR ? v : null; } catch (e) { return null; }
+    }
+    function remember(c) {
+      try { localStorage.setItem(KEY, JSON.stringify({ analytics: !!c.analytics, marketing: !!c.marketing, preferences: !!c.preferences, t: Date.now() })); } catch (e) {}
+    }
+    function send(c, done) {
+      try {
+        api.setTrackingConsent({ analytics: !!c.analytics, marketing: !!c.marketing, preferences: !!c.preferences, sale_of_data: !!c.marketing }, function (res) {
+          if (res && res.error && window.console) console.warn('Toothfairy: consent not stored by Shopify', res.error);
+          if (done) done();
+        });
+      } catch (e) { if (done) done(); }
+    }
     function open(withPrefs) {
-      if (api && api.currentVisitorConsent) {
-        var c = api.currentVisitorConsent() || {};
-        inputs.forEach(function (i) { i.checked = c[i.dataset.tfConsent] === 'yes'; });
-      }
+      var mine = saved(), c = api && api.currentVisitorConsent ? api.currentVisitorConsent() || {} : {};
+      inputs.forEach(function (i) { var k = i.dataset.tfConsent; i.checked = c[k] ? c[k] === 'yes' : !!(mine && mine[k]); });
       showPrefs(!!withPrefs);
       box.hidden = false;
       requestAnimationFrame(function () { box.classList.add('is-in'); });
@@ -231,8 +245,9 @@
       moreBtn.setAttribute('aria-expanded', on ? 'true' : 'false');
     }
     function decide(c) {
+      remember(c);
       if (!api) { close(); return; }
-      api.setTrackingConsent({ analytics: c.analytics, marketing: c.marketing, preferences: c.preferences, sale_of_data: c.marketing }, close);
+      send(c, close);
     }
     box.addEventListener('click', function (e) {
       var b = e.target.closest('[data-tf-cookie-action]');
@@ -252,7 +267,16 @@
     window.Shopify.loadFeatures([{ name: 'consent-tracking-api', version: '0.1' }], function (err) {
       if (err) return;
       api = window.Shopify.customerPrivacy;
-      if (api && api.shouldShowBanner && api.shouldShowBanner()) open(false);
+      if (!api) return;
+      var mine = saved(), c = api.currentVisitorConsent ? api.currentVisitorConsent() || {} : {};
+      var shopifyHasChoice = c.analytics === 'yes' || c.analytics === 'no' || c.marketing === 'yes' || c.marketing === 'no';
+      if (mine) {
+        // Already decided on this device: never show the banner again; re-send if Shopify lost it.
+        if (!shopifyHasChoice) send(mine);
+        return;
+      }
+      if (shopifyHasChoice) { remember({ analytics: c.analytics === 'yes', marketing: c.marketing === 'yes', preferences: c.preferences === 'yes' }); return; }
+      if (api.shouldShowBanner && api.shouldShowBanner()) open(false);
     });
   }
   initCookies();
