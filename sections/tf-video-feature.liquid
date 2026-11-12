@@ -25,9 +25,9 @@
       <div class="tf-video__status"><span class="tf-device__island"></span></div>
       <div class="tf-video__media">
       {%- if s.video != blank -%}
-        {{ s.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '720x' }}
+        {{ s.video | video_tag: autoplay: false, loop: true, muted: true, playsinline: true, controls: false, preload: 'none', image_size: '720x' }}
       {%- elsif s.video_url != blank -%}
-        <video src="{{ s.video_url }}" autoplay muted loop playsinline></video>
+        <video src="{{ s.video_url }}" muted loop playsinline preload="none"></video>
       {%- else -%}
         <div class="tf-video__empty">Add a video in the theme editor</div>
       {%- endif -%}

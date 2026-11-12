@@ -1,0 +1,14 @@
+{%- comment -%}
+  Slim "Get the app" bar for phones. Slides in after the hero, hides while an App Store badge is on
+  screen, while the menu or cookie banner is open, and after the visitor closes it (for that visit).
+  Theme settings → Toothfairy → Mobile download bar.
+{%- endcomment -%}
+<div class="tf-appbar" data-tf-appbar aria-hidden="true">
+  <img class="tf-appbar__icon" src="{{ 'apple-touch-icon.png' | asset_url }}" alt="" width="40" height="40" loading="lazy">
+  <div class="tf-appbar__text">
+    <strong>{{ settings.mobile_bar_title | default: 'Toothfairy AI' }}</strong>
+    <span>{{ settings.mobile_bar_text }}</span>
+  </div>
+  <a class="tf-appbar__get" href="{{ settings.app_store_url }}" rel="noopener" tabindex="-1">{{ settings.mobile_bar_button | default: 'Get' }}</a>
+  <button type="button" class="tf-appbar__close" data-tf-appbar-close aria-label="Close" tabindex="-1"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+</div>

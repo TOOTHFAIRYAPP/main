@@ -7,9 +7,9 @@
   </div>
   <div class="tf-qs">
     {%- for block in section.blocks -%}
-      <details class="tf-q" {% if block.settings.open %}open{% endif %} {{ block.shopify_attributes }}>
-        <summary><span>{{ block.settings.question }}</span><span class="tf-q__icon" aria-hidden="true">+</span></summary>
-        <div class="tf-q__a tf-rte">{{ block.settings.answer }}</div>
+      <details class="tf-q" {% if block.settings.open %}open{% endif %} itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" {{ block.shopify_attributes }}>
+        <summary><span itemprop="name">{{ block.settings.question }}</span><span class="tf-q__icon" aria-hidden="true">+</span></summary>
+        <div class="tf-q__a tf-rte" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><div itemprop="text">{{ block.settings.answer }}</div></div>
       </details>
     {%- endfor -%}
   </div>

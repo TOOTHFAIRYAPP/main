@@ -211,6 +211,7 @@
     },
     "testimonials": {
       "type": "tf-cards",
+      "disabled": true,
       "blocks": {
         "quote_1": {
           "type": "quote",

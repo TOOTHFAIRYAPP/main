@@ -65,7 +65,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": "MobileApplication",
   "name": {{ site | json }},
   "description": {{ seo_desc | strip_html | json }},
   "operatingSystem": "iOS",
@@ -73,6 +73,9 @@
   "image": {{ share_image | json }},
   {%- if settings.app_store_url != blank %}"downloadUrl": {{ settings.app_store_url | json }},{% endif %}
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  {%- if settings.app_rating_value != blank and settings.app_rating_count != blank %}
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": {{ settings.app_rating_value | replace: ',', '.' | json }}, "ratingCount": {{ settings.app_rating_count | json }}, "bestRating": "5" },
+  {%- endif %}
   "publisher": { "@type": "Organization", "name": "CC Lab Technology Holding Limited" }
 }
 </script>

@@ -376,8 +376,63 @@
     });
   }
 
-  function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); initQr(root); initTickers(root); initSliderDots(root); initVideos(root); initPlanFocus(root); updateHeader(); }
+  // App Store links: tag each with an Apple campaign (pt + ct, e.g. ct=home-hero) when a provider token
+  // is set in Theme settings, and report clicks as a Shopify customer event (sent on only with consent).
+  function appLinkPlace(a) {
+    if (a.closest('.tf-appbar')) return 'mobile-bar';
+    if (a.closest('.tf-menu')) return 'menu';
+    var sec = a.closest('[id^="shopify-section-"]');
+    return sec && sec.id ? sec.id.split('__').pop() : 'page';
+  }
+  function initAppLinks(root) {
+    var body = document.body, page = body.dataset.tfPage || 'page', pt = body.dataset.tfPt;
+    root.querySelectorAll('a[href*="apps.apple.com"]').forEach(function (a) {
+      if (a.dataset.tfApp) return; a.dataset.tfApp = '1';
+      var place = appLinkPlace(a), ct = (page + '-' + place).toLowerCase().replace(/[^a-z0-9-]+/g, '-').slice(0, 40);
+      if (pt) { try { var u = new URL(a.href); u.searchParams.set('pt', pt); u.searchParams.set('ct', ct); u.searchParams.set('mt', '8'); a.href = u.toString(); } catch (e) {} }
+      a.addEventListener('click', function () {
+        try { if (window.Shopify && Shopify.analytics && Shopify.analytics.publish) Shopify.analytics.publish('app_store_click', { page: page, placement: place, campaign: ct }); } catch (e) {}
+      });
+    });
+  }
+
+  // Mobile download bar: in after the hero; out while a badge is on screen, the menu or cookie banner is open.
+  function initAppBar() {
+    var bar = document.querySelector('[data-tf-appbar]');
+    if (!bar || bar.dataset.tfReady) return; bar.dataset.tfReady = '1';
+    var KEY = 'tf-appbar-closed', closed = false, badgesOnScreen = 0, raf = 0;
+    try { closed = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+    if (closed) return;
+    var focusables = bar.querySelectorAll('a, button');
+    var update = function () {
+      raf = 0;
+      var cookie = document.querySelector('.tf-cookie.is-in');
+      var show = !closed && window.scrollY > window.innerHeight * 0.85 && !badgesOnScreen &&
+        !document.documentElement.classList.contains('tf-menu-open') && !cookie;
+      bar.classList.toggle('is-in', show);
+      bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+      [].forEach.call(focusables, function (f) { f.tabIndex = show ? 0 : -1; });
+    };
+    var queue = function () { if (!raf) raf = requestAnimationFrame(update); };
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { en.target.dataset.tfOnScreen = en.isIntersecting ? '1' : ''; });
+        badgesOnScreen = document.querySelectorAll('[data-tf-on-screen="1"]').length; queue();
+      });
+      document.querySelectorAll('main .tf-badge, footer .tf-badge').forEach(function (b) { io.observe(b); });
+    }
+    window.addEventListener('scroll', queue, { passive: true });
+    document.addEventListener('click', function () { setTimeout(queue, 50); });
+    bar.querySelector('[data-tf-appbar-close]').addEventListener('click', function () {
+      closed = true; try { sessionStorage.setItem(KEY, '1'); } catch (e) {} update();
+    });
+    setInterval(queue, 1000); // picks up the cookie banner / menu closing
+    update();
+  }
+
+  function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); initQr(root); initTickers(root); initSliderDots(root); initVideos(root); initPlanFocus(root); initAppLinks(root); updateHeader(); }
   init(document);
+  initAppBar();
   // Re-run when a section is added or changed in the theme editor.
   document.addEventListener('shopify:section:load', function (e) { init(e.target); });
 })();

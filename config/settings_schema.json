@@ -17,6 +17,12 @@
         "info": "Used by every App Store button whose own link is empty."
       },
       {
+        "type": "text",
+        "id": "appstore_provider_token",
+        "label": "App Store provider token (pt)",
+        "info": "From App Store Connect → App Analytics → Campaigns → Generate a campaign link (the number after pt=). With it, every App Store button gets its own campaign, e.g. home-hero, so you can see which button drives downloads."
+      },
+      {
         "type": "checkbox",
         "id": "appstore_badge",
         "label": "Use the official App Store badge",
@@ -52,6 +58,35 @@
         "id": "qr_text",
         "label": "QR text",
         "default": "Point your iPhone camera here to get Toothfairy AI."
+      },
+      {
+        "type": "header",
+        "content": "Mobile download bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "mobile_bar",
+        "label": "Show download bar on phones",
+        "default": true,
+        "info": "Appears after scrolling past the hero; not on the Professionals page."
+      },
+      {
+        "type": "text",
+        "id": "mobile_bar_title",
+        "label": "Title",
+        "default": "Toothfairy AI"
+      },
+      {
+        "type": "text",
+        "id": "mobile_bar_text",
+        "label": "Subtitle",
+        "default": "Free download · iPhone"
+      },
+      {
+        "type": "text",
+        "id": "mobile_bar_button",
+        "label": "Button",
+        "default": "Get"
       }
     ]
   },
@@ -126,6 +161,26 @@
         "id": "seo_faq_description",
         "label": "Description",
         "default": "How Toothfairy AI smile previews work, what credits cost, how your photos are kept private, and how dental practices can use the app."
+      },
+      {
+        "type": "header",
+        "content": "App rating in Google results"
+      },
+      {
+        "type": "paragraph",
+        "content": "Optional. Copy the current App Store rating so Google can show stars for the app. Only use your real, current rating."
+      },
+      {
+        "type": "text",
+        "id": "app_rating_value",
+        "label": "Average rating",
+        "info": "e.g. 4.8"
+      },
+      {
+        "type": "text",
+        "id": "app_rating_count",
+        "label": "Number of ratings",
+        "info": "e.g. 132"
       }
     ]
   },

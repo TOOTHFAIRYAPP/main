@@ -9,9 +9,9 @@
       {%- if section.settings.show_media -%}
         <div class="tf-col__media"><div class="tf-screen">
           {%- if b.video != blank -%}
-            {{ b.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '720x' }}
+            {{ b.video | video_tag: autoplay: false, loop: true, muted: true, playsinline: true, controls: false, preload: 'none', image_size: '720x' }}
           {%- elsif b.video_url != blank -%}
-            <video src="{{ b.video_url }}" autoplay muted loop playsinline></video>
+            <video src="{{ b.video_url }}" muted loop playsinline preload="none"></video>
           {%- else -%}
             {% render 'tf-screen', image: b.media_image, fallback: b.media_screen, sizes: '320px' %}
           {%- endif -%}
