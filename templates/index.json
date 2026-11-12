@@ -83,12 +83,12 @@
         "secondary_label": "Watch the video",
         "secondary_link": "#video",
         "left_image": "shopify://shop_images/9B624872-24B9-4871-A892-78B98C108219.png",
-        "left_screen": "screen-onboarding.png",
-        "center_screen": "screen-result.png",
+        "left_screen": "screen-onboarding.webp",
+        "center_screen": "screen-result.webp",
         "center_video": "shopify://files/videos/hero-phone.mp4",
         "center_video_url": "",
         "right_image": "shopify://shop_images/Schermafbeelding_2026-11-09_om_09.04.10.png",
-        "right_screen": "screen-gallery.png",
+        "right_screen": "screen-gallery.webp",
         "fan_out": true,
         "tilt": true,
         "anchor": "",
@@ -121,7 +121,7 @@
             "text": "Or pick one from your library. Good light, relaxed smile.",
             "video_url": "",
             "media_image": "shopify://shop_images/selfie-bijgesneden.jpg",
-            "media_screen": "screen-onboarding.png"
+            "media_screen": "screen-onboarding.webp"
           }
         },
         "column_2": {
@@ -131,7 +131,7 @@
             "text": "Several natural enhancement styles — from subtle alignment to brighter.",
             "video_url": "",
             "media_image": "shopify://shop_images/pick-a-style.png",
-            "media_screen": "screen-style.png"
+            "media_screen": "screen-style.webp"
           }
         },
         "column_3": {
@@ -141,7 +141,7 @@
             "text": "Generate a short video of your enhanced smile. Save it or share it.",
             "video": "shopify://files/videos/watch-it-move.mp4",
             "video_url": "",
-            "media_screen": "screen-result.png"
+            "media_screen": "screen-result.webp"
           }
         }
       },
@@ -400,7 +400,7 @@
         "button_label": "Download on the App Store",
         "button_link": "",
         "reverse": true,
-        "phone_screen": "screen-result.png",
+        "phone_screen": "screen-result.webp",
         "anchor": "clinics",
         "border_top": false,
         "padding_top": 96,

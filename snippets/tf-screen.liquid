@@ -1,13 +1,13 @@
 {%- comment -%}
   An image picked in the theme editor, otherwise a bundled asset.
-  Params: image (image|blank), fallback (asset filename, or 'none'), alt, width + height (of the bundled file, default 472 × 992), sizes, loading
+  Params: image (image|blank), fallback (asset filename, or 'none'), alt, width + height (of the bundled file, default 776 × 1528), sizes, loading
 {%- endcomment -%}
 {%- liquid
   assign loading = loading | default: 'lazy'
   assign sizes = sizes | default: '280px'
   assign alt = alt | default: ''
-  assign width = width | default: 472
-  assign height = height | default: 992
+  assign width = width | default: 776
+  assign height = height | default: 1528
 -%}
 {%- if image != blank -%}
   {%- comment -%} Follow the focal point set in Shopify (Content → Files, or the image picker). Unset (centre) keeps the top of the screen, as for app screenshots. {%- endcomment -%}
