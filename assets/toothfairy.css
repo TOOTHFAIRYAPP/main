@@ -140,7 +140,7 @@ input, select, textarea, button { font: inherit; }
    The capsule is drawn on the nav with padding offset by negative margins, so the
    header keeps the same height in both states and the page never jumps. */
 .tf-section--header:has(.tf-header[data-sticky]) { position: sticky; top: 0; z-index: 30; pointer-events: none; }
-.tf-section--header .tf-wrap { transition: background-color .3s ease; }
+.tf-section--header .tf-wrap { overflow: visible; transition: background-color .3s ease; } /* Safari clips both axes with overflow-x: clip, which hid the mobile menu panel */
 .tf-section--header .tf-header {
   --cap-py: 10px; --cap-pl: 24px; --cap-pr: 10px; --cap-max: 9999px; --cap-shift: 1;
   --cap-w: min(100% + var(--cap-pl) + var(--cap-pr), var(--cap-max));
