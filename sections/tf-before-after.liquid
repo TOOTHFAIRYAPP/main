@@ -10,6 +10,7 @@
 <div class="tf-ba__tabs" role="group" aria-label="Treatment">
   <button type="button" class="tf-ba__tab is-active" aria-pressed="true">{{ s.tab_1 }}</button>
   <button type="button" class="tf-ba__tab" aria-pressed="false">{{ s.tab_2 }}</button>
+  {%- if s.tab_3 != blank -%}<button type="button" class="tf-ba__tab" aria-pressed="false">{{ s.tab_3 }}</button>{%- endif -%}
 </div>
 {%- endif -%}
 <div class="tf-ba" data-tf-ba>
@@ -18,6 +19,9 @@
     <div class="tf-ba__after is-active">{% render 'tf-screen', image: s.after_image, fallback: 'teeth-after.webp', alt: s.after_label, width: 1254, height: 627, sizes: '(min-width: 1440px) 1280px, 100vw' %}</div>
     {%- if has_tabs -%}
     <div class="tf-ba__after">{% render 'tf-screen', image: s.after_image_2, fallback: 'teeth-after-whitening.webp', alt: s.after_label, width: 1254, height: 627, loading: 'lazy', sizes: '(min-width: 1440px) 1280px, 100vw' %}</div>
+    {%- if s.tab_3 != blank -%}
+    <div class="tf-ba__after">{% render 'tf-screen', image: s.after_image_3, fallback: 'teeth-after-aligners.webp', alt: s.after_label, width: 1254, height: 627, loading: 'lazy', sizes: '(min-width: 1440px) 1280px, 100vw' %}</div>
+    {%- endif -%}
     {%- endif -%}
   </div>
   <div class="tf-ba__line"></div>
@@ -85,6 +89,19 @@
       "id": "after_image_2",
       "label": "Tab 2 after image",
       "info": "Empty = bundled whitening photo."
+    },
+    {
+      "type": "text",
+      "id": "tab_3",
+      "label": "Tab 3 label",
+      "default": "Aligners",
+      "info": "Optional third tab; leave empty to hide it."
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image_3",
+      "label": "Tab 3 after image",
+      "info": "Empty = bundled aligners photo."
     },
     {
       "type": "text",
