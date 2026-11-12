@@ -185,7 +185,7 @@
           "type": "fact",
           "settings": {
             "label": "Privacy",
-            "text": "Patient selfies and results are stored only on the device, never on our servers. Built by CC Lab Technology Ltd., Dublin, under EU law."
+            "text": "Patient selfies and results are stored only on the device, never on our servers. Built by CC Lab Technology Holding Limited, Dublin, under EU law."
           }
         },
         "fact_2": {
@@ -199,7 +199,7 @@
           "type": "fact",
           "settings": {
             "label": "Built by",
-            "text": "CC Lab Technology Ltd. — the team behind the Toothfairy® patient app used throughout aligner treatment. Dental first, AI second."
+            "text": "CC Lab Technology Holding Limited — the team behind the Toothfairy® patient app used throughout aligner treatment. Dental first, AI second."
           }
         }
       },
