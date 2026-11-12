@@ -123,18 +123,45 @@ input, select, textarea, button { font: inherit; }
 .tf-header__cta--primary { background: var(--tf-pink); color: #fff; font-weight: 700; }
 .tf-header__cta--outline { border: 1px solid var(--tf-ghost-line); color: var(--tf-ink); font-weight: 500; }
 .tf-menu { display: none; }
-.tf-menu > summary { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--tf-ghost-line); border-radius: 8px; list-style: none; cursor: pointer; }
+.tf-menu > summary { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--tf-ghost-line); border-radius: 8px; list-style: none; cursor: pointer; transition: border-radius .35s ease, background-color .3s ease, border-color .3s ease; }
 .tf-menu > summary::-webkit-details-marker { display: none; }
-.tf-menu > summary svg { width: 18px; height: 18px; }
-.tf-menu .tf-menu__close, .tf-menu[open] .tf-menu__open { display: none; }
-.tf-menu[open] .tf-menu__close { display: block; }
+.tf-menu[open] > summary { border-radius: 999px; background: var(--tf-ink); border-color: var(--tf-ink); color: #fff; }
+/* Hamburger that morphs into an X */
+.tf-burger { position: relative; width: 18px; height: 12px; }
+.tf-burger i { position: absolute; left: 0; width: 100%; height: 1.6px; border-radius: 2px; background: currentColor; transition: transform .4s var(--tf-ease), top .4s var(--tf-ease); }
+.tf-burger i:first-child { top: 2px; }
+.tf-burger i:last-child { top: 8.4px; }
+.tf-menu[open] .tf-burger i:first-child { top: 5.2px; transform: rotate(45deg); }
+.tf-menu[open] .tf-burger i:last-child { top: 5.2px; transform: rotate(-45deg); }
+/* Menu card: frosted, floats under the header, dims the page around it */
 .tf-menu__panel {
-  position: absolute; z-index: 20; top: calc(100% + 8px); left: 0; right: 0;
-  display: flex; flex-direction: column; padding: 8px 24px; background: var(--tf-paper);
-  border-radius: 16px; box-shadow: 0 30px 80px rgba(26, 21, 23, .12); font-size: 17px;
+  position: absolute; z-index: 20; top: calc(100% + 10px); left: 0; right: 0;
+  padding: 8px 22px 20px; border-radius: 24px;
+  background: rgba(255, 255, 255, .94); -webkit-backdrop-filter: saturate(1.5) blur(18px); backdrop-filter: saturate(1.5) blur(18px);
+  box-shadow: inset 0 0 0 1px rgba(26, 21, 23, .06), 0 24px 60px rgba(26, 21, 23, .18), 0 0 0 100vmax rgba(26, 21, 23, .22);
+  transform-origin: top center;
 }
-.tf-menu__panel a { padding: 16px 0; border-top: 1px solid var(--tf-line); }
-.tf-menu__panel a:first-child { border-top: 0; }
+.tf-menu[open] .tf-menu__panel { animation: tf-menu-in .45s var(--tf-ease) both; }
+@keyframes tf-menu-in { from { opacity: 0; transform: translateY(-8px) scale(.97); } to { opacity: 1; transform: none; } }
+.tf-menu__links { display: flex; flex-direction: column; }
+.tf-menu__link {
+  display: grid; grid-template-columns: 34px 1fr auto; align-items: center; padding: 15px 0;
+  border-bottom: 1px solid var(--tf-line); color: var(--tf-ink);
+}
+.tf-menu__link:hover { opacity: 1; }
+.tf-menu__num { font-size: 12px; letter-spacing: .15em; color: var(--tf-pink); }
+.tf-menu__label { font-size: 24px; font-weight: 500; letter-spacing: -.02em; line-height: 1.15; }
+.tf-menu__arrow { width: 20px; height: 20px; color: var(--tf-ghost-line); transition: transform .35s var(--tf-ease), color .3s ease; }
+.tf-menu__link:hover .tf-menu__arrow, .tf-menu__link:active .tf-menu__arrow, .tf-menu__link:focus-visible .tf-menu__arrow { transform: translateX(4px); color: var(--tf-pink); }
+.tf-menu__link.is-accent .tf-menu__label { color: var(--tf-pink); }
+.tf-menu__link.is-current .tf-menu__label { font-weight: 700; }
+.tf-menu__foot { display: flex; align-items: center; gap: 14px; padding-top: 18px; }
+.tf-menu__note { font-size: 13px; color: var(--tf-muted); }
+.tf-menu__cta { width: 100%; }
+/* Links and footer arrive one after another */
+.tf-menu[open] .tf-menu__link, .tf-menu[open] .tf-menu__foot { animation: tf-link-in .5s var(--tf-ease) both; animation-delay: calc(var(--i, 0) * 45ms + 60ms); }
+@keyframes tf-link-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+html.tf-menu-open { overflow: hidden; }
 
 /* Sticky header: stays on top and turns into a floating capsule once the page scrolls.
    The capsule is drawn on the nav with padding offset by negative margins, so the
@@ -658,9 +685,9 @@ input, select, textarea, button { font: inherit; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tf-hero-c__glow, .tf-video__glow { animation: none !important; }
+  .tf-hero-c__glow, .tf-video__glow, .tf-menu__panel, .tf-menu__link, .tf-menu__foot { animation: none !important; }
   .tf-device { transition: none; }
-  .tf-ticker__item,
+  .tf-ticker__item, .tf-burger i, .tf-menu__arrow, .tf-menu > summary,
   .tf-cookie, .tf-switch, .tf-switch > span,
   .tf-ba__handle, .tf-face__smile, .tf-face__pupil, .tf-face__pupils,
   .tf-btn, .tf-dot, .tf-q__icon, .tf-section--header .tf-wrap, .tf-section--header .tf-header, .tf-section--header .tf-header__logo img { transition: none; }

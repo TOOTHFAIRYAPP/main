@@ -105,6 +105,18 @@
     var h = e.target.closest && e.target.closest('.tf-section--header');
     if (h) h.classList.remove('is-hidden');
   });
+  // Mobile menu: lock page scroll while open; close on outside tap or Escape.
+  document.addEventListener('toggle', function (e) {
+    if (!e.target.matches || !e.target.matches('[data-tf-menu]')) return;
+    document.documentElement.classList.toggle('tf-menu-open', e.target.open);
+  }, true);
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('[data-tf-menu][open]').forEach(function (m) { if (!m.contains(e.target)) m.removeAttribute('open'); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    document.querySelectorAll('[data-tf-menu][open]').forEach(function (m) { m.removeAttribute('open'); var s = m.querySelector('summary'); if (s) s.focus(); });
+  });
   // Close the mobile menu after tapping a link in it.
   document.addEventListener('click', function (e) {
     var link = e.target.closest && e.target.closest('.tf-menu__panel a');
