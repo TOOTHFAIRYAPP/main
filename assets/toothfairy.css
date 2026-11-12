@@ -104,6 +104,7 @@ input, select, textarea, button { font: inherit; }
 .tf-ticker__item { grid-area: 1 / 1; justify-self: center; white-space: nowrap; opacity: 0; transform: translateY(80%); transition: opacity .55s ease, transform .7s var(--tf-ease); }
 .tf-ticker__item.is-active { opacity: 1; transform: none; }
 .tf-ticker__item.is-leaving { opacity: 0; transform: translateY(-80%); }
+.tf-hero-s .tf-ticker__item { justify-self: start; }
 
 /* Phones ------------------------------------------------------------------ */
 .tf-phone { background: var(--tf-ink); flex: none; position: relative; }

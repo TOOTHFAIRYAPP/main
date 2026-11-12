@@ -2,7 +2,13 @@
 {%- assign s = section.settings -%}
 <div class="tf-hero-s">
   <div>
-    {%- if s.eyebrow != blank -%}<div class="tf-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    {%- if s.eyebrow != blank -%}
+      {%- assign ticks = s.eyebrow_ticker | newline_to_br | split: '<br />' -%}
+      <div class="tf-eyebrow tf-ticker" data-tf-ticker>
+        <span class="tf-ticker__item is-active">{{ s.eyebrow }}</span>
+        {%- for t in ticks -%}{%- assign line = t | strip -%}{%- if line != blank -%}<span class="tf-ticker__item" aria-hidden="true">{{ line }}</span>{%- endif -%}{%- endfor -%}
+      </div>
+    {%- endif -%}
     <h1 class="tf-h1">{{ s.heading | newline_to_br }}</h1>
     {%- if s.text != blank -%}<p class="tf-lead">{{ s.text }}</p>{%- endif -%}
     <div class="tf-actions">
@@ -30,6 +36,13 @@
       "id": "eyebrow",
       "label": "Eyebrow",
       "default": "For dental professionals"
+    },
+    {
+      "type": "textarea",
+      "id": "eyebrow_ticker",
+      "label": "Eyebrow — rotating lines",
+      "default": "Smile previews in the chair\nAligners, veneers & whitening\nNothing to install\nPatient referrals · €99/mo\nPhotos stay on the device",
+      "info": "One short line each (max ~28 characters). They take turns after the eyebrow. Leave empty for a static eyebrow."
     },
     {
       "type": "textarea",
