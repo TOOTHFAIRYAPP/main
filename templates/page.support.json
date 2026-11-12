@@ -108,7 +108,7 @@
           "type": "question",
           "settings": {
             "question": "Which devices are supported?",
-            "answer": "<p>iPhone with iOS 18 or later. It also runs on Macs with Apple silicon (macOS 15) and Apple Vision (visionOS 2). Android is not available yet.</p>",
+            "answer": "<p>Only iPhone for now, with iOS 18 or later. It isn't available for iPad, Mac or Android yet.</p>",
             "open": false
           }
         },
