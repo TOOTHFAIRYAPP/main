@@ -354,6 +354,10 @@
         "padding_bottom": 96
       }
     },
+    "contact": {
+      "type": "tf-contact-form",
+      "settings": {}
+    },
     "cta": {
       "type": "tf-cta",
       "settings": {
@@ -424,6 +428,7 @@
     "testimonials",
     "pricing",
     "faq",
+    "contact",
     "cta"
   ]
 }
