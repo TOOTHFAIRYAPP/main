@@ -695,7 +695,7 @@ html.tf-menu-open { overflow: hidden; }
   .tf-ba-cards { align-items: flex-start; }
   .tf-ba-card { flex: 0 0 min(84%, 420px); scroll-snap-align: start; }
   .tf-col, .tf-col:first-child, .tf-col:last-child, .tf-card {
-    flex: 0 0 min(84%, 420px); scroll-snap-align: start; padding: 24px; border: 1px solid var(--tf-line); border-radius: 20px; background: var(--tf-paper);
+    flex: 0 0 min(84%, 420px); scroll-snap-align: start; padding: 24px; border: 0; border-radius: 20px; background: var(--tf-paper);
   }
   .tf-cols--media .tf-col { padding-bottom: 0; overflow: hidden; }
   .tf-col__media { height: auto; aspect-ratio: 5 / 4; margin: auto -24px 0; padding: 20px 16% 0; border-radius: 0; }
