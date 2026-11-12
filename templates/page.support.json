@@ -1,0 +1,197 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "type": "tf-header",
+      "settings": {
+        "cta_label": "App Store",
+        "cta_link": "",
+        "cta_style": "primary"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "For patients",
+            "link": "/",
+            "style": "normal"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "For professionals",
+            "link": "/pages/professionals",
+            "style": "normal"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "link": "/pages/faq",
+            "style": "current"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "Contact",
+            "link": "#contact",
+            "style": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
+    },
+    "intro": {
+      "type": "tf-page-intro",
+      "settings": {
+        "heading": "Support",
+        "heading_size": 84,
+        "text": "Quick answers to the most common questions, or send us a message. We reply within one working day at support@toothfairy.app.",
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 96,
+        "padding_bottom": 24
+      }
+    },
+    "faq": {
+      "type": "tf-faq",
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "My preview didn't work. What now?",
+            "answer": "<p>Try a new front-facing selfie in even daylight, with a relaxed smile showing your teeth and no filters. If a result is clearly broken, email us the photo you used and we'll look into it and restore the credit.</p>",
+            "open": true
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "How do credits work?",
+            "answer": "<p>The app is free to download. Previews use credits: 10 for €4,99, 25 for €9,99 or 50 for €14,99, bought in the app through the App Store. Credits don't expire, and the cost is always shown before you confirm.</p>",
+            "open": false
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "How do I get a refund?",
+            "answer": "<p>Purchases are handled by Apple. Request a refund at <a href=\"https://reportaproblem.apple.com\">reportaproblem.apple.com</a>. For failed generations, contact us and we'll restore the credit.</p>",
+            "open": false
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "Where are my photos, and how do I delete them?",
+            "answer": "<p>Your selfies and results are saved only on your phone, in the app's gallery. Delete them there, or remove the app to delete everything.</p>",
+            "open": false
+          }
+        },
+        "question_5": {
+          "type": "question",
+          "settings": {
+            "question": "Which devices are supported?",
+            "answer": "<p>iPhone with iOS 18 or later. It also runs on Macs with Apple silicon (macOS 15) and Apple Vision (visionOS 2). Android is not available yet.</p>",
+            "open": false
+          }
+        },
+        "question_6": {
+          "type": "question",
+          "settings": {
+            "question": "Can you put me in touch with a clinic?",
+            "answer": "<p>Yes. If you love your after photo, we can introduce you to a clinic or doctor from our curated network who can tell you honestly what's possible.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4",
+        "question_5",
+        "question_6"
+      ],
+      "settings": {
+        "anchor": "help",
+        "eyebrow": "Help",
+        "heading": "Common questions",
+        "heading_size": 40,
+        "border_top": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "links": {
+      "type": "tf-cards",
+      "blocks": {
+        "fact_1": {
+          "type": "fact",
+          "settings": {
+            "label": "All questions",
+            "text": "Everything about the app, results, credits and privacy on the <a href=\"/pages/faq\">FAQ page</a>."
+          }
+        },
+        "fact_2": {
+          "type": "fact",
+          "settings": {
+            "label": "Privacy",
+            "text": "How your photos stay on your phone: read the <a href=\"/pages/privacy\">privacy policy</a>."
+          }
+        },
+        "fact_3": {
+          "type": "fact",
+          "settings": {
+            "label": "For practices",
+            "text": "Using Toothfairy® AI in your practice? See <a href=\"/pages/professionals\">For professionals</a> or book a demo."
+          }
+        }
+      },
+      "block_order": [
+        "fact_1",
+        "fact_2",
+        "fact_3"
+      ],
+      "settings": {
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 32,
+        "padding_bottom": 64
+      }
+    },
+    "contact": {
+      "type": "tf-contact-form",
+      "settings": {
+        "eyebrow": "Contact",
+        "heading": "Still need help?",
+        "anchor": "contact",
+        "padding_top": 0,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": [
+    "header",
+    "intro",
+    "faq",
+    "links",
+    "contact"
+  ]
+}

@@ -1,0 +1,191 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "type": "tf-header",
+      "settings": {
+        "cta_label": "App Store",
+        "cta_link": "",
+        "cta_style": "primary"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "For patients",
+            "link": "/",
+            "style": "normal"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "For professionals",
+            "link": "/pages/professionals",
+            "style": "normal"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "link": "/pages/faq",
+            "style": "current"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "Contact",
+            "link": "#contact",
+            "style": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
+    },
+    "intro": {
+      "type": "tf-page-intro",
+      "settings": {
+        "heading": "Privacy policy",
+        "heading_size": 84,
+        "text": "Your selfies and results stay on your phone. This policy explains what little we do process, why, and the choices you have.",
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 96,
+        "padding_bottom": 40
+      }
+    },
+    "policy": {
+      "type": "tf-document",
+      "blocks": {
+        "part_1": {
+          "type": "part",
+          "settings": {
+            "heading": "Who we are",
+            "text": "<p>Toothfairy® AI (the app and tooth-fairy.app) is provided by <strong>CC Lab Technology Holding Limited</strong>, Merchants House, 27–30 Merchant's Quay, Dublin 8, Ireland. We are the data controller for the personal data described in this policy.</p><p>Questions or requests about your data: <a href=\"mailto:support@toothfairy.app\">support@toothfairy.app</a>.</p>"
+          }
+        },
+        "part_2": {
+          "type": "part",
+          "settings": {
+            "heading": "Your photos stay on your phone",
+            "text": "<p>The selfies you take or pick, and the after photos and videos the app creates, are saved only on your own device, in the app's gallery. We don't keep a copy on our servers and we don't build a library of faces.</p><p>To create a preview, the photo you choose is sent over an encrypted connection to our AI processing service. It is used only to generate your result and is not stored afterwards.</p><p>We never use your photos to train AI models.</p>"
+          }
+        },
+        "part_3": {
+          "type": "part",
+          "settings": {
+            "heading": "What we process",
+            "text": "<ul><li><strong>Purchases.</strong> Credits are bought through Apple. Apple handles payment; we only receive confirmation of what was bought, never your card details.</li><li><strong>Support messages.</strong> If you email us or use a contact form, we receive your name, email address and message, plus anything you choose to send (such as the photo of a failed preview).</li><li><strong>App diagnostics.</strong> If you allow it on your iPhone, Apple shares anonymous crash and usage data with us so we can fix problems.</li><li><strong>Clinic introductions.</strong> Only if you ask to be put in touch with a clinic (see below).</li><li><strong>This website.</strong> Essential cookies to run the site and, only with your permission, analytics and marketing cookies. You can change your choice at any time via “Cookie settings” in the footer.</li></ul>"
+          }
+        },
+        "part_4": {
+          "type": "part",
+          "settings": {
+            "heading": "Clinic introductions",
+            "text": "<p>If you love your after photo and ask us to put you in touch with a clinic, we share the details you choose to give us (for example your name, contact details, area and the treatment you're interested in) with one or more partner clinics in our network, so they can contact you.</p><p>We only do this when you ask. Partner clinics are independent and become responsible for your data from the moment they receive it.</p>"
+          }
+        },
+        "part_5": {
+          "type": "part",
+          "settings": {
+            "heading": "Why we may use your data",
+            "text": "<ul><li><strong>To provide the app and the services you request</strong> (contract): creating previews, credits, support, clinic introductions.</li><li><strong>With your consent</strong>: optional website cookies and sharing your details with a clinic. You can withdraw consent at any time.</li><li><strong>Legitimate interests</strong>: keeping the app secure, fixing errors and improving our service.</li><li><strong>Legal obligations</strong>: for example keeping financial records.</li></ul>"
+          }
+        },
+        "part_6": {
+          "type": "part",
+          "settings": {
+            "heading": "Who we share data with",
+            "text": "<p>We don't sell your data. We only share it with:</p><ul><li>Apple, for App Store purchases and app distribution.</li><li>Service providers who process data on our behalf under contract, such as our AI processing, hosting and email providers, and Shopify for this website.</li><li>Partner clinics, only when you ask for an introduction.</li><li>Authorities, if the law requires it.</li></ul>"
+          }
+        },
+        "part_7": {
+          "type": "part",
+          "settings": {
+            "heading": "International transfers",
+            "text": "<p>Some of our providers may process data outside the European Economic Area. When that happens we use appropriate safeguards, such as the European Commission's Standard Contractual Clauses.</p>"
+          }
+        },
+        "part_8": {
+          "type": "part",
+          "settings": {
+            "heading": "How long we keep data",
+            "text": "<p>Your photos and results stay on your phone until you delete them or remove the app. Support messages are kept for as long as needed to help you and then deleted. Purchase records are kept as long as tax law requires.</p>"
+          }
+        },
+        "part_9": {
+          "type": "part",
+          "settings": {
+            "heading": "Your rights",
+            "text": "<p>Under the GDPR you can ask to access, correct or delete your personal data, to restrict or object to its use, and to receive it in a portable format. Where we rely on consent, you can withdraw it at any time.</p><p>To make a request, email <a href=\"mailto:support@toothfairy.app\">support@toothfairy.app</a>. You can also complain to the Irish Data Protection Commission (<a href=\"https://www.dataprotection.ie\">dataprotection.ie</a>) or your local data protection authority.</p><p>To delete your photos and results, delete them in the app's gallery or remove the app from your phone.</p>"
+          }
+        },
+        "part_10": {
+          "type": "part",
+          "settings": {
+            "heading": "Children",
+            "text": "<p>Toothfairy® AI is not intended for children under 16. If you are under 16, please use the app only with the involvement of a parent or guardian.</p>"
+          }
+        },
+        "part_11": {
+          "type": "part",
+          "settings": {
+            "heading": "Security",
+            "text": "<p>We use encryption in transit and limit access to the little data we process to the people who need it. Because your images live on your device, keeping your phone locked and up to date also protects them.</p>"
+          }
+        },
+        "part_12": {
+          "type": "part",
+          "settings": {
+            "heading": "Changes to this policy",
+            "text": "<p>We may update this policy when the app or the law changes. The date at the top shows the latest version. If a change is important, we'll let you know in the app or on this website.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "part_1",
+        "part_2",
+        "part_3",
+        "part_4",
+        "part_5",
+        "part_6",
+        "part_7",
+        "part_8",
+        "part_9",
+        "part_10",
+        "part_11",
+        "part_12"
+      ],
+      "settings": {
+        "updated": "Last updated: 12 November 2026",
+        "intro": "",
+        "show_toc": true,
+        "toc_label": "On this page",
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 24,
+        "padding_bottom": 120
+      }
+    }
+  },
+  "order": [
+    "header",
+    "intro",
+    "policy"
+  ]
+}

@@ -1,0 +1,191 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "type": "tf-header",
+      "settings": {
+        "cta_label": "App Store",
+        "cta_link": "",
+        "cta_style": "primary"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "For patients",
+            "link": "/",
+            "style": "normal"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "For professionals",
+            "link": "/pages/professionals",
+            "style": "normal"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "link": "/pages/faq",
+            "style": "current"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "Contact",
+            "link": "#contact",
+            "style": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
+    },
+    "intro": {
+      "type": "tf-page-intro",
+      "settings": {
+        "heading": "Terms of use",
+        "heading_size": 84,
+        "text": "The rules for using Toothfairy® AI and buying credits, in plain language.",
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 96,
+        "padding_bottom": 40
+      }
+    },
+    "terms": {
+      "type": "tf-document",
+      "blocks": {
+        "part_1": {
+          "type": "part",
+          "settings": {
+            "heading": "About these terms",
+            "text": "<p>These terms are an agreement between you and <strong>CC Lab Technology Holding Limited</strong>, Merchants House, 27–30 Merchant's Quay, Dublin 8, Ireland (“we”, “us”). They apply to the Toothfairy® AI app and this website. By using the app you accept them.</p><p>Because you download the app from the App Store, Apple's Licensed Application End User License Agreement also applies. If these terms and Apple's differ, these terms apply as far as the law allows.</p>"
+          }
+        },
+        "part_2": {
+          "type": "part",
+          "settings": {
+            "heading": "What Toothfairy® AI is — and isn't",
+            "text": "<p>Toothfairy® AI creates simulated previews of an enhanced smile from a photo, for <strong>visualisation and inspiration only</strong>.</p><p>Previews and videos are not medical, dental or orthodontic advice, not a diagnosis and not a treatment plan. Real results depend on your teeth and the treatment you choose, and are never guaranteed. Always consult a qualified dental professional before deciding on treatment.</p>"
+          }
+        },
+        "part_3": {
+          "type": "part",
+          "settings": {
+            "heading": "Your photos",
+            "text": "<ul><li>Only use photos of yourself, or of someone who has given you permission.</li><li>Don't upload photos of children unless you are their parent or guardian.</li><li>Don't upload unlawful, offensive or misleading content.</li><li>You keep all rights to your photos. You allow us to process them only to create the result you asked for (see our <a href=\"/pages/privacy\">privacy policy</a>).</li></ul>"
+          }
+        },
+        "part_4": {
+          "type": "part",
+          "settings": {
+            "heading": "Credits and payments",
+            "text": "<ul><li>The app is free to download. Previews and videos use credits, bought in the app through Apple.</li><li>Prices are shown in the app before you buy. The credits a preview or video uses are shown before you confirm.</li><li>Credits don't expire and are not a subscription. They can't be exchanged for money or transferred to another account.</li><li>Purchases are handled by Apple and follow the App Store's refund rules. You can request a refund at <a href=\"https://reportaproblem.apple.com\">reportaproblem.apple.com</a>.</li><li>If a generation clearly fails, contact us at <a href=\"mailto:support@toothfairy.app\">support@toothfairy.app</a> and we'll look into it and restore the credit.</li></ul>"
+          }
+        },
+        "part_5": {
+          "type": "part",
+          "settings": {
+            "heading": "Clinic introductions",
+            "text": "<p>If you ask, we can put you in touch with a partner clinic or doctor from our network. Partner clinics are independent professionals: they are responsible for any consultation, advice and treatment they provide, and their own terms and prices apply.</p><p>Practices that join the network do so under a separate partner agreement.</p>"
+          }
+        },
+        "part_6": {
+          "type": "part",
+          "settings": {
+            "heading": "Fair use",
+            "text": "<p>Don't misuse the app: for example by trying to copy or reverse-engineer it, bypass payments, overload our systems, or use it to create content that harms or deceives others. We may suspend access if you break these terms.</p>"
+          }
+        },
+        "part_7": {
+          "type": "part",
+          "settings": {
+            "heading": "Our rights",
+            "text": "<p>The app, its design, software and content belong to us or our licensors. Toothfairy® is a registered trademark of CC Lab Technology Holding Limited in the European Union, the United States, Canada, New Zealand and Australia. You may not use our brand without written permission.</p>"
+          }
+        },
+        "part_8": {
+          "type": "part",
+          "settings": {
+            "heading": "Availability and changes",
+            "text": "<p>We work to keep the app available and improving, but we can't promise it will always be uninterrupted or error-free. We may change or stop features. If we stop the app entirely, we'll give reasonable notice where possible.</p>"
+          }
+        },
+        "part_9": {
+          "type": "part",
+          "settings": {
+            "heading": "Liability",
+            "text": "<p>Nothing in these terms limits your rights as a consumer under the law of your country, or our liability where it cannot be limited by law.</p><p>Within those limits, we are not responsible for decisions you or anyone else make based on a simulated preview, or for the advice and treatment of independent clinics.</p>"
+          }
+        },
+        "part_10": {
+          "type": "part",
+          "settings": {
+            "heading": "Ending",
+            "text": "<p>You can stop using the app at any time by deleting it. Unused credits remain linked to your Apple account if you reinstall the app on the same account.</p>"
+          }
+        },
+        "part_11": {
+          "type": "part",
+          "settings": {
+            "heading": "Law and disputes",
+            "text": "<p>These terms are governed by Irish law. If you live in another EU country, you also keep the protection of the mandatory consumer law of that country and can bring a claim there. We'd always like to hear from you first so we can try to solve the problem.</p>"
+          }
+        },
+        "part_12": {
+          "type": "part",
+          "settings": {
+            "heading": "Contact",
+            "text": "<p>CC Lab Technology Holding Limited, Merchants House, 27–30 Merchant's Quay, Dublin 8, Ireland. Email <a href=\"mailto:support@toothfairy.app\">support@toothfairy.app</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "part_1",
+        "part_2",
+        "part_3",
+        "part_4",
+        "part_5",
+        "part_6",
+        "part_7",
+        "part_8",
+        "part_9",
+        "part_10",
+        "part_11",
+        "part_12"
+      ],
+      "settings": {
+        "updated": "Last updated: 12 November 2026",
+        "intro": "",
+        "show_toc": true,
+        "toc_label": "On this page",
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 24,
+        "padding_bottom": 120
+      }
+    }
+  },
+  "order": [
+    "header",
+    "intro",
+    "terms"
+  ]
+}

@@ -1,0 +1,173 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "type": "tf-header",
+      "settings": {
+        "cta_label": "App Store",
+        "cta_link": "",
+        "cta_style": "primary"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "For patients",
+            "link": "/",
+            "style": "normal"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "For professionals",
+            "link": "/pages/professionals",
+            "style": "normal"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "link": "/pages/faq",
+            "style": "current"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "Contact",
+            "link": "#contact",
+            "style": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
+    },
+    "intro": {
+      "type": "tf-page-intro",
+      "settings": {
+        "heading": "Dental first,\nAI second.",
+        "heading_size": 84,
+        "text": "Toothfairy® AI helps people see what a confident smile could look like, and helps dental professionals start that conversation, without ever losing sight of what real treatment can achieve.",
+        "anchor": "",
+        "border_top": false,
+        "padding_top": 96,
+        "padding_bottom": 40
+      }
+    },
+    "values": {
+      "type": "tf-columns",
+      "blocks": {
+        "c1": {
+          "type": "column",
+          "settings": {
+            "heading": "Honest previews",
+            "text": "Natural-looking results that keep your features, expression and proportions. Always labelled as a simulation, never a promise."
+          }
+        },
+        "c2": {
+          "type": "column",
+          "settings": {
+            "heading": "Private by design",
+            "text": "Selfies and results stay on your phone. We don't store them on our servers and never use them to train AI."
+          }
+        },
+        "c3": {
+          "type": "column",
+          "settings": {
+            "heading": "From preview to real smile",
+            "text": "When you love your after photo, we can introduce you to a curated network of clinics and doctors."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "show_media": false,
+        "anchor": "",
+        "border_top": true,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "company": {
+      "type": "tf-document",
+      "blocks": {
+        "part_1": {
+          "type": "part",
+          "settings": {
+            "heading": "Company details",
+            "text": "<p><strong>CC Lab Technology Holding Limited</strong></p><p>Registered office: Merchants House, 27–30 Merchant's Quay, Dublin 8, Ireland</p><p>Registered in Ireland, company number: [add CRO number]</p><p>Email: <a href=\"mailto:support@toothfairy.app\">support@toothfairy.app</a></p>"
+          }
+        },
+        "part_2": {
+          "type": "part",
+          "settings": {
+            "heading": "Trademark",
+            "text": "<p>Toothfairy® is a registered trademark of CC Lab Technology Holding Limited in the European Union, the United States, Canada, New Zealand and Australia.</p>"
+          }
+        },
+        "part_3": {
+          "type": "part",
+          "settings": {
+            "heading": "Legal",
+            "text": "<p><a href=\"/pages/privacy\">Privacy policy</a> · <a href=\"/pages/terms\">Terms of use</a> · <a href=\"/pages/support\">Support</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "part_1",
+        "part_2",
+        "part_3"
+      ],
+      "settings": {
+        "updated": "",
+        "intro": "",
+        "show_toc": false,
+        "toc_label": "On this page",
+        "anchor": "company",
+        "border_top": true,
+        "padding_top": 96,
+        "padding_bottom": 120
+      }
+    },
+    "cta": {
+      "type": "tf-cta",
+      "settings": {
+        "show_symbol": true,
+        "heading": "One selfie away.",
+        "heading_size": 88,
+        "button_label": "Download on the App Store",
+        "button_link": "",
+        "anchor": "",
+        "border_top": true,
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
+    }
+  },
+  "order": [
+    "header",
+    "intro",
+    "values",
+    "company",
+    "cta"
+  ]
+}
