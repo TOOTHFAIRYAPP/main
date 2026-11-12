@@ -217,7 +217,14 @@ html.tf-menu-open { overflow: hidden; }
 .tf-hero-c .tf-h1 { max-width: 1100px; margin-bottom: 32px; }
 .tf-hero-c .tf-lead { font-size: 21px; max-width: 620px; margin-bottom: 48px; }
 .tf-hero-c .tf-actions { justify-content: center; }
-.tf-hero-c__stage { width: 100%; max-width: 940px; margin-top: 96px; --u: 1px; }
+.tf-hero-c__stage { width: 100%; max-width: 940px; margin: 56px 0 72px; --u: 1px; }
+/* Lead with the app: heading, then the phones, then the text and download buttons. */
+.tf-hero-c .tf-eyebrow { order: 0; }
+.tf-hero-c .tf-h1 { order: 1; margin-bottom: 0; }
+.tf-hero-c__stage { order: 2; }
+.tf-hero-c .tf-lead { order: 3; }
+.tf-hero-c .tf-actions { order: 4; }
+.tf-hero-c .tf-qr { order: 5; }
 @supports (width: 1cqi) {
   .tf-hero-c__stage { container-type: inline-size; }
   .tf-hero-c__phones { --u: min(1px, calc(100cqi / 940)); }
@@ -291,7 +298,6 @@ html.tf-menu-open { overflow: hidden; }
   @media (prefers-reduced-motion: no-preference) {
     [data-tf-fan] .tf-hero-c__slot--l { animation: tf-fan-l linear both; animation-timeline: scroll(root block); animation-range: 0px 420px; }
     [data-tf-fan] .tf-hero-c__slot--r { animation: tf-fan-r linear both; animation-timeline: scroll(root block); animation-range: 0px 420px; }
-    [data-tf-fan] .tf-hero-c__phones { animation: tf-drift linear both; animation-timeline: scroll(root block); animation-range: 0px 900px; }
   }
 }
 @keyframes tf-fan-l {
@@ -719,14 +725,7 @@ html.tf-menu-open { overflow: hidden; }
   .tf-hero-c .tf-eyebrow, .tf-hero-s .tf-eyebrow { margin-bottom: 20px; }
   .tf-hero-c .tf-lead, .tf-hero-s .tf-lead { margin-bottom: 32px; }
   .tf-hero-c__stage { margin-top: 56px; }
-  /* Phones: show the app right under the heading, then the text and download buttons. */
-  .tf-hero-c .tf-eyebrow { order: 0; }
-  .tf-hero-c .tf-h1 { order: 1; margin-bottom: 0; }
-  .tf-hero-c__stage { order: 2; margin: 28px 0 36px; }
-  .tf-hero-c .tf-lead { order: 3; }
-  .tf-hero-c .tf-actions { order: 4; }
-  .tf-hero-c .tf-qr { order: 5; }
-  [data-tf-fan] .tf-hero-c__phones { animation: none; } /* no downward drift into the text below */
+  .tf-hero-c__stage { margin: 28px 0 36px; }
   @supports (width: 1cqi) { .tf-hero-c__phones { --u: min(1px, calc(100cqi / 600)); } }
   .tf-hero-s__visual { padding: 0 12px; }
   .tf-hero-c .tf-btn, .tf-hero-s .tf-btn { width: 100%; }
