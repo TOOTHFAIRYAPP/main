@@ -5,8 +5,8 @@
   {%- if s.text != blank -%}<p class="tf-body">{{ s.text }}</p>{%- endif -%}
 </div>
 <div class="tf-ba" data-tf-ba>
-  <div class="tf-ba__img">{% render 'tf-screen', image: s.before_image, fallback: 'teeth-before.webp', alt: s.before_label, width: 800, height: 400, sizes: '(min-width: 1440px) 1280px, 100vw' %}</div>
-  <div class="tf-ba__img tf-ba__img--after">{% render 'tf-screen', image: s.after_image, fallback: 'teeth-after.webp', alt: s.after_label, width: 800, height: 400, sizes: '(min-width: 1440px) 1280px, 100vw' %}</div>
+  <div class="tf-ba__img">{% render 'tf-screen', image: s.before_image, fallback: 'teeth-before.webp', alt: s.before_label, width: 1160, height: 580, sizes: '(min-width: 1440px) 1280px, 100vw' %}</div>
+  <div class="tf-ba__img tf-ba__img--after">{% render 'tf-screen', image: s.after_image, fallback: 'teeth-after.webp', alt: s.after_label, width: 1160, height: 580, sizes: '(min-width: 1440px) 1280px, 100vw' %}</div>
   <div class="tf-ba__line"></div>
   <div class="tf-ba__handle" aria-hidden="true">{% render 'tf-face' %}</div>
   <input class="tf-ba__range" type="range" min="0" max="100" value="50" aria-label="Compare before and after">
