@@ -26,6 +26,16 @@
       window.addEventListener('pointerup', end);
       range.addEventListener('blur', end);
       set();
+      // Treatment tabs (e.g. Veneers / Whitening): swap the after photo, keep the handle where it is.
+      var tabs = box.previousElementSibling && box.previousElementSibling.matches('.tf-ba__tabs') ? box.previousElementSibling.querySelectorAll('.tf-ba__tab') : [];
+      var afters = box.querySelectorAll('.tf-ba__after');
+      [].forEach.call(tabs, function (tab, i) {
+        tab.addEventListener('click', function () {
+          [].forEach.call(tabs, function (t, j) { t.classList.toggle('is-active', i === j); t.setAttribute('aria-pressed', i === j ? 'true' : 'false'); });
+          [].forEach.call(afters, function (a, j) { a.classList.toggle('is-active', i === j); });
+          look(i ? 'right' : 'left');
+        });
+      });
       // One gentle nudge when the slider first comes into view.
       if (calm || !('IntersectionObserver' in window) || (window.Shopify && window.Shopify.designMode)) return;
       var io = new IntersectionObserver(function (entries) {

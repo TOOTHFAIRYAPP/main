@@ -363,6 +363,14 @@ html.tf-menu-open { overflow: hidden; }
 .tf-ba[data-look="right"] .tf-face__pupils { transform: translateX(18px); }
 .tf-ba__range:focus-visible ~ .tf-ba__handle { box-shadow: 0 0 0 4px var(--tf-pink), 0 10px 28px rgba(26, 21, 23, .28); }
 .tf-ba__range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+/* Treatment tabs: same before photo, the after photo crossfades. */
+.tf-ba__tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.tf-ba__tab { padding: 10px 20px; border: 1px solid var(--tf-ghost-line); border-radius: 999px; background: transparent; font-size: 14px; font-weight: 500; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background-color .3s ease, border-color .3s ease, color .3s ease; }
+.tf-ba__tab:hover { border-color: var(--tf-pink); }
+.tf-ba__tab.is-active { background: var(--tf-pink); border-color: var(--tf-pink); color: #fff; }
+.tf-ba__tab:focus-visible { outline: 2px solid var(--tf-pink); outline-offset: 3px; }
+.tf-ba__after { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; }
+.tf-ba__after.is-active { opacity: 1; }
 .tf-ba__label { position: absolute; bottom: 24px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; pointer-events: none; }
 .tf-ba__label--before { left: 24px; color: var(--tf-muted); }
 .tf-ba__label--after { right: 24px; color: var(--tf-pink); }
