@@ -379,8 +379,14 @@ html.tf-menu-open { overflow: hidden; }
 .tf-skip:focus { top: 16px; outline: 2px solid var(--tf-pink); outline-offset: 2px; }
 /* Cards layout: one compact slider per treatment. */
 .tf-ba-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.tf-ba-card { margin: 0; display: flex; flex-direction: column; border: 1px solid var(--tf-line); border-radius: 20px; background: var(--tf-paper); overflow: hidden; }
-.tf-ba--card { height: auto; aspect-ratio: 4 / 3; border-radius: 0; }
+/* Arch cards: the photo sits in an arch (a nod to the smile in the logo), the caption sits
+   straight on the page under it, so there is no half-empty white box. */
+.tf-ba-card { margin: 0; display: flex; flex-direction: column; }
+.tf-ba--card {
+  height: auto; aspect-ratio: 5 / 4;
+  border-radius: 50% 50% 18px 18px / 62.5% 62.5% 18px 18px; /* a true half circle on top */
+  box-shadow: 0 1px 0 rgba(26, 21, 23, .04), 0 18px 40px rgba(26, 21, 23, .08);
+}
 .tf-ba--card .tf-ba__handle { width: 40px; height: 40px; box-shadow: 0 0 0 3px rgba(255, 255, 255, .45), 0 6px 18px rgba(26, 21, 23, .24); }
 .tf-ba--card .tf-face { width: 25px; }
 .tf-ba--card .tf-ba__line { width: 2px; transform: translateX(-1px); }
@@ -389,15 +395,15 @@ html.tf-menu-open { overflow: hidden; }
 .tf-ba--card .tf-ba__label { bottom: 14px; }
 .tf-ba--card .tf-ba__label--before { left: 14px; }
 .tf-ba--card .tf-ba__label--after { right: 14px; }
-.tf-ba-card__cap { display: flex; flex-direction: column; gap: 6px; padding: 22px 24px 26px; }
+.tf-ba-card__cap { display: flex; flex-direction: column; gap: 6px; padding: 24px 8px 0; }
 .tf-ba-card__num { font-size: 12px; letter-spacing: .15em; color: var(--tf-pink-text); }
 .tf-ba-card__title { font-size: 22px; font-weight: 500; letter-spacing: -.01em; }
 .tf-ba-card__text { font-size: 15px; line-height: 1.5; color: var(--tf-muted); }
-.tf-ba-card__note { display: flex; gap: 8px; margin-top: 8px; padding-top: 12px; border-top: 1px dashed var(--tf-line); font-size: 13px; line-height: 1.45; color: var(--tf-muted); }
+.tf-ba-card__note { display: flex; gap: 6px; margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--tf-muted); }
 .tf-ba-card__note::before { content: '*'; color: var(--tf-pink); font-weight: 700; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .tf-ba-card { transition: transform .5s var(--tf-ease), box-shadow .5s ease; }
-  .tf-ba-card:hover { transform: translateY(-6px); box-shadow: 0 22px 48px rgba(26, 21, 23, .1); }
+  .tf-ba--card { transition: transform .5s var(--tf-ease), box-shadow .5s ease; }
+  .tf-ba-card:hover .tf-ba--card { transform: translateY(-6px); box-shadow: 0 1px 0 rgba(26, 21, 23, .04), 0 28px 56px rgba(26, 21, 23, .14); }
 }
 .tf-ba__label { position: absolute; bottom: 24px; padding: 5px 10px 5px 12px; border-radius: 999px; background: rgba(255, 255, 255, .82); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; pointer-events: none; }
 .tf-ba__label--before { left: 24px; color: var(--tf-muted); }
