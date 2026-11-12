@@ -375,8 +375,11 @@ html.tf-menu-open { overflow: hidden; }
 .tf-ba-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .tf-ba-card { margin: 0; display: flex; flex-direction: column; border: 1px solid var(--tf-line); border-radius: 20px; background: var(--tf-paper); overflow: hidden; }
 .tf-ba--card { height: auto; aspect-ratio: 4 / 3; border-radius: 0; }
-.tf-ba--card .tf-ba__handle { width: 52px; height: 52px; }
-.tf-ba--card .tf-face { width: 34px; }
+.tf-ba--card .tf-ba__handle { width: 40px; height: 40px; box-shadow: 0 0 0 3px rgba(255, 255, 255, .45), 0 6px 18px rgba(26, 21, 23, .24); }
+.tf-ba--card .tf-face { width: 25px; }
+.tf-ba--card .tf-ba__line { width: 2px; transform: translateX(-1px); }
+.tf-ba--card[data-look="left"] .tf-face__pupils { transform: translateX(-12px); }
+.tf-ba--card[data-look="right"] .tf-face__pupils { transform: translateX(12px); }
 .tf-ba--card .tf-ba__label { bottom: 14px; }
 .tf-ba--card .tf-ba__label--before { left: 14px; }
 .tf-ba--card .tf-ba__label--after { right: 14px; }
