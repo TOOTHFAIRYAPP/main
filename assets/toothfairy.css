@@ -473,6 +473,8 @@ html.tf-menu-open { overflow: hidden; }
 .tf-step__title { font-size: 19px; font-weight: 500; margin-bottom: 6px; }
 .tf-step__text { color: var(--tf-muted); font-size: 15px; line-height: 1.55; }
 .tf-flow__visual { width: 100%; aspect-ratio: 554 / 620; padding: 7.22% 14.44% 0; border-radius: 16px; overflow: hidden; background: var(--tf-pink-panel); }
+.tf-flow__visual--photo { padding: 0; background: var(--tf-pink-panel); }
+.tf-flow__visual--photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 55% 60%; }
 .tf-flow__phone { height: 100%; padding: 10px 10px 0; border-radius: 36px 36px 0 0; background: var(--tf-ink); }
 .tf-flow__phone .tf-screen { border-radius: 28px 28px 0 0; }
 
@@ -764,6 +766,7 @@ html.tf-menu-open { overflow: hidden; }
    whole screen recording, instead of a phone cropped by the bottom of the panel. */
 @media (max-width: 860px) {
   .tf-flow__visual { aspect-ratio: auto; display: flex; justify-content: center; padding: 32px 0; }
+  .tf-flow__visual--photo { aspect-ratio: 4 / 5; display: block; padding: 0; }
   .tf-flow__phone { width: min(68%, 300px); height: auto; padding: 8px; border-radius: 42px; box-shadow: 0 24px 48px rgba(26, 21, 23, .16); }
   .tf-flow__phone .tf-screen { height: auto; aspect-ratio: 590 / 1278; border-radius: 34px; }
 }

@@ -19,6 +19,15 @@
       <a class="tf-btn tf-btn--primary" href="{{ s.button_link | default: settings.app_store_url }}"><span>{{ s.button_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>
     {%- endif -%}
   </div>
+  {%- if s.visual == 'photo' -%}
+  <div class="tf-flow__visual tf-flow__visual--photo">
+    {%- if s.photo != blank -%}
+      {{ s.photo | image_url: width: 1120 | image_tag: alt: s.photo_alt, loading: 'lazy', sizes: '(max-width: 860px) 100vw, 50vw', widths: '560, 840, 1120' }}
+    {%- else -%}
+      <img src="{{ 'clinic-chair.webp' | asset_url }}" alt="{{ s.photo_alt | escape }}" width="1120" height="1400" loading="lazy">
+    {%- endif -%}
+  </div>
+  {%- else -%}
   <div class="tf-flow__visual"><div class="tf-flow__phone"><div class="tf-screen">
     {%- if s.phone_video != blank -%}
       {{ s.phone_video | video_tag: autoplay: false, loop: true, muted: true, playsinline: true, controls: false, preload: 'none', image_size: '640x' }}
@@ -28,6 +37,7 @@
       {% render 'tf-screen', image: section.settings.phone_image, fallback: section.settings.phone_screen, sizes: '(max-width: 600px) 80vw, 400px' %}
     {%- endif -%}
   </div></div></div>
+  {%- endif -%}
 </div>
 </div>
 
@@ -82,6 +92,34 @@
       "id": "reverse",
       "label": "Phone on the left",
       "default": false
+    },
+    {
+      "type": "select",
+      "id": "visual",
+      "label": "Visual",
+      "default": "phone",
+      "options": [
+        {
+          "value": "phone",
+          "label": "Phone with app screen"
+        },
+        {
+          "value": "photo",
+          "label": "Photo"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "photo",
+      "label": "Photo",
+      "info": "Used when Visual is Photo. Empty = bundled treatment-chair photo. Portrait works best."
+    },
+    {
+      "type": "text",
+      "id": "photo_alt",
+      "label": "Photo description (alt text)",
+      "default": "Patient in the treatment chair holding a clear aligner"
     },
     {
       "type": "image_picker",

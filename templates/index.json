@@ -414,7 +414,8 @@
         "anchor": "clinics",
         "border_top": false,
         "padding_top": 96,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "visual": "photo"
       }
     }
   },
