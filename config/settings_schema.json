@@ -24,5 +24,35 @@
         "info": "Apple's own banner at the top of the page, with the app icon and an Open/Get button."
       }
     ]
+  },
+  {
+    "name": "Cookie banner",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cookie_banner",
+        "label": "Use the Toothfairy cookie banner",
+        "default": true,
+        "info": "Turn off Shopify's own banner under Settings → Customer privacy, so visitors don't see two. The banner only appears where Shopify says consent is needed."
+      },
+      {
+        "type": "text",
+        "id": "cookie_heading",
+        "label": "Heading",
+        "default": "Cookies, kept simple"
+      },
+      {
+        "type": "textarea",
+        "id": "cookie_text",
+        "label": "Text",
+        "default": "We use essential cookies to run this site. With your permission we also use analytics and marketing cookies to improve it."
+      },
+      {
+        "type": "text",
+        "id": "cookie_link_label",
+        "label": "Privacy link label",
+        "default": "Privacy policy"
+      }
+    ]
   }
 ]

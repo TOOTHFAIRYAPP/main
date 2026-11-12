@@ -31,6 +31,9 @@ All pages match the 1440px design on desktop and reflow for tablet and phone.
 Every section has **Space above / Space below**, an optional **line above**, and an **Anchor ID** for menu links such as `#how`.
 Phone screens can be swapped by picking an image; otherwise one of the bundled app screens is used.
 
+## Cookie banner
+`snippets/tf-cookie-banner.liquid` (rendered from the layout) is a branded banner on top of Shopify's Customer Privacy API, so consent is stored and honoured by Shopify, pixels and apps. It appears only where Shopify says consent is needed, offers Accept all / Reject all at equal size plus per-category preferences, and can be reopened via **Cookie settings** in the footer. Text and on/off live under **Theme settings → Cookie banner**. Turn off Shopify's own banner (Settings → Customer privacy) so visitors don't see two.
+
 ## Forms
 Both forms use Shopify's contact form; submissions go to the store's sender email. Shopify's contact form can't take file attachments.
 

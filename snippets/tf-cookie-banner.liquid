@@ -1,0 +1,39 @@
+{%- comment -%}
+  Toothfairy cookie banner. Uses Shopify's Customer Privacy API, so consent is stored and
+  honoured by Shopify, its pixels and apps. Shown only where Shopify says a banner is needed
+  (and the visitor hasn't chosen yet), or when someone clicks a [data-tf-cookie-settings] link.
+  Turn Shopify's own banner off (Settings → Customer privacy) so visitors don't see two.
+{%- endcomment -%}
+{%- if settings.cookie_banner -%}
+<div class="tf-cookie" id="tf-cookie" role="dialog" aria-modal="false" aria-labelledby="tf-cookie-title" aria-describedby="tf-cookie-text" hidden data-tf-cookie>
+  <div class="tf-cookie__head">
+    <span class="tf-cookie__face">{% render 'tf-face' %}</span>
+    <h2 class="tf-cookie__title" id="tf-cookie-title">{{ settings.cookie_heading }}</h2>
+  </div>
+  <p class="tf-cookie__text" id="tf-cookie-text">{{ settings.cookie_text }}{% if shop.privacy_policy %} <a href="{{ shop.privacy_policy.url }}">{{ settings.cookie_link_label }}</a>{% endif %}</p>
+  <div class="tf-cookie__prefs" id="tf-cookie-prefs" hidden>
+    <div class="tf-cookie__pref">
+      <span><strong>Essential</strong><small>Needed for the site to work. Always on.</small></span>
+      <span class="tf-switch is-locked" aria-hidden="true"><span></span></span>
+    </div>
+    <label class="tf-cookie__pref">
+      <span><strong>Analytics</strong><small>Helps us understand how the site is used.</small></span>
+      <input type="checkbox" class="tf-switch__input" data-tf-consent="analytics"><span class="tf-switch" aria-hidden="true"><span></span></span>
+    </label>
+    <label class="tf-cookie__pref">
+      <span><strong>Marketing</strong><small>Lets us measure and personalise our ads.</small></span>
+      <input type="checkbox" class="tf-switch__input" data-tf-consent="marketing"><span class="tf-switch" aria-hidden="true"><span></span></span>
+    </label>
+    <label class="tf-cookie__pref">
+      <span><strong>Preferences</strong><small>Remembers choices such as language.</small></span>
+      <input type="checkbox" class="tf-switch__input" data-tf-consent="preferences"><span class="tf-switch" aria-hidden="true"><span></span></span>
+    </label>
+  </div>
+  <div class="tf-cookie__actions">
+    <button type="button" class="tf-btn tf-btn--ghost tf-cookie__btn" data-tf-cookie-action="reject">Reject all</button>
+    <button type="button" class="tf-btn tf-btn--ghost tf-cookie__btn" data-tf-cookie-action="save" hidden>Save choices</button>
+    <button type="button" class="tf-btn tf-btn--primary tf-cookie__btn" data-tf-cookie-action="accept">Accept all</button>
+    <button type="button" class="tf-cookie__more" data-tf-cookie-action="prefs" aria-expanded="false" aria-controls="tf-cookie-prefs">Preferences</button>
+  </div>
+</div>
+{%- endif -%}

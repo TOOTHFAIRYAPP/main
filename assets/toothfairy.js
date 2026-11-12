@@ -163,6 +163,62 @@
     });
   }
 
+  // Cookie banner on top of Shopify's Customer Privacy API.
+  function initCookies() {
+    var box = document.querySelector('[data-tf-cookie]');
+    if (!box || box.dataset.tfReady) return;
+    box.dataset.tfReady = '1';
+    var prefs = box.querySelector('#tf-cookie-prefs');
+    var moreBtn = box.querySelector('[data-tf-cookie-action="prefs"]');
+    var saveBtn = box.querySelector('[data-tf-cookie-action="save"]');
+    var inputs = box.querySelectorAll('[data-tf-consent]');
+    var api = null;
+    function open(withPrefs) {
+      if (api && api.currentVisitorConsent) {
+        var c = api.currentVisitorConsent() || {};
+        inputs.forEach(function (i) { i.checked = c[i.dataset.tfConsent] === 'yes'; });
+      }
+      showPrefs(!!withPrefs);
+      box.hidden = false;
+      requestAnimationFrame(function () { box.classList.add('is-in'); });
+    }
+    function close() {
+      box.classList.remove('is-in');
+      setTimeout(function () { box.hidden = true; }, 400);
+    }
+    function showPrefs(on) {
+      prefs.hidden = !on; saveBtn.hidden = !on;
+      box.classList.toggle('is-prefs', on);
+      moreBtn.hidden = on;
+      moreBtn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    }
+    function decide(c) {
+      if (!api) { close(); return; }
+      api.setTrackingConsent({ analytics: c.analytics, marketing: c.marketing, preferences: c.preferences, sale_of_data: c.marketing }, close);
+    }
+    box.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-tf-cookie-action]');
+      if (!b) return;
+      var a = b.dataset.tfCookieAction;
+      if (a === 'accept') decide({ analytics: true, marketing: true, preferences: true });
+      else if (a === 'reject') decide({ analytics: false, marketing: false, preferences: false });
+      else if (a === 'prefs') showPrefs(true);
+      else if (a === 'save') {
+        var c = {}; inputs.forEach(function (i) { c[i.dataset.tfConsent] = i.checked; }); decide(c);
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('[data-tf-cookie-settings]')) { e.preventDefault(); open(true); }
+    });
+    if (!window.Shopify || !window.Shopify.loadFeatures) return;
+    window.Shopify.loadFeatures([{ name: 'consent-tracking-api', version: '0.1' }], function (err) {
+      if (err) return;
+      api = window.Shopify.customerPrivacy;
+      if (api && api.shouldShowBanner && api.shouldShowBanner()) open(false);
+    });
+  }
+  initCookies();
+
   function init(root) { initSliders(root); initForms(root); initReveal(root); initTilt(root); updateHeader(); }
   init(document);
   // Re-run when a section is added or changed in the theme editor.

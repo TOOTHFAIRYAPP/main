@@ -21,6 +21,7 @@
     {{ content_for_layout }}
   </main>
   {% sections 'footer-group' %}
+  {% render 'tf-cookie-banner' %}
   <script src="{{ 'toothfairy.js' | asset_url }}" defer></script>
 </body>
 </html>

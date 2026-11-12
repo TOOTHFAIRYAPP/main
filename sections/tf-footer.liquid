@@ -6,6 +6,7 @@
     <span>{{ s.copyright }}</span>
     <div class="tf-footer__links">
       {%- for block in section.blocks -%}<a href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>{%- endfor -%}
+      {%- if settings.cookie_banner -%}<button type="button" class="tf-footer__btn" data-tf-cookie-settings>Cookie settings</button>{%- endif -%}
     </div>
   </div>
 </footer>
