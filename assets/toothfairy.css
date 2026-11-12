@@ -384,6 +384,8 @@ html.tf-menu-open { overflow: hidden; }
 .tf-ba-card__num { font-size: 12px; letter-spacing: .15em; color: var(--tf-pink); }
 .tf-ba-card__title { font-size: 22px; font-weight: 500; letter-spacing: -.01em; }
 .tf-ba-card__text { font-size: 15px; line-height: 1.5; color: var(--tf-muted); }
+.tf-ba-card__note { display: flex; gap: 8px; margin-top: 8px; padding-top: 12px; border-top: 1px dashed var(--tf-line); font-size: 13px; line-height: 1.45; color: var(--tf-muted); }
+.tf-ba-card__note::before { content: '*'; color: var(--tf-pink); font-weight: 700; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .tf-ba-card { transition: transform .5s var(--tf-ease), box-shadow .5s ease; }
   .tf-ba-card:hover { transform: translateY(-6px); box-shadow: 0 22px 48px rgba(26, 21, 23, .1); }

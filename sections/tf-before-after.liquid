@@ -12,16 +12,19 @@
         when 1
           assign t = s.tab_1
           assign d = s.desc_1
+          assign note = s.note_1
           assign img = s.card_after_1
           assign fb = 'teeth-card-after.webp'
         when 2
           assign t = s.tab_2
           assign d = s.desc_2
+          assign note = s.note_2
           assign img = s.card_after_2
           assign fb = 'teeth-card-after-whitening.webp'
         when 3
           assign t = s.tab_3
           assign d = s.desc_3
+          assign note = s.note_3
           assign img = s.card_after_3
           assign fb = 'teeth-card-after-aligners.webp'
       endcase
@@ -41,6 +44,7 @@
         <span class="tf-ba-card__num">0{{ i }}</span>
         <strong class="tf-ba-card__title">{{ t }}</strong>
         {%- if d != blank -%}<span class="tf-ba-card__text">{{ d }}</span>{%- endif -%}
+        {%- if note != blank -%}<small class="tf-ba-card__note">{{ note }}</small>{%- endif -%}
       </figcaption>
     </figure>
     {%- endif -%}
@@ -188,6 +192,22 @@
       "id": "desc_3",
       "label": "Card 3 text",
       "default": "Straighter alignment, same natural teeth."
+    },
+    {
+      "type": "text",
+      "id": "note_1",
+      "label": "Card 1 small note"
+    },
+    {
+      "type": "text",
+      "id": "note_2",
+      "label": "Card 2 small note"
+    },
+    {
+      "type": "text",
+      "id": "note_3",
+      "label": "Card 3 small note",
+      "default": "Composite bonding may be needed in addition to further enhance the result."
     },
     {
       "type": "image_picker",
