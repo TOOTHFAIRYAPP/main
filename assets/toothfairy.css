@@ -343,6 +343,22 @@ html.tf-menu-open { overflow: hidden; }
 .tf-hero-s .tf-phone--back .tf-screen { border-radius: calc(32 * var(--u)); }
 .tf-hero-s .tf-phone--front { width: calc(280 * var(--u)); height: calc(580 * var(--u)); padding: calc(10 * var(--u)); border-radius: calc(44 * var(--u)); box-shadow: 0 40px 100px rgba(230, 0, 126, .18); }
 .tf-hero-s .tf-phone--front .tf-screen { border-radius: calc(36 * var(--u)); }
+/* Same life as the homepage phones: a soft pink glow, tilt towards the mouse (desktop),
+   a gentle float (touch) and the back phone fanning out from behind on load. */
+.tf-hero-s__phones { position: relative; perspective: 1400px; }
+.tf-hero-s__glow {
+  position: absolute; left: 50%; top: 50%; width: calc(640 * var(--u)); height: calc(560 * var(--u)); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(230, 0, 126, .26), rgba(230, 0, 126, 0));
+  transform: translate(-50%, -50%); pointer-events: none;
+}
+.tf-hero-s .tf-phone { position: relative; transition: transform .5s var(--tf-ease); will-change: transform; }
+.tf-hero-s .tf-phone--back { transform: rotate(-5deg) translateY(calc(20 * var(--u))) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
+.tf-hero-s .tf-phone--front { z-index: 1; transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
+@media (prefers-reduced-motion: no-preference) {
+  .tf-hero-s__glow { animation: tf-glow 7s ease-in-out infinite; }
+  .tf-hero-s .tf-phone--back { animation: tf-peek-out 1.1s var(--tf-ease) .35s both; }
+}
+@keyframes tf-peek-out { from { rotate: 5deg; scale: .92; opacity: .4; } to { rotate: 0deg; scale: 1; opacity: 1; } }
 
 /* Page intro (FAQ) -------------------------------------------------------- */
 .tf-intro { align-items: end; }
@@ -869,6 +885,9 @@ html.tf-menu-open { overflow: hidden; }
   .tf-hero-c .tf-device { animation: tf-float 6s ease-in-out infinite; }
   .tf-hero-c__slot--l .tf-device { animation-delay: -2s; }
   .tf-hero-c__slot--r .tf-device { animation-delay: -4s; }
+  .tf-hero-s .tf-phone--front { animation: tf-float-y 6s ease-in-out infinite; }
+  .tf-hero-s .tf-phone--back { animation: tf-peek-out 1.1s var(--tf-ease) .35s both, tf-float-y 6s ease-in-out -3s infinite; }
+  @keyframes tf-float-y { 0%, 100% { translate: 0 0; } 50% { translate: 0 calc(-8 * var(--u)); } }
   @keyframes tf-float { 0%, 100% { transform: none; } 50% { transform: translateY(calc(-8 * var(--u))); } }
 
   /* Swipe sliders: the card in focus is full size and lit; its neighbours step back.

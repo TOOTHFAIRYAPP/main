@@ -186,8 +186,8 @@
     root.querySelectorAll('[data-tf-tilt]').forEach(function (stage) {
       if (stage.dataset.tfTiltReady) return;
       stage.dataset.tfTiltReady = '1';
-      var phones = stage.querySelector('.tf-hero-c__phones');
-      var area = stage.closest('.tf-hero-c') || stage;
+      var phones = stage.querySelector('.tf-hero-c__phones, .tf-hero-s__phones');
+      var area = stage.closest('.tf-hero-c, .tf-hero-s') || stage;
       var raf = 0, mx = 0, my = 0;
       function apply() {
         raf = 0;

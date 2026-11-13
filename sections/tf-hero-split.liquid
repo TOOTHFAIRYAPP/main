@@ -16,8 +16,9 @@
       {%- if s.secondary_label != blank -%}<a class="tf-btn tf-btn--ghost" href="{{ s.secondary_link }}"><span>{{ s.secondary_label }}</span><span class="tf-dot" aria-hidden="true"></span></a>{%- endif -%}
     </div>
   </div>
-  <div class="tf-hero-s__visual">
+  <div class="tf-hero-s__visual" data-tf-tilt>
     <div class="tf-hero-s__phones">
+      <div class="tf-hero-s__glow" aria-hidden="true"></div>
       <div class="tf-phone tf-phone--back"><div class="tf-screen">{% render 'tf-screen', image: section.settings.back_image, fallback: section.settings.back_screen, sizes: '250px', loading: 'eager' %}</div></div>
       <div class="tf-phone tf-phone--front"><div class="tf-screen">{% render 'tf-screen', image: section.settings.front_image, fallback: section.settings.front_screen, sizes: '280px', loading: 'eager' %}</div></div>
     </div>
