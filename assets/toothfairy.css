@@ -866,8 +866,8 @@ html.tf-menu-open { overflow: hidden; }
   /* Swipe sliders: the card in focus is full size and lit; its neighbours step back.
      Step cards get the desktop hover look (screen lifts out of a deeper pink panel). */
   @media (max-width: 860px) {
-    [data-tf-slider] > * { transition: transform .5s var(--tf-ease), opacity .5s ease; }
-    [data-tf-slider]:not(.tf-video).is-ready > :not(.is-active) { transform: scale(.95); opacity: .65; }
+    [data-tf-slider] > * { transition: opacity .5s ease; }
+    [data-tf-slider]:not(.tf-video).is-ready > :not(.is-active) { opacity: .55; } /* fade only: no shrinking, so all cards stay aligned */
   }
   .tf-col__media { transition: background-color .5s ease; }
   .tf-col__media .tf-screen { transition: transform .7s var(--tf-ease) .1s, box-shadow .7s ease .1s; }
