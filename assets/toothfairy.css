@@ -447,7 +447,8 @@ html.tf-menu-open { overflow: hidden; }
 .tf-cols--media .tf-col { gap: 24px; }
 .tf-cols--media .tf-col__title { font-size: clamp(26px, 2.2223vw, 32px); }
 .tf-col__media { height: 260px; margin-top: auto; padding: 20px 40px 0; border-radius: 12px; overflow: hidden; background: var(--tf-pink-panel); }
-.tf-col__media .tf-screen { border-radius: 24px 24px 0 0; }
+.tf-col__media .tf-screen { border-radius: 26px 26px 0 0; box-shadow: 0 0 0 6px var(--tf-ink); }
+.tf-col__media .tf-screen img, .tf-col__media .tf-screen video { transform: scale(1.02); transform-origin: top center; } /* trims stray photo edges */
 
 /* Hover: the screen lifts out of its pink panel (mouse devices only).
    The screen is 12px taller than the panel so lifting never shows a gap. */
@@ -457,7 +458,7 @@ html.tf-menu-open { overflow: hidden; }
   .tf-col__media .tf-screen { transition: transform .6s var(--tf-ease), box-shadow .6s ease; }
   .tf-col__num { transition: letter-spacing .5s var(--tf-ease); }
   .tf-col:hover .tf-col__media { background-color: #f8d3e5; }
-  .tf-col:hover .tf-col__media .tf-screen { transform: translateY(-10px); box-shadow: 0 -10px 36px rgba(230, 0, 126, .16); }
+  .tf-col:hover .tf-col__media .tf-screen { transform: translateY(-10px); box-shadow: 0 0 0 6px var(--tf-ink), 0 -10px 36px rgba(230, 0, 126, .2); }
   .tf-col:hover .tf-col__num { letter-spacing: .32em; }
 }
 
@@ -712,7 +713,10 @@ html.tf-menu-open { overflow: hidden; }
     flex: 0 0 min(84%, 420px); scroll-snap-align: start; padding: 24px; border: 0; border-radius: 20px; background: var(--tf-paper);
   }
   .tf-cols--media .tf-col { padding-bottom: 0; overflow: hidden; }
-  .tf-col__media { height: auto; aspect-ratio: 5 / 4; margin: auto -24px 0; padding: 20px 16% 0; border-radius: 0; }
+  .tf-col__media { height: auto; aspect-ratio: 5 / 4; margin: auto -24px 0; padding: 26px 17% 0; border-radius: 0; }
+  .tf-cols--media .tf-col { gap: 10px; padding-top: 22px; }
+  .tf-cols--media .tf-col__title { margin-top: 4px; font-size: 25px; }
+  .tf-cols--media .tf-col__text { font-size: 15px; line-height: 1.55; margin-bottom: 18px; }
   .tf-slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
   .tf-slider-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: var(--tf-ghost-line); cursor: pointer; transition: width .35s var(--tf-ease), background-color .3s ease; }
   .tf-slider-dots button.is-active { width: 22px; background: var(--tf-pink); }
@@ -869,7 +873,7 @@ html.tf-menu-open { overflow: hidden; }
   .tf-col__media .tf-screen { transition: transform .7s var(--tf-ease) .1s, box-shadow .7s ease .1s; }
   .tf-col__num { transition: letter-spacing .6s var(--tf-ease); }
   .tf-col.is-active .tf-col__media { background-color: #f8d3e5; }
-  .tf-col.is-active .tf-col__media .tf-screen { transform: translateY(-10px); box-shadow: 0 -10px 36px rgba(230, 0, 126, .16); }
+  .tf-col.is-active .tf-col__media .tf-screen { transform: translateY(-10px); box-shadow: 0 0 0 6px var(--tf-ink), 0 -10px 36px rgba(230, 0, 126, .2); }
   .tf-col.is-active .tf-col__num { letter-spacing: .32em; }
 
   /* Pricing: the row in the middle of the screen gets the white card, like hover on desktop. */
