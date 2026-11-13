@@ -733,7 +733,7 @@ html.tf-menu-open { overflow: hidden; }
   .tf-hero-c .tf-eyebrow, .tf-hero-s .tf-eyebrow { margin-bottom: 20px; }
   .tf-hero-c .tf-lead, .tf-hero-s .tf-lead { margin-bottom: 32px; }
   .tf-hero-c__stage { margin-top: 56px; }
-  .tf-hero-c__stage { margin: 28px 0 36px; }
+  .tf-hero-c__stage { margin: 48px 0 56px; }
   @supports (width: 1cqi) { .tf-hero-c__phones { --u: min(1px, calc(100cqi / 600)); } }
   .tf-hero-s__visual { padding: 0 12px; }
   .tf-hero-c .tf-btn, .tf-hero-s .tf-btn { width: 100%; }
