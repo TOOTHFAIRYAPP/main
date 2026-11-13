@@ -662,6 +662,7 @@ html.tf-menu-open { overflow: hidden; }
 }
 
 .tf-slider-dots { display: none; }
+@media (min-width: 601px) { .tf-video + .tf-slider-dots { display: none !important; } }
 .tf-video-tap { position: absolute; inset: 0; z-index: 2; display: none; place-items: center; border: 0; background: rgba(26, 21, 23, .18); cursor: pointer; }
 .tf-video-tap span { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(255, 255, 255, .92); box-shadow: 0 8px 24px rgba(26, 21, 23, .25); }
 .tf-video-tap svg { width: 20px; height: 20px; margin-left: 3px; }
@@ -765,6 +766,10 @@ html.tf-menu-open { overflow: hidden; }
   .tf-video .tf-btn { width: 100%; }
   .tf-video__glow { width: 420px; height: 420px; }
   .tf-video__stage { --u: .86px; }
+  /* Phones: the video panel becomes two swipeable slides, text first, then the phone with the video. */
+  .tf-video { display: flex; gap: 48px; align-items: center; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-inline: 24px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .tf-video::-webkit-scrollbar { display: none; }
+  .tf-video > .tf-video__text, .tf-video > .tf-video__stage { flex: 0 0 100%; scroll-snap-align: start; }
 }
 
 /* Steps + phone on phones/tablets: show the complete iPhone (all four corners) and the
@@ -858,7 +863,7 @@ html.tf-menu-open { overflow: hidden; }
      Step cards get the desktop hover look (screen lifts out of a deeper pink panel). */
   @media (max-width: 860px) {
     [data-tf-slider] > * { transition: transform .5s var(--tf-ease), opacity .5s ease; }
-    [data-tf-slider].is-ready > :not(.is-active) { transform: scale(.95); opacity: .65; }
+    [data-tf-slider]:not(.tf-video).is-ready > :not(.is-active) { transform: scale(.95); opacity: .65; }
   }
   .tf-col__media { transition: background-color .5s ease; }
   .tf-col__media .tf-screen { transition: transform .7s var(--tf-ease) .1s, box-shadow .7s ease .1s; }

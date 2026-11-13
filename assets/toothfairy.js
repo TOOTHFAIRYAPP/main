@@ -345,18 +345,22 @@
   function initSliderDots(root) {
     root.querySelectorAll('[data-tf-slider]').forEach(function (track) {
       if (track.dataset.tfDots) return;
-      var items = track.children; if (items.length < 2) return;
+      // Slides: direct children, minus purely decorative ones (e.g. the video panel's watermark).
+      var items = [].filter.call(track.children, function (el) { return !el.matches('.tf-video__mark, [data-tf-slide-skip]'); });
+      if (items.length < 2) return;
+      // Where a slide starts, measured on screen so it works whatever the track's positioning.
+      var slideLeft = function (item) { return track.scrollLeft + item.getBoundingClientRect().left - track.getBoundingClientRect().left - parseFloat(getComputedStyle(track).paddingLeft); };
       track.dataset.tfDots = '1';
       var dots = document.createElement('div'); dots.className = 'tf-slider-dots';
       [].forEach.call(items, function (item, i) {
         var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Go to item ' + (i + 1));
-        b.addEventListener('click', function () { track.scrollTo({ left: item.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft), behavior: 'smooth' }); });
+        b.addEventListener('click', function () { track.scrollTo({ left: slideLeft(item), behavior: 'smooth' }); });
         dots.appendChild(b);
       });
       track.insertAdjacentElement('afterend', dots);
       var update = function () {
         var best = 0, bestD = Infinity, start = track.scrollLeft;
-        [].forEach.call(items, function (item, i) { var d = Math.abs(item.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft) - start); if (d < bestD) { bestD = d; best = i; } });
+        [].forEach.call(items, function (item, i) { var d = Math.abs(slideLeft(item) - start); if (d < bestD) { bestD = d; best = i; } });
         [].forEach.call(dots.children, function (d, i) { d.classList.toggle('is-active', i === best); });
         [].forEach.call(items, function (it, i) { it.classList.toggle('is-active', i === best); });
         track.classList.add('is-ready');

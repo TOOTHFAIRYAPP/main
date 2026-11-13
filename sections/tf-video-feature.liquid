@@ -1,6 +1,6 @@
 <div class="tf-wrap{% if section.settings.border_top %} tf-wrap--border{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | remove: '#' }}"{% endif %} style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px{% if section.settings.heading_size %};--hs:{{ section.settings.heading_size }}{% endif %}">
 {%- assign s = section.settings -%}
-<div class="tf-panel tf-video">
+<div class="tf-panel tf-video" data-tf-slider>
   {%- if s.show_watermark -%}<img class="tf-video__mark" src="{{ 'symbol-dark.svg' | asset_url }}" alt="" width="560" height="560" loading="lazy">{%- endif -%}
   <div class="tf-video__text">
     {%- if s.eyebrow != blank -%}<div class="tf-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
