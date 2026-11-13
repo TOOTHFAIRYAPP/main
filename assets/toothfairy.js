@@ -370,6 +370,23 @@
     });
   }
 
+  // Links to the video section (e.g. "Watch the video" → #video): on phones, where that section is a
+  // two-slide swipe, open it on the slide with the phone video instead of the text.
+  function showVideoSlide(target) {
+    if (!target || !window.matchMedia('(max-width: 600px)').matches) return;
+    var track = target.matches('.tf-video[data-tf-slider]') ? target : target.querySelector('.tf-video[data-tf-slider]');
+    var stage = track && track.querySelector('.tf-video__stage');
+    if (!stage) return;
+    track.scrollLeft = track.scrollLeft + stage.getBoundingClientRect().left - track.getBoundingClientRect().left - parseFloat(getComputedStyle(track).paddingLeft);
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="#"]');
+    if (!a || a.pathname !== location.pathname || !a.hash || a.hash.length < 2) return;
+    var target = document.getElementById(decodeURIComponent(a.hash.slice(1)));
+    if (target) showVideoSlide(target);
+  });
+  if (location.hash.length > 1) window.addEventListener('load', function () { showVideoSlide(document.getElementById(decodeURIComponent(location.hash.slice(1)))); });
+
   // Pricing on touch screens: the row crossing the middle of the screen gets the hover look.
   var planObserver = ('IntersectionObserver' in window && window.matchMedia('(hover: none)').matches) ? new IntersectionObserver(function (entries) {
     entries.forEach(function (en) { en.target.classList.toggle('is-focus', en.isIntersecting); });
