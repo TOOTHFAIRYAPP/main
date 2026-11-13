@@ -686,6 +686,14 @@ html.tf-menu-open { overflow: hidden; }
   .tf-menu { display: block; }
   .tf-hero-s { grid-template-columns: 1fr; gap: 56px; }
   .tf-hero-s__visual { width: 100%; max-width: 560px; justify-self: center; }
+  /* Stacked: eyebrow and heading, then the phones, then the text and buttons. */
+  .tf-hero-s { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+  .tf-hero-s > div:first-child { display: contents; }
+  .tf-hero-s .tf-eyebrow { order: 0; }
+  .tf-hero-s .tf-h1 { order: 1; margin-bottom: 0; }
+  .tf-hero-s__visual { order: 2; align-self: center; margin: 48px 0 52px; }
+  .tf-hero-s .tf-lead { order: 3; }
+  .tf-hero-s .tf-actions { order: 4; }
   .tf-panel { grid-template-columns: 1fr; gap: 48px; }
   .tf-flow__visual { max-width: 554px; justify-self: center; }
   .tf-flow--reverse .tf-flow__visual { order: 0; }
