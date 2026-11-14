@@ -384,13 +384,14 @@ html.tf-menu-open { overflow: hidden; }
 }
 /* Handle: the toothfairy face from the logo. Its eyes look the way you drag. */
 .tf-ba__handle {
-  position: absolute; top: 50%; left: var(--pos); width: 68px; height: 68px; border-radius: 50%;
+  position: absolute; top: 50%; left: var(--pos); width: 54px; height: 54px; border-radius: 50%;
   transform: translate(-50%, -50%); pointer-events: none;
   display: grid; place-items: center; background: #fff;
   box-shadow: 0 0 0 4px rgba(255, 255, 255, .45), 0 10px 28px rgba(26, 21, 23, .28);
   transition: transform .35s var(--tf-ease), box-shadow .35s ease;
 }
 .tf-face { width: 44px; height: auto; overflow: visible; }
+.tf-ba__handle .tf-face { width: 34px; }
 .tf-face__smile, .tf-face__pupils { transform-box: fill-box; transform-origin: center; }
 .tf-face__smile { transition: transform .4s var(--tf-ease); }
 .tf-face__pupil { fill: #1a1517; transform-box: fill-box; transform-origin: center; transform: scale(0); transition: transform .3s var(--tf-ease); }
@@ -784,8 +785,8 @@ html.tf-menu-open { overflow: hidden; }
   .tf-sent { min-height: 0; padding: 32px 24px; }
   .tf-sent__title { font-size: 26px; }
   .tf-ba__label { bottom: 16px; }
-  .tf-ba__handle { width: 56px; height: 56px; }
-  .tf-face { width: 36px; }
+  .tf-ba__handle { width: 46px; height: 46px; }
+  .tf-ba__handle .tf-face { width: 28px; }
   .tf-video .tf-btn { width: 100%; }
   .tf-video__glow { width: 420px; height: 420px; }
   .tf-video__stage { --u: .86px; }
