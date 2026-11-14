@@ -397,9 +397,6 @@ html.tf-menu-open { overflow: hidden; }
 .tf-face__pupils { transition: transform .3s var(--tf-ease); }
 .tf-ba:hover .tf-ba__handle, .tf-ba.is-dragging .tf-ba__handle { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 0 0 6px rgba(255, 255, 255, .5), 0 14px 34px rgba(26, 21, 23, .32); }
 .tf-ba:hover .tf-face__smile, .tf-ba.is-dragging .tf-face__smile { transform: scale(1.12, 1.18); }
-.tf-ba[data-look] .tf-face__pupil { transform: scale(1); }
-.tf-ba[data-look="left"] .tf-face__pupils { transform: translateX(-18px); }
-.tf-ba[data-look="right"] .tf-face__pupils { transform: translateX(18px); }
 .tf-ba__range:focus-visible ~ .tf-ba__handle { box-shadow: 0 0 0 4px var(--tf-pink), 0 10px 28px rgba(26, 21, 23, .28); }
 .tf-ba__range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; touch-action: pan-y; }
 /* Treatment tabs: same before photo, the after photo crossfades. */
@@ -433,8 +430,6 @@ html.tf-menu-open { overflow: hidden; }
 .tf-ba--card .tf-ba__handle { width: 40px; height: 40px; box-shadow: 0 0 0 3px rgba(255, 255, 255, .45), 0 6px 18px rgba(26, 21, 23, .24); }
 .tf-ba--card .tf-face { width: 25px; }
 .tf-ba--card .tf-ba__line { width: 2px; transform: translateX(-1px); }
-.tf-ba--card[data-look="left"] .tf-face__pupils { transform: translateX(-12px); }
-.tf-ba--card[data-look="right"] .tf-face__pupils { transform: translateX(12px); }
 .tf-ba--card .tf-ba__label { bottom: 14px; }
 .tf-ba--card .tf-ba__label--before { left: 14px; }
 .tf-ba--card .tf-ba__label--after { right: 14px; }
