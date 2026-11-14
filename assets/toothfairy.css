@@ -791,9 +791,9 @@ html.tf-menu-open { overflow: hidden; }
   .tf-video__glow { width: 420px; height: 420px; }
   .tf-video__stage { --u: .86px; }
   /* Phones: the video panel becomes two swipeable slides, text first, then the phone with the video. */
-  .tf-video { display: flex; gap: 48px; align-items: center; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-inline: 24px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .tf-video { display: flex; gap: 20px; align-items: center; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-inline: 24px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   .tf-video::-webkit-scrollbar { display: none; }
-  .tf-video > .tf-video__text, .tf-video > .tf-video__stage { flex: 0 0 100%; scroll-snap-align: start; }
+  .tf-video > .tf-video__text, .tf-video > .tf-video__stage { flex: 0 0 86%; scroll-snap-align: start; } /* a strip of the next slide peeks in */
 }
 
 /* Steps + phone on phones/tablets: show the complete iPhone (all four corners) and the
