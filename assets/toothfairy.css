@@ -379,7 +379,7 @@ html.tf-menu-open { overflow: hidden; }
 /* Before on the left of the handle, after on the right — matching the labels. */
 .tf-ba__img--after { clip-path: inset(0 0 0 var(--pos)); }
 .tf-ba__line {
-  position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; transform: translateX(-1.5px); pointer-events: none;
+  position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; transform: translateX(-1px); pointer-events: none;
   background: #fff; box-shadow: 0 0 0 1px rgba(26, 21, 23, .06), 0 0 18px rgba(26, 21, 23, .25);
 }
 /* Handle: the toothfairy face from the logo. Its eyes look the way you drag. */
