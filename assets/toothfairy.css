@@ -836,6 +836,22 @@ html.tf-menu-open { overflow: hidden; }
   .tf-doc__h { font-size: 21px; }
 }
 
+/* Phones/tablets: the "How it works" cards stack like a deck while you scroll down.
+   Each card sticks near the top; the next slides over it, leaving a strip of the one below. */
+@media (max-width: 860px) {
+  .tf-wrap:has(> .tf-cols--media) { overflow: visible; } /* sticky needs no clipping ancestor */
+  .tf-cols.tf-cols--media { display: block; margin: 0; padding: 0; overflow: visible; scroll-snap-type: none; }
+  .tf-cols--media .tf-col, .tf-cols--media .tf-col:first-child, .tf-cols--media .tf-col:last-child {
+    position: sticky; top: 24px; margin-bottom: 28px; width: auto;
+    box-shadow: 0 -10px 30px rgba(26, 21, 23, .07), 0 1px 0 rgba(26, 21, 23, .04);
+  }
+  .tf-cols--media .tf-col:nth-child(2) { top: 40px; }
+  .tf-cols--media .tf-col:nth-child(3) { top: 56px; }
+  .tf-cols--media .tf-col:last-child { margin-bottom: 0; }
+  .tf-cols--media + .tf-slider-dots { display: none; }
+  .tf-cols--media.is-ready > :not(.is-active) { opacity: 1; }
+}
+
 /* Mobile download bar ----------------------------------------------------- */
 .tf-appbar { display: none; }
 @media (max-width: 600px) {
@@ -890,7 +906,7 @@ html.tf-menu-open { overflow: hidden; }
      Step cards get the desktop hover look (screen lifts out of a deeper pink panel). */
   @media (max-width: 860px) {
     [data-tf-slider] > * { transition: opacity .5s ease; }
-    [data-tf-slider]:not(.tf-video).is-ready > :not(.is-active) { opacity: .55; } /* fade only: no shrinking, so all cards stay aligned */
+    [data-tf-slider]:not(.tf-video):not(.tf-cols--media).is-ready > :not(.is-active) { opacity: .55; } /* fade only: no shrinking, so all cards stay aligned */
   }
   .tf-col__media { transition: background-color .5s ease; }
   .tf-col__media .tf-screen { transition: transform .7s var(--tf-ease) .1s, box-shadow .7s ease .1s; }
